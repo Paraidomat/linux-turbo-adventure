@@ -18,4 +18,4 @@
 1. System Startup + Shutdown
 1. Backup and Recovery Methods
 1. Local System Security
-1. Troubleshooting and System Rescuey
+1. Troubleshooting and System Rescue
