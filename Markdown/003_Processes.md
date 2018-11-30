@@ -16,9 +16,10 @@ http://linux-training.be/sysadmin/ch01.html <- no copyright information
 - Processes carry out tasks within the operating system.
 - A program is a set of machine code instruction and data stored in an 
   executable image on a disk and is, as such, a passive entity.
-  - A process can be thought of as computer program in action.
 
 ## What is a Process
+
+> A process can be thought of as computer program in action.
 
 - Is a dynamic entity, constantly changing as the machine code instructions
   are exectued by the processor.
@@ -98,61 +99,80 @@ http://linux-training.be/sysadmin/ch01.html <- no copyright information
   - Although `task_struct` is complex, the fields can be divided into a number
     of functional areas.
 
-## `task_struct` Areas
+## Process IDs
 
-- **State** 
-  - As a process executes it changes __state__ according to its circumstances.
-  - Possible States: Running, Waiting, Stopped, Zombie.
-- **Scheduling Information**
-  - Scheduler needs this information in order to fairly decide which process
-    in the system most deserves to run
-- **Identifiers**
-  - Every process in the system has a process identifier (PID).
-  - The process identifier is not an index into the `task` vector, it is simply
-    a number.
-  - Each proess also has user and group identifiers (used to control this
-    processes access to the files and devices in the system).
+- Each process is assigned a **process ID** or **PID**
+- This is how the OS identifies and keeps track of processes.
 
-## `task_struct` Areas 2
+## The `init` process
 
-- **Inter-Process Communication**
-  - Linux supports classic Unix IPC mechanisms (signals, pipes, semaphores)
-- **Links**
-  - With Linux system no process is independent of any other process.
-  - Each process in the system (except the init process).
-  - New processes are not created, they are copied (cloned / forked) from 
-    previous processes.
-  - Every `task_struct` representing a process keeps pointers to:
-    - Its parent
-    - Silblings (=processes with the same parent process)
-    - Childs
-  - Relationships can be seen by using `pstree`
+- The first process spawned at boot is called __init__.
+- __init__ always has PID 1.
+- It is responsible for spawning every other process on the system.
+- Later processes are given larger PID numbers.
+- A process's __parent__ is the process that was responsible for spawning it.
+  - Each process (except init) has a parent PID __PPID__.
 
-## `task_struct` Areas 3
+## Parent-Child Relationships
 
-- **Times and Timers**
-  - Kernel keeps track of a processes creation time as well as the CPU time
-    that it consumes.
-  - Each clock tick, the kernel updates the amount of time in `jiffies` that
-    the current process has spent in system and in user moder.
-  - Linux also supports process specific __interval__ timers.
-    - Processes can use system calls to set up timers to send signals to 
-      themselves when the timer expire. 
-    - Can be single-shot or periodic timers.
-- **File system**
-  - Processes can open and close files as they wish
-  - `task_struct` contains pointers to descriptors for each open file.
+- Creating a child process happens in two steps:
+  - `fork()`, which creates new address space and copies the resources owned by
+    the parent via copy-on-write to be available to the child process.
+  - `exec()`, which loads an executable into the address space and executes it.
 
-## `task_struct` Areas 4
-- **Virtual memory**
-  - Most processes have some virtual memory (kernel threads and deamons do not)
-    and the Linux kernel must track how that virtual memory is mapped onto the 
-    system's physical memory.
-- **Processor Specific Context**
-  - Whenever a process is running it is using the processor's registers, stacks
-    and so on.
-  - This is the processes context and, when a process is suspended, all of that
-    CPU specific context must be saved in the `task_struct` for the process.
-  - When a process is restarted by the scheduler its context is restored from
-    here.
+## Zombies
 
+- In the event that a child process dies before its parent, the child becomes a
+  zombie
+  - until parent has collected information about it or indicated to the kernel,
+    that it doesn't need that information.
+  - The resources from the child process will then be freed.
+  - If the parent process dies before the child, the child will be adopted by
+    init
+    - It can also be reassigned to another process.
+
+## How to send signals to processes
+
+- All processes respond to __signals__ in one way or another.
+- __Signals__ are the OS way of telling programs to terminate or modify their
+  behavior.
+
+## `kill`
+
+- Most common way: `kill ${pid}`
+  - Attempts to kill process.
+  - Sends the `TERM` signal.
+  - Tells process to **please** terminate.
+  - Allows program to perform clean-up operations and exit smoothly.
+
+## `kill` 2
+
+- `kill -KILL ${pid}`
+  - Sends the `KILL` signal.
+  - If the programm is misbehaving and does not exit with `TERM` signal.
+  - Special signal that is not sent to the program, but to the kernel.
+    - Kernel then shuts down the process.
+  - Used to bypass programs that ignore the signals sent to them.
+
+## Other Purposes
+
+- Signals are not only used to shut down programs.
+- Deamons will restart when given `HUP` (hang-up) signal: `kill -HUP ${pid}`
+- List all signals possible: `kill -l`
+
+## Send Signals to Processes by Name
+
+- Use `pkill ${process_name}`
+  - Works the same way as `kill` but operate with process name.
+- `killall ${process_name}
+  - Sends a signal to every instance of a certain process.
+
+## Process Management
+
+- `top` - Display Linux processes
+- `htop`- Interactive process viewer
+- `ps` - Report a snapshot of the current processes
+- `pgrep` - Look up processes based on name and other attributes
+- `kill` - Sends a signal to a process by PID.
+- `pkill` - Sends a signal to a processes with name = x.
+- `killall` - Sends s signal to **all** processes with name = x.

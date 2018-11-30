@@ -8,6 +8,6 @@ echo ${CurrentDir}
 #    --self-contained --toc --toc-depth 2
 
 pandoc $(ls -d -1 ./Markdown/*.* | sort) -o ./Slides/moon.html \
-    -t revealjs -V slideNumber='c/t' -V theme=moon \
+    -t revealjs -V theme=moon \
     -V revealjs-url="./Resources/reveal.js-3.7.0" \
     -V transition=slide -V width=1280 --slide-level=2 -s

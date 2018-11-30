@@ -9,24 +9,24 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="./Resources/reveal.js-3.7.0//css/reveal.css">
+  <link rel="stylesheet" href="./Resources/reveal.js-3.7.0/css/reveal.css">
   <style type="text/css">
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
       span.underline{text-decoration: underline;}
       div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
-  <link rel="stylesheet" href="./Resources/reveal.js-3.7.0//css/theme/moon.css" id="theme">
+  <link rel="stylesheet" href="./Resources/reveal.js-3.7.0/css/theme/moon.css" id="theme">
   <!-- Printing and PDF exports -->
   <script>
     var link = document.createElement( 'link' );
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = window.location.search.match( /print-pdf/gi ) ? './Resources/reveal.js-3.7.0//css/print/pdf.css' : './Resources/reveal.js-3.7.0//css/print/paper.css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? './Resources/reveal.js-3.7.0/css/print/pdf.css' : './Resources/reveal.js-3.7.0/css/print/paper.css';
     document.getElementsByTagName( 'head' )[0].appendChild( link );
   </script>
   <!--[if lt IE 9]>
-  <script src="./Resources/reveal.js-3.7.0//lib/js/html5shiv.js"></script>
+  <script src="./Resources/reveal.js-3.7.0/lib/js/html5shiv.js"></script>
   <![endif]-->
 </head>
 <body>
@@ -349,15 +349,15 @@ cdrom  home  lib             media       proc  sbin  sys   var</code></pre>
 <section><section id="processes" class="title-slide slide level1"><h1>Processes</h1></section><section id="introduction-1" class="slide level2">
 <h2>Introduction</h2>
 <ul>
-<li>Describe what a procecss is and how the Linux kernel creates, manages and deletes the processes in the system.</li>
+<li>What a procecss and how does the Linux kernel create, manage and deletes the processes in the system.</li>
 <li>Processes carry out tasks within the operating system.</li>
-<li>A program is a set of machine code instruction and data stored in an executable image on a disk and is, as such, a passive entity.
-<ul>
-<li>A process can be thought of as computer program in action.</li>
-</ul></li>
+<li>A program is a set of machine code instruction and data stored in an executable image on a disk and is, as such, a passive entity.</li>
 </ul>
 </section><section id="what-is-a-process" class="slide level2">
 <h2>What is a Process</h2>
+<blockquote>
+<p>A process can be thought of as computer program in action.</p>
+</blockquote>
 <ul>
 <li>Is a dynamic entity, constantly changing as the machine code instructions are exectued by the processor.</li>
 <li>As well as the program’s instructions instructions and data, the process also includes the <strong>programm counter</strong> and all the the CPU’s <strong>registers</strong> as well as the process <strong>stacks</strong> containing temporary data such as route parameters, return addresses and saved variables.</li>
@@ -404,12 +404,136 @@ cdrom  home  lib             media       proc  sbin  sys   var</code></pre>
 <li>A process is executed until it must wait (usually for some system resource)</li>
 <li>When it has this resource, it may run again.</li>
 </ul></li>
+</ul>
+</section><section id="multiprocessing-2" class="slide level2">
+<h2>Multiprocessing 2</h2>
+<ul>
 <li>In a uniprocessing system (<code>DOS</code>), the CPU would simply sit idle and the waiting time would be wasted.</li>
 <li>In a multiprocessing system many processes are kept in memory at the same time.
 <ul>
 <li>Whenever a process has to wait the operationg system takes the CPU away from that process and gives it to another, more deserving process.</li>
 </ul></li>
 <li>It is the <strong>scheduler</strong> which chooses which is the most appropriate process to run next and Linux uses a number of scheduling strategies to ensure fairness.</li>
+</ul>
+</section><section id="linux-processes" class="slide level2">
+<h2>Linux Processes</h2>
+<ul>
+<li>Each process is represented by a <code>task_struct</code> data structure (task and process are terms that Linux uses interchangeably).</li>
+<li>The <code>task</code> vector is an array of pointers to every <code>task_struct</code> data structure in the system.</li>
+<li>This means that the maximum number of processes is limited by the size of the <code>task</code> vector.</li>
+<li>As processes are created, a new <code>task_struct</code> is allocated from system memory and added into the <code>task</code> vector.</li>
+</ul>
+</section><section id="linux-processes-2" class="slide level2">
+<h2>Linux Processes 2</h2>
+<ul>
+<li>To make it easy to find, the current, running, process is pointed to by the <code>current</code> pointer # TODO: How is this implemented with Multi-CPU Servers?</li>
+<li>Linux supports real time processes just as well.
+<ul>
+<li>Real time processes have to react very quickly to external events.</li>
+<li>They are treated differently from normal user processes by the scheduler.</li>
+<li>Although <code>task_struct</code> is complex, the fields can be divided into a number of functional areas.</li>
+</ul></li>
+</ul>
+</section><section id="process-ids" class="slide level2">
+<h2>Process IDs</h2>
+<ul>
+<li>Each process is assigned a <strong>process ID</strong> or <strong>PID</strong></li>
+<li>This is how the OS identifies and keeps track of processes.</li>
+</ul>
+</section><section id="the-init-process" class="slide level2">
+<h2>The <code>init</code> process</h2>
+<ul>
+<li>The first process spawned at boot is called <strong>init</strong>.</li>
+<li><strong>init</strong> always has PID 1.</li>
+<li>It is responsible for spawning every other process on the system.</li>
+<li>Later processes are given larger PID numbers.</li>
+<li>A process’s <strong>parent</strong> is the process that was responsible for spawning it.
+<ul>
+<li>Each process (except init) has a parent PID <strong>PPID</strong>.</li>
+</ul></li>
+</ul>
+</section><section id="parent-child-relationships" class="slide level2">
+<h2>Parent-Child Relationships</h2>
+<ul>
+<li>Creating a child process happens in two steps:
+<ul>
+<li><code>fork()</code>, which creates new address space and copies the resources owned by the parent via copy-on-write to be available to the child process.</li>
+<li><code>exec()</code>, which loads an executable into the address space and executes it.</li>
+</ul></li>
+</ul>
+</section><section id="zombies" class="slide level2">
+<h2>Zombies</h2>
+<ul>
+<li>In the event that a child process dies before its parent, the child becomes a zombie
+<ul>
+<li>until parent has collected information about it or indicated to the kernel, that it doesn’t need that information.</li>
+<li>The resources from the child process will then be freed.</li>
+<li>If the parent process dies before the child, the child will be adopted by init
+<ul>
+<li>It can also be reassigned to another process.</li>
+</ul></li>
+</ul></li>
+</ul>
+</section><section id="how-to-send-signals-to-processes" class="slide level2">
+<h2>How to send signals to processes</h2>
+<ul>
+<li>All processes respond to <strong>signals</strong> in one way or another.</li>
+<li><strong>Signals</strong> are the OS way of telling programs to terminate or modify their behavior.</li>
+</ul>
+</section><section id="kill" class="slide level2">
+<h2><code>kill</code></h2>
+<ul>
+<li>Most common way: <code>kill ${pid}</code>
+<ul>
+<li>Attempts to kill process.</li>
+<li>Sends the <code>TERM</code> signal.</li>
+<li>Tells process to <strong>please</strong> terminate.</li>
+<li>Allows program to perform clean-up operations and exit smoothly.</li>
+</ul></li>
+</ul>
+</section><section id="kill-2" class="slide level2">
+<h2><code>kill</code> 2</h2>
+<ul>
+<li><code>kill -KILL ${pid}</code>
+<ul>
+<li>Sends the <code>KILL</code> signal.</li>
+<li>If the programm is misbehaving and does not exit with <code>TERM</code> signal.</li>
+<li>Special signal that is not sent to the program, but to the kernel.
+<ul>
+<li>Kernel then shuts down the process.</li>
+</ul></li>
+<li>Used to bypass programs that ignore the signals sent to them.</li>
+</ul></li>
+</ul>
+</section><section id="other-purposes" class="slide level2">
+<h2>Other Purposes</h2>
+<ul>
+<li>Signals are not only used to shut down programs.</li>
+<li>Deamons will restart when given <code>HUP</code> (hang-up) signal: <code>kill -HUP ${pid}</code></li>
+<li>List all signals possible: <code>kill -l</code></li>
+</ul>
+</section><section id="send-signals-to-processes-by-name" class="slide level2">
+<h2>Send Signals to Processes by Name</h2>
+<ul>
+<li>Use <code>pkill ${process_name}</code>
+<ul>
+<li>Works the same way as <code>kill</code> but operate with process name.</li>
+</ul></li>
+<li>`killall ${process_name}
+<ul>
+<li>Sends a signal to every instance of a certain process.</li>
+</ul></li>
+</ul>
+</section><section id="process-management" class="slide level2">
+<h2>Process Management</h2>
+<ul>
+<li><code>top</code> - Display Linux processes</li>
+<li><code>htop</code>- Interactive process viewer</li>
+<li><code>ps</code> - Report a snapshot of the current processes</li>
+<li><code>pgrep</code> - Look up processes based on name and other attributes</li>
+<li><code>kill</code> - Sends a signal to a process by PID.</li>
+<li><code>pkill</code> - Sends a signal to a processes with name = x.</li>
+<li><code>killall</code> - Sends s signal to <strong>all</strong> processes with name = x.</li>
 </ul>
 </section></section>
 <section><section id="package-management" class="title-slide slide level1"><h1>Package Management</h1></section><section id="packet-installer-tools" class="slide level2">
@@ -465,16 +589,14 @@ cdrom  home  lib             media       proc  sbin  sys   var</code></pre>
     </div>
   </div>
 
-  <script src="./Resources/reveal.js-3.7.0//lib/js/head.min.js"></script>
-  <script src="./Resources/reveal.js-3.7.0//js/reveal.js"></script>
+  <script src="./Resources/reveal.js-3.7.0/lib/js/head.min.js"></script>
+  <script src="./Resources/reveal.js-3.7.0/js/reveal.js"></script>
 
   <script>
 
       // Full list of configuration options available at:
       // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
-        // Display the page number of the current slide
-        slideNumber: c/t,
         // Push each slide change to the browser history
         history: true,
         // Transition style
@@ -486,9 +608,9 @@ cdrom  home  lib             media       proc  sbin  sys   var</code></pre>
 
         // Optional reveal.js plugins
         dependencies: [
-          { src: './Resources/reveal.js-3.7.0//lib/js/classList.js', condition: function() { return !document.body.classList; } },
-          { src: './Resources/reveal.js-3.7.0//plugin/zoom-js/zoom.js', async: true },
-          { src: './Resources/reveal.js-3.7.0//plugin/notes/notes.js', async: true }
+          { src: './Resources/reveal.js-3.7.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: './Resources/reveal.js-3.7.0/plugin/zoom-js/zoom.js', async: true },
+          { src: './Resources/reveal.js-3.7.0/plugin/notes/notes.js', async: true }
         ]
       });
     </script>
