@@ -3,9 +3,11 @@
 ::: notes 
 
 https://www.tldp.org/LDP/tlk/kernel/processes.html
-Lizenz: https://www.tldp.org/LDP/tlk/misc/copyright.html
+Licence: https://www.tldp.org/LDP/tlk/misc/copyright.html
 
 http://linux-training.be/sysadmin/ch01.html <- no copyright information
+
+https://www.digitalocean.com/community/tutorials/how-to-use-ps-kill-and-nice-to-manage-processes-in-linux
 
 :::
 
