@@ -16,6 +16,69 @@
       span.underline{text-decoration: underline;}
       div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
   <link rel="stylesheet" href="./Resources/reveal.js-3.7.0/css/theme/moon.css" id="theme">
   <!-- Printing and PDF exports -->
   <script>
@@ -62,6 +125,18 @@
 <li>Local System Security</li>
 <li>Troubleshooting and System Rescue</li>
 </ol>
+</section><section id="basic-layouts" class="slide level2">
+<h2>Basic Layouts</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">def</span> foo():</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">    <span class="co">&quot;&quot;&quot;this is some sourcecode&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">    <span class="bu">print</span>(<span class="st">&quot;You won&#39;t see much of it in here&quot;</span>)</a></code></pre></div>
+<ul>
+<li>This is a single command: <code>foo -bar</code></li>
+<li>This is a variable: <code>$foobar</code></li>
+</ul>
+<blockquote>
+<p>This is a key takeaway point.</p>
+</blockquote>
 </section></section>
 <section><section id="filesystem-tree-layout" class="title-slide slide level1"><h1>Filesystem Tree Layout</h1></section><section id="history-of-the-linux-filesystem" class="slide level2">
 <h2>History of the Linux Filesystem</h2>
@@ -345,11 +420,32 @@ cdrom  home  lib             media       proc  sbin  sys   var</code></pre>
 <li>This will give you an overview of a typical filesystem layout and the purposes of each location.</li>
 </ul></li>
 </ul>
+</section><section id="sources-further-reading" class="slide level2">
+<h2>Sources / Further Reading</h2>
+<ul>
+<li><a href="https://www.digitalocean.com/community/tutorials/how-to-understand-the-filesystem-layout-in-a-linux-vps#an-overview-of-the-linux-filesystem-layout">Source</a></li>
+</ul>
+</section><section id="minute-break" class="slide level2">
+<h2>5 Minute Break</h2>
+<progress id="pause1" value="1" max="600">
+</progress>
+<button type="button" onclick="clickHandler()">
+Start Break!
+</button>
+<script>
+    function clickHandler() {
+      var i;
+      for (i = 1; i < 600; i++) {
+        setTimeout(function(){console.log(i)}, 100000);
+        document.getElementById("pause1").setAttribute("value", i);
+      }
+    }
+</script>
 </section></section>
 <section><section id="processes" class="title-slide slide level1"><h1>Processes</h1></section><section id="introduction-1" class="slide level2">
 <h2>Introduction</h2>
 <ul>
-<li>What a procecss and how does the Linux kernel create, manage and deletes the processes in the system.</li>
+<li>What is a procecss and how does the Linux kernel create, manage and deletes the processes in the system?</li>
 <li>Processes carry out tasks within the operating system.</li>
 <li>A program is a set of machine code instruction and data stored in an executable image on a disk and is, as such, a passive entity.</li>
 </ul>
@@ -535,9 +631,422 @@ cdrom  home  lib             media       proc  sbin  sys   var</code></pre>
 <li><code>pkill</code> - Sends a signal to a processes with name = x.</li>
 <li><code>killall</code> - Sends s signal to <strong>all</strong> processes with name = x.</li>
 </ul>
+</section><section id="sources-further-reading-1" class="slide level2">
+<h2>Sources / Further Reading</h2>
+<ul>
+<li><a href="https://www.tldp.org/LDP/tlk/kernel/processes.html">Source 1</a></li>
+<li><a href="https://www.digitalocean.com/community/tutorials/how-to-use-ps-kill-and-nice-to-manage-processes-in-linux">Source 2</a></li>
+</ul>
 </section></section>
-<section><section id="package-management" class="title-slide slide level1"><h1>Package Management</h1></section><section id="packet-installer-tools" class="slide level2">
-<h2>Packet Installer Tools</h2>
+<section><section id="package-management-basics" class="title-slide slide level1"><h1>Package Management Basics</h1></section><section id="introduction-2" class="slide level2">
+<h2>Introduction</h2>
+<ul>
+<li>Most modern Linux OS’s offer a centralized mechanism for finding and installing software.</li>
+<li>Software is distributed in the form of <strong>packages</strong>.</li>
+<li>Packages are kept in <strong>repositories</strong>.</li>
+<li>Working with packages is known as <strong>package management</strong>.</li>
+<li>Packages provide the basic components of the OS, shared libraries,<br />
+applications, services and documentation.</li>
+</ul>
+</section><section id="introduction-2-1" class="slide level2">
+<h2>Introduction 2</h2>
+<ul>
+<li>The package management system does much more than one-time installation of software.
+<ul>
+<li>It also provides tools for upgrading already-installed packages.</li>
+</ul></li>
+<li>Repositories help to ensure that code has been vetted for use on your system, and that the installed versions of software have been approved by developers and package maintainers.</li>
+</ul>
+</section><section id="brief-overview-over-the-systems" class="slide level2">
+<h2>Brief Overview over the Systems</h2>
+<ul>
+<li>Most system are built around collection of package files.</li>
+<li>Package file is usually an <strong>archive</strong> which contains <strong>compiled binaries</strong> and other resources making up the software, along with <strong>installation scripts</strong>.
+<ul>
+<li>Also contains valuable metadata, like <strong>dependencies</strong>!</li>
+</ul></li>
+</ul>
+</section><section id="brief-overview-over-the-system-2" class="slide level2">
+<h2>Brief Overview over the System 2</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Operating System</th>
+<th>Format</th>
+<th>Tool(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Debian</td>
+<td>.deb</td>
+<td><code>apt</code>, <code>apt-cache</code>, <code>apt-get</code>, <code>dpkg</code></td>
+</tr>
+<tr class="even">
+<td>Ubuntu</td>
+<td>.deb</td>
+<td><code>apt</code>, <code>apt-cache</code>, <code>apt-get</code>, <code>dpkg</code></td>
+</tr>
+<tr class="odd">
+<td>Raspian</td>
+<td>.deb</td>
+<td><code>apt</code>, <code>apt-cache</code>, <code>apt-get</code>, <code>dpkg</code></td>
+</tr>
+<tr class="even">
+<td>CentOS</td>
+<td>.rpm</td>
+<td><code>yum</code></td>
+</tr>
+</tbody>
+</table>
+</section><section id="update-package-lists" class="slide level2">
+<h2>Update Package Lists</h2>
+<table>
+<thead>
+<tr class="header">
+<th>System</th>
+<th>Command</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Debian / Ubuntu</td>
+<td><code>sudo apt-get update</code>, <code>sudo apt update</code></td>
+</tr>
+<tr class="even">
+<td>CentOS</td>
+<td><code>yum check-update</code></td>
+</tr>
+</tbody>
+</table>
+</section><section id="upgrade-installed-packages-debianubuntu" class="slide level2">
+<h2>Upgrade Installed Packages Debian/Ubuntu</h2>
+<table>
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>sudo apt-get upgrade</code></td>
+<td>Only upgrades installed packages, where possible.</td>
+</tr>
+<tr class="even">
+<td><code>sudo apt-get dist-upgrade</code></td>
+<td>May add or remove packages to satisfy new dependencies.</td>
+</tr>
+<tr class="odd">
+<td><code>sudo apt upgrade</code></td>
+<td>Like apt-get upgrade.</td>
+</tr>
+<tr class="even">
+<td><code>sudo apt full-upgrade</code></td>
+<td>Like apt-get dist-upgrade.</td>
+</tr>
+</tbody>
+</table>
+</section><section id="upgrade-installed-packages-centos" class="slide level2">
+<h2>Upgrade Installed Packages CentOS</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Command</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>sudo yum update</code></td>
+</tr>
+</tbody>
+</table>
+</section><section id="find-packages-ubuntudebian" class="slide level2">
+<h2>Find Packages Ubuntu/Debian</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>apt-cache search $search_string</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>apt search $search_string</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section><section id="find-packages-centos" class="slide level2">
+<h2>Find Packages CentOS</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>yum search $search_string</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>yum search all $search_string</code></td>
+<td>Searches all fields, including description.</td>
+</tr>
+</tbody>
+</table>
+</section><section id="view-info-about-a-specific-package-debianubuntu" class="slide level2">
+<h2>View Info About a Specific Package Debian/Ubuntu</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>apt-cache show $package</code></td>
+<td>Shows locally-cached info about a package.</td>
+</tr>
+<tr class="even">
+<td><code>apt show $package</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>dpkg -s $package</code></td>
+<td>Shows the current installed status of a package.</td>
+</tr>
+</tbody>
+</table>
+</section><section id="view-info-about-a-specific-package-centos" class="slide level2">
+<h2>View Info About a Specific Package CentOS</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>yum info $package</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>yum deplist $package</code></td>
+<td>Lists dependencies for a package.</td>
+</tr>
+</tbody>
+</table>
+</section><section id="install-a-package-from-repositories-debianubuntu" class="slide level2">
+<h2>Install a Package from Repositories Debian/Ubuntu</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>sudo apt-get install $package</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>sudo apt-get install $package1 $package2</code></td>
+<td>Installs all listed packages.</td>
+</tr>
+</tbody>
+</table>
+</section><section id="install-a-package-from-repositories-debianubuntu-2" class="slide level2">
+<h2>Install a Package from Repositories Debian/Ubuntu 2</h2>
+<table>
+<colgroup>
+<col style="width: 45%" />
+<col style="width: 55%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>sudo apt-get install -y $package</code></td>
+<td>Assumes yes where apt would usually prompt to continue.</td>
+</tr>
+<tr class="even">
+<td><code>sudo apt install $package</code></td>
+<td>Displays a colored progress bar.</td>
+</tr>
+</tbody>
+</table>
+</section><section id="install-a-package-from-repositories-centos" class="slide level2">
+<h2>Install a Package from Repositories CentOS</h2>
+<table>
+<colgroup>
+<col style="width: 42%" />
+<col style="width: 57%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>sudo yum install $package</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>sudo yum install $package1 $package2</code></td>
+<td>Installs all listed packages.</td>
+</tr>
+<tr class="odd">
+<td><code>sudo yum install -y $package</code></td>
+<td>Assumes yes where yum would usually prompt to continue.</td>
+</tr>
+</tbody>
+</table>
+</section><section id="install-a-package-from-the-local-filesystem-on-debianubuntu" class="slide level2">
+<h2>Install a Package from the Local Filesystem on Debian/Ubuntu</h2>
+<table>
+<colgroup>
+<col style="width: 58%" />
+<col style="width: 41%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>sudo dpkg -i $package.deb</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>sudo apt-get install -y gdebi &amp;&amp; sudo gdebi $package.deb</code></td>
+<td>Installs and uses <code>gdebi</code> to install $package.deb and retriefe any missing dependencies.</td>
+</tr>
+</tbody>
+</table>
+</section><section id="install-a-package-from-the-local-filesystem-on-centos" class="slide level2">
+<h2>Install a Package from the Local Filesystem on CentOS</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>sudo yum install $package.rpm</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section><section id="remove-one-or-more-installed-packages-on-debianubuntu" class="slide level2">
+<h2>Remove One or More Installed Packages on Debian/Ubuntu</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>sudo apt-get remove $package</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>sudo apt remove $package</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>sudo apt-get autoremove</code></td>
+<td>Removes undeeded packages.</td>
+</tr>
+</tbody>
+</table>
+</section><section id="remove-one-or-more-installed-packages-on-centos" class="slide level2">
+<h2>Remove One or More Installed Packages on CentOS</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>sudo yum remove $package</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section><section id="the-apt-command" class="slide level2">
+<h2>The <code>apt</code> Command</h2>
+<ul>
+<li><code>apt</code> is a simplified interface, designed for interactive use.</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th>Traditional Command</th>
+<th><code>apt</code> Equivalent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>apt-get update</code></td>
+<td><code>apt update</code></td>
+</tr>
+<tr class="even">
+<td><code>apt-get dist-upgrade</code></td>
+<td><code>apt full-upgrade</code></td>
+</tr>
+<tr class="odd">
+<td><code>apt-cache search $string</code></td>
+<td><code>apt search $string</code></td>
+</tr>
+<tr class="even">
+<td><code>apt-get install $package</code></td>
+<td><code>apt install $package</code></td>
+</tr>
+<tr class="odd">
+<td><code>apt-get remove $package</code></td>
+<td><code>apt remove $package</code></td>
+</tr>
+<tr class="even">
+<td><code>apt-get purge $package</code></td>
+<td><code>apt purge $package</code></td>
+</tr>
+</tbody>
+</table>
+</section><section id="sources-references" class="slide level2">
+<h2>Sources / References:</h2>
+<ul>
+<li><a href="https://www.digitalocean.com/community/tutorials/package-management-basics-apt-yum-dnf-pkg">Source</a></li>
+<li><a href="https://www.digitalocean.com/community/tutorials/ubuntu-and-debian-package-management-essentials">Further Reading Ubuntu/Debian</a></li>
+<li><a href="https://www.centos.org/docs/5/html/yum/">Further Reading CentOS</a></li>
+</ul>
 </section></section>
 <section><section id="system-monitoring" class="title-slide slide level1"><h1>System Monitoring</h1></section></section>
 <section><section id="linux-filesystems" class="title-slide slide level1"><h1>Linux Filesystems</h1></section><section id="ext4-and-xfs-basics" class="slide level2">
@@ -585,7 +1094,15 @@ cdrom  home  lib             media       proc  sbin  sys   var</code></pre>
 <section><section id="system-startup-shutdown" class="title-slide slide level1"><h1>System Startup + Shutdown</h1></section></section>
 <section><section id="backup-and-recovery-methods" class="title-slide slide level1"><h1>Backup and Recovery Methods</h1></section></section>
 <section><section id="local-system-security" class="title-slide slide level1"><h1>Local System Security</h1></section></section>
-<section><section id="troubleshooting-and-system-rescue" class="title-slide slide level1"><h1>Troubleshooting and System Rescue</h1></section></section>
+<section><section id="troubleshooting-and-system-rescue" class="title-slide slide level1"><h1>Troubleshooting and System Rescue</h1></section><section id="get-help" class="slide level2">
+<h2>Get Help</h2>
+<p><img src="https://media.giphy.com/media/3oz8xvZDRBvZUce6wo/giphy.gif"></img></p>
+</section><section id="get-help-2" class="slide level2">
+<h2>Get Help 2</h2>
+<ul>
+<li>Add Stuff about <code>man</code></li>
+</ul>
+</section></section>
     </div>
   </div>
 

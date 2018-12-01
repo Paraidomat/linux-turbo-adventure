@@ -286,3 +286,22 @@ Out of this one can create a lab.
   ```
   - This will give you an overview of a typical filesystem layout and the
     purposes of each location.
+
+## Sources / Further Reading
+
+- [Source](https://www.digitalocean.com/community/tutorials/how-to-understand-the-filesystem-layout-in-a-linux-vps#an-overview-of-the-linux-filesystem-layout)
+
+## 5 Minute Break
+
+<progress id="pause1" value="1" max="600"></progress>
+<button type="button" onclick="clickHandler()">Start Break!</button>
+
+<script>
+    function clickHandler() {
+      var i;
+      for (i = 1; i < 600; i++) {
+        setTimeout(function(){console.log(i)}, 100000);
+        document.getElementById("pause1").setAttribute("value", i);
+      }
+    }
+</script>

@@ -13,8 +13,8 @@ https://www.digitalocean.com/community/tutorials/how-to-use-ps-kill-and-nice-to-
 
 ## Introduction 
 
-- What a procecss and how does the Linux kernel create, manage and deletes 
-  the processes in the system.
+- What is a procecss and how does the Linux kernel create, manage and deletes 
+  the processes in the system?
 - Processes carry out tasks within the operating system.
 - A program is a set of machine code instruction and data stored in an 
   executable image on a disk and is, as such, a passive entity.
@@ -178,3 +178,8 @@ https://www.digitalocean.com/community/tutorials/how-to-use-ps-kill-and-nice-to-
 - `kill` - Sends a signal to a process by PID.
 - `pkill` - Sends a signal to a processes with name = x.
 - `killall` - Sends s signal to **all** processes with name = x.
+
+## Sources / Further Reading
+
+- [Source 1](https://www.tldp.org/LDP/tlk/kernel/processes.html)
+- [Source 2](https://www.digitalocean.com/community/tutorials/how-to-use-ps-kill-and-nice-to-manage-processes-in-linux)

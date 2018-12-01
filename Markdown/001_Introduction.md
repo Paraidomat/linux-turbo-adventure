@@ -19,3 +19,15 @@
 1. Backup and Recovery Methods
 1. Local System Security
 1. Troubleshooting and System Rescue
+
+## Basic Layouts
+
+```python
+def foo():
+    """this is some sourcecode"""
+    print("You won't see much of it in here")
+```
+- This is a single command: `foo -bar`
+- This is a variable: `$foobar`
+
+> This is a key takeaway point.
