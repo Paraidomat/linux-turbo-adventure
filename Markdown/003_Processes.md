@@ -21,7 +21,7 @@ https://www.digitalocean.com/community/tutorials/how-to-use-ps-kill-and-nice-to-
 
 ## What is a Process
 
-> A process can be thought of as computer program in action.
+> Process is a computer program in action.
 
 - Is a dynamic entity, constantly changing as the machine code instructions
   are exectued by the processor.
@@ -29,8 +29,6 @@ https://www.digitalocean.com/community/tutorials/how-to-use-ps-kill-and-nice-to-
   also includes the **programm counter** and all the the CPU's **registers**
   as well as the process **stacks** containing temporary data such as route 
   parameters, return addresses and saved variables.
-- The current executing program, or process, includes all of the current
-  activity in the microprocessor.
 
 ## Processes basics
 
@@ -64,18 +62,21 @@ https://www.digitalocean.com/community/tutorials/how-to-use-ps-kill-and-nice-to-
     times, to maximize CPU utilization.
   - If there are more processes than CPUs (and there usually are), the rest of
     the processes must wait before a CPU becomes free until they can be run.
-- Multiprocessing is a simple idea
-  - A process is executed until it must wait (usually for some system resource)
-  - When it has this resource, it may run again.
 
 ## Multiprocessing 2
 
+- Multiprocessing is a simple idea
+  - A process is executed until it must wait (usually for some system resource)
+  - When it has this resource, it may run again.
 - In a uniprocessing system (`DOS`), the CPU would simply sit idle and the 
   waiting time would be wasted.
 - In a multiprocessing system many processes are kept in memory at the same
   time.
   - Whenever a process has to wait the operationg system takes the CPU away
     from that process and gives it to another, more deserving process.
+
+## Multiprocessing 3
+
 - It is the **scheduler** which chooses which is the most appropriate process
   to run next and Linux uses a number of scheduling strategies to ensure 
   fairness.

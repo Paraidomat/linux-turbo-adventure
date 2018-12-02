@@ -183,6 +183,9 @@ What is a VPS?
 - Typically, it is used to store optional packages.
 - This usually means packages and applications that were not installed from
   the repositories.
+
+## `/opt` 2
+
 - Example:
   - Your distribution typically provides the packages through a package 
     manager like `apt` or `yum`
@@ -198,6 +201,9 @@ What is a VPS?
 - The proc filesystem does no contain real files.
   - Instead dynamically generated to reflect the interal state of the Linux
     kernel.
+
+## `/proc` 2
+
 - This means that we can check and modify different information from the 
   kernel itself in real time.
   - Like detailed information about memory usage by typing `cat /proc/meminfo`
@@ -252,6 +258,9 @@ What is a VPS?
 - This location is basically used to store all non-essential programs,
   their documentation, libraries, and other data that is not required for the
   most minimal usage of the system.
+
+## `/usr` 2
+
 - This is where most of the files on the system will be stored.
   - Some important directories are `/usr/local`, which is an alternative to 
     `/opt` for storing locally compiled programs.
@@ -278,6 +287,9 @@ Out of this one can create a lab.
   directories and try to find out what the files inside are for.
 - You will begin to be able to associate different directories with 
   different functions and be able to guess where to go for specific tasks.
+
+## Conclusion 2
+
 - If you need a quick reference for what each directory is for, you can use the
   built-in manual pages by typing:
 

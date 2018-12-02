@@ -17,15 +17,7 @@ https://www.digitalocean.com/community/tutorials/how-to-use-top-netstat-du-other
 
 ## How Do I Monitor Process Utilization?
 
-### `top`
-
-- The most common tool, everywhere installed by default.
-  - Provides a simple, real-time table of the procceses
-  - largest consumers on top.
-
-- Live Demo
-
-::: note
+::: notes
 
 - Top portion has some system statistics
   - load average (1m, 5m, 15m)
@@ -38,17 +30,19 @@ https://www.digitalocean.com/community/tutorials/how-to-use-top-netstat-du-other
 
 :::
 
+### `top`
+
+- The most common tool, everywhere installed by default.
+  - Provides a simple, real-time table of the procceses
+  - largest consumers on top.
+
+- Live Demo
+
 ## How Do I Monitor Process Utilization?
 
 ### `htop`
 
-- Needs to be installed
-- Has similar output like `top`
-  - is colorized and more interactive
-
-- Live Demo
-
-::: note
+::: notes
 
 - Top portion is much easier to read
 - Bottom is organized in a more clear fashion
@@ -62,9 +56,25 @@ https://www.digitalocean.com/community/tutorials/how-to-use-top-netstat-du-other
 
 :::
 
+- Needs to be installed
+- Has similar output like `top`
+  - is colorized and more interactive
+
+- Live Demo
+
 ## How Do I Find Out Which Program Is Using My Bandwidth?
 
-## `nethogs`
+### `nethogs`
+
+::: notes
+
+- Only a few available commands:
+  - `m`: Change between kb/s, kb, b and mb
+  - `r`: Sort by received.
+  - `s`: Sort by sent.
+  - `q`: quit.
+
+:::
 
 - Needs to be installed
 
@@ -78,16 +88,6 @@ NetHogs version 0.8.0
 
   TOTAL                                                0.912       0.233 KB/sec
 ```
-
-::: note
-
-- Only a few available commands:
-  - `m`: Change between kb/s, kb, b and mb
-  - `r`: Sort by received.
-  - `s`: Sort by sent.
-  - `q`: quit.
-
-:::
 
 ## How Do I Find Out Which Program Is Using My Bandwidth?
 
@@ -103,27 +103,22 @@ NetHogs version 0.8.0
 
 ### `df`
 
-- Quick overview of how much disk space you have left on your drives.
-
-- Live Demo
-
-::: note
+::: notes
 
 - Output without `-h` is in bytes, with `-h` it's __human readable__
 - With `--total` you can see total disk space available on all Filesystems
 
 :::
 
+- Quick overview of how much disk space you have left on your drives.
+
+- Live Demo
+
 ## How Do I Find Out How Much Disk Space I Have Left?
 
 ### `du`
 
-- Gives a better picture of **what** is taking up the space.
-- Will analyze usage for the current directory and any subdirectories
-
-- Live Demo
-
-::: note
+::: notes
 
 - `du`
 - `du -h`
@@ -132,9 +127,23 @@ NetHogs version 0.8.0
 
 :::
 
+- Gives a better picture of **what** is taking up the space.
+- Will analyze usage for the current directory and any subdirectories
+
+- Live Demo
+
 ## How Do I Find Out How Much Of My Memory Is In Use?
 
 ### `free`
+
+::: notes
+
+- `free`
+- `free -m` <- Output in Megabyte
+
+- Mem-Line <- Nice way to confuse yourself when using a monitoring System
+
+:::
 
 - Easiest way for finding out the current memory usage on your system.
 
@@ -143,15 +152,6 @@ NetHogs version 0.8.0
     by applications.
   - `Mem` line includes the memory used for buffering and caching
     - freed up as soon as needed for other purposes
-
-::: note
-
-- `free`
-- `free -m` <- Output in Megabyte
-
-- Mem-Line <- Nice way to confuse yourself when using a monitoring System
-
-:::
 
 ## Sources and Further Reading
 

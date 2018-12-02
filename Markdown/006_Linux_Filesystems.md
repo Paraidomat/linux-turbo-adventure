@@ -76,6 +76,11 @@ https://www.digitalocean.com/community/tutorials/an-introduction-to-linux-permis
   - `g`: All users in the same **g**roup as the file.
   - `o`: The **o**ther users, i.e. everyone else.
   - `a`: **a**ll of the above; use this instead of `ugo`
+
+## File permissions 4
+
+### Changing permissions
+
 - Possible permissions:
   - `r`: **r**ead
   - `w`: **w**rite
