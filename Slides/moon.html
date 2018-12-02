@@ -137,6 +137,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <blockquote>
 <p>This is a key takeaway point.</p>
 </blockquote>
+</section><section id="how-to-move-within-linux" class="slide level2">
+<h2>How to move within Linux</h2>
+<ul>
+<li>Read the Contents of a file: <code>cat</code>, <code>less</code>, <code>more</code></li>
+<li>Change directory: <code>cd</code>
+<ul>
+<li>Change to parent directry: <code>cd ..</code></li>
+</ul></li>
+<li>Get Content of current directory: <code>ls</code>, <code>ls -la</code></li>
+<li>Edit text or configuration file: <code>nano</code>, <code>vi</code>, <code>vim</code></li>
+<li>Get the last command again: Up-Arrow on keyboard.</li>
+</ul>
 </section></section>
 <section><section id="filesystem-tree-layout" class="title-slide slide level1"><h1>Filesystem Tree Layout</h1></section><section id="history-of-the-linux-filesystem" class="slide level2">
 <h2>History of the Linux Filesystem</h2>
@@ -1048,7 +1060,158 @@ applications, services and documentation.</li>
 <li><a href="https://www.centos.org/docs/5/html/yum/">Further Reading CentOS</a></li>
 </ul>
 </section></section>
-<section><section id="system-monitoring" class="title-slide slide level1"><h1>System Monitoring</h1></section></section>
+<section><section id="system-monitoring" class="title-slide slide level1"><h1>System Monitoring</h1></section><section id="introduction-3" class="slide level2">
+<h2>Introduction</h2>
+<ul>
+<li>In order to achieve the best possible availability proper administration and monitoring are crutial.</li>
+<li>Keeping an eye on how your system is running will help you discover issues and resolve them quickly.</li>
+<li>There are plenty of command line tools created for this purpose.</li>
+<li>There are also automated Monitoring Systems like <a href="www.icinga.com">Icinga2</a></li>
+</ul>
+</section><section id="how-do-i-monitor-process-utilization" class="slide level2">
+<h2>How Do I Monitor Process Utilization?</h2>
+<h3 id="top"><code>top</code></h3>
+<ul>
+<li>The most common tool, everywhere installed by default.
+<ul>
+<li>Provides a simple, real-time table of the procceses</li>
+<li>largest consumers on top.</li>
+</ul></li>
+<li>Live Demo</li>
+</ul>
+<div class="note">
+<ul>
+<li>Top portion has some system statistics
+<ul>
+<li>load average (1m, 5m, 15m)</li>
+<li>Memory + Swap usage</li>
+<li>Count of various process states.</li>
+</ul></li>
+<li>Bottom Portion has every process on the system
+<ul>
+<li>Organized by top users of resources</li>
+<li>List is updated in real time.</li>
+</ul></li>
+</ul>
+</div>
+</section><section id="how-do-i-monitor-process-utilization-1" class="slide level2">
+<h2>How Do I Monitor Process Utilization?</h2>
+<h3 id="htop"><code>htop</code></h3>
+<ul>
+<li>Needs to be installed</li>
+<li>Has similar output like <code>top</code>
+<ul>
+<li>is colorized and more interactive</li>
+</ul></li>
+<li>Live Demo</li>
+</ul>
+<div class="note">
+<ul>
+<li>Top portion is much easier to read</li>
+<li>Bottom is organized in a more clear fashion</li>
+<li>Useful hotkeys:
+<ul>
+<li><code>M</code>: Sort processes by memory usage</li>
+<li><code>P</code>: Sort processes by processor usage</li>
+<li><code>?</code>: Access help</li>
+<li><code>k</code>: Kill current/tagged processes</li>
+<li><code>F2</code>: Setup</li>
+<li><code>/$searchterm</code>: Search processes (like with <code>less</code> or <code>vi</code>)</li>
+</ul></li>
+</ul>
+</div>
+</section><section id="how-do-i-find-out-which-program-is-using-my-bandwidth" class="slide level2">
+<h2>How Do I Find Out Which Program Is Using My Bandwidth?</h2>
+</section><section id="nethogs" class="slide level2">
+<h2><code>nethogs</code></h2>
+<ul>
+<li>Needs to be installed</li>
+</ul>
+<pre><code>NetHogs version 0.8.0
+
+  PID USER     PROGRAM                      DEV        SENT      RECEIVED
+3379  root     /usr/sbin/sshd               eth0       0.485       0.182 KB/sec
+820   root     sshd: root@pts/0             eth0       0.427       0.052 KB/sec
+?     root     unknown TCP                             0.000       0.000 KB/sec
+
+  TOTAL                                                0.912       0.233 KB/sec</code></pre>
+<div class="note">
+<ul>
+<li>Only a few available commands:
+<ul>
+<li><code>m</code>: Change between kb/s, kb, b and mb</li>
+<li><code>r</code>: Sort by received.</li>
+<li><code>s</code>: Sort by sent.</li>
+<li><code>q</code>: quit.</li>
+</ul></li>
+</ul>
+</div>
+</section><section id="how-do-i-find-out-which-program-is-using-my-bandwidth-1" class="slide level2">
+<h2>How Do I Find Out Which Program Is Using My Bandwidth?</h2>
+<h3 id="netstat"><code>netstat</code></h3>
+<ul>
+<li>By default, <code>netstat</code> prints a list of open sockets.</li>
+<li>If we add <code>-a</code>, it will list all ports, listening and non-listening.</li>
+<li>If you just want to see TCP or UDP connections, add <code>-t</code> or <code>-u</code>.</li>
+<li>See statistics with <code>-s</code></li>
+<li>Continuously update output with <code>-c</code></li>
+</ul>
+</section><section id="how-do-i-find-out-how-much-disk-space-i-have-left" class="slide level2">
+<h2>How Do I Find Out How Much Disk Space I Have Left?</h2>
+<h3 id="df"><code>df</code></h3>
+<ul>
+<li><p>Quick overview of how much disk space you have left on your drives.</p></li>
+<li><p>Live Demo</p></li>
+</ul>
+<div class="note">
+<ul>
+<li>Output without <code>-h</code> is in bytes, with <code>-h</code> it’s <strong>human readable</strong></li>
+<li>With <code>--total</code> you can see total disk space available on all Filesystems</li>
+</ul>
+</div>
+</section><section id="how-do-i-find-out-how-much-disk-space-i-have-left-1" class="slide level2">
+<h2>How Do I Find Out How Much Disk Space I Have Left?</h2>
+<h3 id="du"><code>du</code></h3>
+<ul>
+<li>Gives a better picture of <strong>what</strong> is taking up the space.</li>
+<li><p>Will analyze usage for the current directory and any subdirectories</p></li>
+<li><p>Live Demo</p></li>
+</ul>
+<div class="note">
+<ul>
+<li><code>du</code></li>
+<li><code>du -h</code></li>
+<li><code>du -sh</code></li>
+<li><code>du -c</code> &lt;- Total at bottom</li>
+</ul>
+</div>
+</section><section id="how-do-i-find-out-how-much-of-my-memory-is-in-use" class="slide level2">
+<h2>How Do I Find Out How Much Of My Memory Is In Use?</h2>
+<h3 id="free"><code>free</code></h3>
+<ul>
+<li><p>Easiest way for finding out the current memory usage on your system.</p></li>
+<li>Live Demo
+<ul>
+<li>Middle line, marked <code>-/+ buffers/cache</code>, will show the actual memory used by applications.</li>
+<li><code>Mem</code> line includes the memory used for buffering and caching
+<ul>
+<li>freed up as soon as needed for other purposes</li>
+</ul></li>
+</ul></li>
+</ul>
+<div class="note">
+<ul>
+<li><code>free</code></li>
+<li><p><code>free -m</code> &lt;- Output in Megabyte</p></li>
+<li><p>Mem-Line &lt;- Nice way to confuse yourself when using a monitoring System</p></li>
+</ul>
+</div>
+</section><section id="sources-and-further-reading" class="slide level2">
+<h2>Sources and Further Reading</h2>
+<ul>
+<li><a href="https://www.digitalocean.com/community/tutorials/how-to-use-top-netstat-du-other-tools-to-monitor-server-resources">Source</a></li>
+</ul>
+</section></section>
 <section><section id="linux-filesystems" class="title-slide slide level1"><h1>Linux Filesystems</h1></section><section id="ext4-and-xfs-basics" class="slide level2">
 <h2>ext4 and xfs basics</h2>
 <aside class="notes">

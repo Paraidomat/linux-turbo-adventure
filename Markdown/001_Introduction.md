@@ -31,3 +31,12 @@ def foo():
 - This is a variable: `$foobar`
 
 > This is a key takeaway point.
+
+## How to move within Linux
+
+- Read the Contents of a file: `cat`, `less`, `more`
+- Change directory: `cd`
+  - Change to parent directry: `cd ..`
+- Get Content of current directory: `ls`, `ls -la`
+- Edit text or configuration file: `nano`, `vi`, `vim`
+- Get the last command again: Up-Arrow on keyboard.
