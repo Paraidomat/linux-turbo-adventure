@@ -3,7 +3,7 @@ CurrentDir=$(pwd)
 echo ${CurrentDir}
 
 # Handout
-pandoc $(ls -d -1 ./Markdown/*.* | sort) -o ./Web/Handout.html \
+pandoc $(ls -d -1 ./Markdown/*.* | sort) -o ./Handout/Handout.html \
     --template "${CurrentDir}/Templates/Handout/GitHub.html5" \
     --self-contained --toc --toc-depth 1
 
