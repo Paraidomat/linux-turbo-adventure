@@ -4,7 +4,7 @@
 
 # Submitting Changes
 
-- To submit chaneges, please create a pull request.
+- To submit changes, please create a pull request.
 - Be sure that you are allowed to publish the stuff you edit or add copyright-wise.
 
 # "Code" convention
