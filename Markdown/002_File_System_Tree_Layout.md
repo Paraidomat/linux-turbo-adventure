@@ -25,7 +25,7 @@ https://www.digitalocean.com/community/tutorials/how-to-understand-the-filesyste
 > Linux implements just about everything as a file!
 
 - A text file is a file.
-- A directory is a file (simply a lust of other files).
+- A directory is a file (simply a lst of other files).
 - A printer is represented by a file (device drivers send everything written 
   to the printer file to the physical printer)
 
@@ -161,9 +161,10 @@ cdrom  home  lib             media       proc  sbin  sys   var
 
 ## `/mnt`
 
-::: note
+::: notes
 
 What is a VPS?
+A virtual private server you can rent.
 
 :::
 
@@ -276,7 +277,7 @@ What is a VPS?
 
 ## Conclusion
 
-::: note
+::: notes
 
 Out of this one can create a lab.
 
