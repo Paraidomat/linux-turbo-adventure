@@ -77,7 +77,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -177,9 +177,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Troubleshooting and System Rescue</li>
 </ol>
 <h2 id="basic-layouts">Basic Layouts</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">def</span> foo():</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">    <span class="co">&quot;&quot;&quot;this is some sourcecode&quot;&quot;&quot;</span></a>
-<a class="sourceLine" id="cb1-3" data-line-number="3">    <span class="bu">print</span>(<span class="st">&quot;You won't see much of it in here&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">def</span> foo():</a>
+<a class="sourceLine" id="cb1-2" title="2">    <span class="co">&quot;&quot;&quot;this is some sourcecode&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb1-3" title="3">    <span class="bu">print</span>(<span class="st">&quot;You won&#39;t see much of it in here&quot;</span>)</a></code></pre></div>
 <ul>
 <li>This is a single command: <code>foo -bar</code></li>
 <li>This is a variable: <code>$foobar</code></li>
@@ -227,7 +227,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </blockquote>
 <ul>
 <li>A text file is a file.</li>
-<li>A directory is a file (simply a lust of other files).</li>
+<li>A directory is a file (simply a lst of other files).</li>
 <li>A printer is represented by a file (device drivers send everything written to the printer file to the physical printer)</li>
 </ul>
 <h2 id="history-of-the-linux-filesystem-3">History of the Linux Filesystem 3</h2>
@@ -352,8 +352,8 @@ cdrom  home  lib             media       proc  sbin  sys   var</code></pre>
 <li>If Linux ever mounts a media disk and you are unsure of where it placed it, this is a safe bet.</li>
 </ul>
 <h2 id="mnt"><code>/mnt</code></h2>
-<div class="note">
-<p>What is a VPS?</p>
+<div class="notes">
+<p>What is a VPS? A virtual private server you can rent.</p>
 </div>
 <ul>
 <li>Directory is similar to the <code>/media</code> directory in that it exists only to serve as a organization mount point for devices.</li>
@@ -457,7 +457,7 @@ cdrom  home  lib             media       proc  sbin  sys   var</code></pre>
 </ul></li>
 </ul>
 <h2 id="conclusion">Conclusion</h2>
-<div class="note">
+<div class="notes">
 <p>Out of this one can create a lab.</p>
 </div>
 <ul>
@@ -1217,9 +1217,6 @@ applications, services and documentation.</li>
 <li><a href="https://www.digitalocean.com/community/tutorials/how-to-use-top-netstat-du-other-tools-to-monitor-server-resources">Source</a></li>
 </ul>
 <h1 id="linux-filesystems">Linux Filesystems</h1>
-<div class="notes">
-<p>https://wiki.archlinux.org/index.php/File_systems</p>
-</div>
 <h2 id="introduction-4">Introduction</h2>
 <blockquote>
 <p>A Filesystem controls how data is stored and retrieved. Without a filesystem, information placed in a storage medium would be one large body of data with no way to tell where one piece of information stops and the next begins. By separating the data into pieces and giving each piece a name, the information is easily isolated and identified.</p>
@@ -1230,15 +1227,32 @@ applications, services and documentation.</li>
 <li>In event of system crash or power failure, such file systems are faster to bring back online and less likely to become corrupted.</li>
 <li>Logging takes place in a dedicated area of the filesystem.</li>
 </ul>
-<h2 id="ext4-and-xfs-basics">ext4 and xfs basics</h2>
+<h2 id="ext4-basics">ext4 basics</h2>
 <ul>
-<li>Ext4 if the evolution of the most used Linux filesystem, Ext3.</li>
+<li>Ext4 is the evolution of the most used Linux filesystem, Ext3.</li>
 <li>Ext4 modifies important data structures of the filesystem such as the ones destined to store the file data.</li>
+<li>It is a stable, reliable and good performing filesystem.</li>
+<li>Ext4 is the default filesystem on most Linux distributions.</li>
 </ul>
-<div class="notes">
-<p>https://wiki.archlinux.org/index.php/Ext4</p>
-<p>https://wiki.archlinux.org/index.php/XFS</p>
-</div>
+<h2 id="xfs-basics">xfs basics</h2>
+<ul>
+<li>XFS is a high-performance journaling filesystem</li>
+<li>It is fast and proficient at parallel I/O
+<ul>
+<li>allocation group based design</li>
+</ul></li>
+<li>XFS is extremly scalable and usable</li>
+<li>Default filesystem on CentOS/RedHat</li>
+</ul>
+<h2 id="comparison">comparison</h2>
+<ul>
+<li>In normal day usage there is no real differnce
+<ul>
+<li>Except XFS cannot be reduced in size</li>
+</ul></li>
+<li>XFS is better in handling large files and parallel I/O operations</li>
+<li>Ext4 is better in handling small files</li>
+</ul>
 <h2 id="file-permissions">File permissions</h2>
 <blockquote>
 <p>Filesystems use <strong>permissions</strong> and <strong>attributes</strong> to regulate the level of interaction with that system processes can have with files and directories.</p>
@@ -1246,12 +1260,7 @@ applications, services and documentation.</li>
 <blockquote>
 <p><strong>Warning:</strong> When used for security purposes, permissions and attributes only defend against attacks launched from the booted system. To protect the stored data from attackers with physical access to the machine, one must also implement <strong>disk encryption</strong>.</p>
 </blockquote>
-<div class="notes">
-<p>https://wiki.archlinux.org/index.php/File_permissions_and_attributes</p>
-<p>https://www.digitalocean.com/community/tutorials/an-introduction-to-linux-permissions</p>
-</div>
-<h2 id="file-permissions-2">File permissions 2</h2>
-<h3 id="viewing-permissions">Viewing Permissions</h3>
+<h2 id="viewing-permissions-owner-group">Viewing Permissions / Owner / Group</h2>
 <ul>
 <li><code>ls -la</code></li>
 </ul>
@@ -1260,8 +1269,12 @@ applications, services and documentation.</li>
 <li>Explain the different outputs.</li>
 </ul>
 </div>
-<h2 id="file-permissions-3">File permissions 3</h2>
-<h3 id="changing-permissions">Changing permissions</h3>
+<h2 id="change-owner-group">Change owner / group</h2>
+<ul>
+<li><code>chown $user:$group $filename</code></li>
+<li>Example: <code>chown root:wheel $filename</code></li>
+</ul>
+<h2 id="changing-permissions">Changing permissions</h2>
 <ul>
 <li><code>chmod $who=$permissions $filename</code></li>
 <li>Possible who’s:
@@ -1272,24 +1285,348 @@ applications, services and documentation.</li>
 <li><code>a</code>: <strong>a</strong>ll of the above; use this instead of <code>ugo</code></li>
 </ul></li>
 </ul>
-<h2 id="file-permissions-4">File permissions 4</h2>
-<h3 id="changing-permissions-1">Changing permissions</h3>
+<h2 id="changing-permissions-2">Changing permissions 2</h2>
 <ul>
-<li>Possible permissions:
+<li>Possible $permissions:
 <ul>
 <li><code>r</code>: <strong>r</strong>ead</li>
 <li><code>w</code>: <strong>w</strong>rite</li>
 <li><code>x</code>: e<strong>x</strong>ecute</li>
 </ul></li>
-<li>Example: <code>chmod go=rx $file</code></li>
+<li>Example: <code>chmod go=rx $filename</code></li>
 </ul>
-<h2 id="lvm">lvm</h2>
+<h2 id="changing-permissions-3">Changing permissions 3</h2>
+<ul>
+<li>Permissions can also be displayed as a numerical value</li>
+<li><code>chmod $permissions $filename</code></li>
+<li>Possible permissions:
+<ul>
+<li><code>4</code>: <strong>r</strong>ead</li>
+<li><code>2</code>: <strong>w</strong>rite</li>
+<li><code>1</code>: e<strong>x</strong>ecute</li>
+</ul></li>
+</ul>
+<h2 id="changing-permissions-4">Changing permissions 4</h2>
+<ul>
+<li>These values have to be added to the fitting permissions
+<ul>
+<li>First value: <strong>u</strong>ser</li>
+<li>Second value: <strong>g</strong>roup</li>
+<li>Third value: <strong>o</strong>ther</li>
+</ul></li>
+<li>Example:
+<ul>
+<li><code>7</code>: <strong>r</strong> <strong>w</strong> <strong>x</strong></li>
+<li><code>5</code>: <strong>r</strong> <strong>x</strong></li>
+<li><code>6</code>: <strong>r</strong> <strong>w</strong></li>
+<li><code>chmod 755 $file</code></li>
+<li><code>chmod 644 $file</code></li>
+</ul></li>
+</ul>
+<h2 id="partitioning">Partitioning</h2>
+<blockquote>
+<p>Physical drives need to be partitioned before they can be used.</p>
+</blockquote>
+<blockquote>
+<p>We will use one drive with one partition in this example.</p>
+</blockquote>
+<h2 id="installing-software">Installing software</h2>
+<ul>
+<li>First install parted
+<ul>
+<li><code>sudo apt-get install parted</code></li>
+<li><code>sudo yum install parted</code></li>
+</ul></li>
+</ul>
+<h2 id="find-new-or-unpartitioned-disk">Find new or unpartitioned disk</h2>
+<ul>
+<li>Use parted to search for unpartitioned disks
+<ul>
+<li><code>sudo parted -l | grep Error</code></li>
+</ul></li>
+<li>Or use lsblk to search for correct disk size
+<ul>
+<li><code>sudo lsblk</code></li>
+</ul></li>
+</ul>
+<h2 id="select-partition-standard">Select partition standard</h2>
+<ul>
+<li>There are two standards
+<ul>
+<li>GPT</li>
+<li>MBR</li>
+</ul></li>
+<li>GPT is the “new” one, MBR the “old” one</li>
+<li>To keep it simple we will usw MBR
+<ul>
+<li><code>sudo parted /dev/sdc mklabel msdos</code></li>
+</ul></li>
+</ul>
+<h2 id="create-partition-on-disk">Create partition on disk</h2>
+<ul>
+<li>We create a Ext4 partition using the whole drive
+<ul>
+<li><code>sudo parted /dev/sda mkpart primary ext4 0% 100%</code></li>
+<li>This only <strong>specifies</strong> the follwing filesystem</li>
+</ul></li>
+<li>To verify this use <code>lsbk</code>
+<ul>
+<li><code>/dev/sdc1 will appear</code></li>
+</ul></li>
+</ul>
+<h2 id="create-filesystem">Create Filesystem</h2>
+<blockquote>
+<p>After partitioning a filesystem needs to be created. Otherwise the new partition is useless and files cannot be stored.</p>
+</blockquote>
+<h2 id="create-the-filesystem-devsdc">Create the filesystem /dev/sdc</h2>
+<ul>
+<li>We choose Ext4 as filesystem and test4 as the label
+<ul>
+<li><code>sudo mkfs.ext4 -L test4 /dev/sdc1</code></li>
+</ul></li>
+<li>Check new filesystem
+<ul>
+<li><code>sudo lsblk --fs</code></li>
+</ul></li>
+</ul>
+<h2 id="mounting-partitions">Mounting partitions</h2>
+<blockquote>
+<p>New filesystems need to be mounted before they can be used. This is done in <code>/etc/fstab</code>. The simple use of <code>mount</code> will not be permanent.</p>
+</blockquote>
+<h2 id="mounting-temporary">Mounting temporary</h2>
+<ul>
+<li>Create mountpoint
+<ul>
+<li><code>sudo mkdir -p /mnt/data</code></li>
+</ul></li>
+<li>Mount temporary
+<ul>
+<li><code>sudo mount -o defaults /dev/sda1 /mnt/data</code></li>
+</ul></li>
+</ul>
+<h2 id="mounting-permanent">Mounting permanent</h2>
+<ul>
+<li>Create mountpoint
+<ul>
+<li><code>sudo mkdir -p /mnt/data</code></li>
+</ul></li>
+<li>Get UUID of the partition
+<ul>
+<li><code>sudo lsblk --fs</code></li>
+</ul></li>
+<li>Edit <code>/etc/fstab</code> and add mount
+<ul>
+<li><code>UUID=xxxx /mnt/data ext4 default 0 2</code></li>
+</ul></li>
+<li>Test mount before reboot
+<ul>
+<li><code>sudo mount -a</code></li>
+<li><code>sudo df -h</code></li>
+</ul></li>
+</ul>
+<h2 id="local-volume-manager-lvm">Local Volume Manager ( LVM )</h2>
+<blockquote>
+<p>Local Volume Manager ( LVM ) is a toolset to simplify storage management with different types of storages. It breaks physical barriers and organizes storage in a logical way. The main advantages of LVM are increased abstraction, flexibility, and control</p>
+</blockquote>
+<blockquote>
+<p>Use LVM when installing Linux!</p>
+</blockquote>
+<h2 id="physical-volumes-pv">Physical volumes ( PV )</h2>
+<ul>
+<li>Physical volumes are block devices or other storage-like hardware.
+<ul>
+<li>SSDs</li>
+<li>HDDs</li>
+<li>RAID-Devices</li>
+</ul></li>
+<li>LVM utility
+<ul>
+<li><code>pvs</code></li>
+<li><code>pvscan</code></li>
+<li><code>pvdisplay</code></li>
+</ul></li>
+</ul>
+<h2 id="volume-group-vg">Volume Group ( VG )</h2>
+<ul>
+<li>PVs are grouped in volume groups ( VGs )</li>
+<li>Different storage types appearing as one pool</li>
+<li>LVM utility
+<ul>
+<li><code>vgs</code></li>
+<li><code>vgscan</code></li>
+<li><code>vgdisplay</code></li>
+</ul></li>
+</ul>
+<h2 id="logical-volume-lv">Logical Volume ( LV )</h2>
+<ul>
+<li>VGs are sliced into multiple logical volumes ( LVs )</li>
+<li>LVs are similar to partitions on physical harddisks</li>
+<li>A filesystems runs on top of a LV</li>
+<li>LVM utility
+<ul>
+<li><code>lvs</code></li>
+<li><code>lvdisplay</code></li>
+<li><code>lvmdiskscan</code></li>
+</ul></li>
+</ul>
+<h2 id="use-lvm">Use LVM</h2>
+<blockquote>
+<p>We will create a volume group out of two physical volumes with three logical volumes in different sizes.</p>
+</blockquote>
 <div class="notes">
-<p>https://www.digitalocean.com/community/tutorials/an-introduction-to-lvm-concepts-terminology-and-operations</p>
-<p>https://www.digitalocean.com/community/tutorials/how-to-use-lvm-to-manage-storage-devices-on-ubuntu-16-04</p>
+<p>After that a lab will be nice!</p>
 </div>
-<h2 id="application-partitioning-formatting">Application (partitioning / formatting)</h2>
-<p>https://www.digitalocean.com/community/tutorials/how-to-partition-and-format-storage-devices-in-linux</p>
+<h2 id="use-lvm-create-pv">Use LVM / create PV</h2>
+<ul>
+<li>Create PVs
+<ul>
+<li><code>sudo pvcreate /dev/sda /dev/sdb</code></li>
+</ul></li>
+<li>Check PVs
+<ul>
+<li><code>sudo pvs</code></li>
+</ul></li>
+</ul>
+<h2 id="use-lvm-add-to-vg">Use LVM / add to VG</h2>
+<ul>
+<li>Create VG with new PVs
+<ul>
+<li><code>sudo vgcreate VolGroup /dev/sda /dev/sdb</code></li>
+</ul></li>
+<li>Check VG
+<ul>
+<li><code>sudo vgs</code></li>
+</ul></li>
+</ul>
+<h2 id="use-lvm-create-lgs">Use LVM / create LGs</h2>
+<ul>
+<li>Create some LGs
+<ul>
+<li><code>sudo lvcreate -L 10G -n test1 VolGroup</code></li>
+<li><code>sudo lvcreate -L 3G -n test2 VolGroup</code></li>
+<li><code>sudo lvcreate -L 25G -n test3 VolGroup</code></li>
+<li><code>sudo lvcreate -l 100%FREE -n work VolGroup</code></li>
+</ul></li>
+<li>Check LGs
+<ul>
+<li><code>sudo lvs</code></li>
+</ul></li>
+</ul>
+<h2 id="create-the-filesystem-lvs">Create the filesystem LVs</h2>
+<ul>
+<li>LVs can be found in two places
+<ul>
+<li><code>/dev/volume_group_name/logical_volume_name</code></li>
+<li><code>/dev/mapper/volume_group_name-logical_volume_name</code></li>
+</ul></li>
+<li>We choose Ext4 as well
+<ul>
+<li><code>sudo mkfs.ext4 /dev/VolGroup/test1</code></li>
+<li><code>sudo mkfs.ext4 /dev/VolGroup/test2</code></li>
+<li><code>sudo mkfs.ext4 /dev/mapper/VolGroup-test3</code></li>
+<li><code>sudo mkfs.ext4 /dev/mapper/VolGroup-work</code></li>
+</ul></li>
+</ul>
+<h2 id="mount-filesystems-temporary">Mount filesystems temporary</h2>
+<ul>
+<li>Create mountpoints
+<ul>
+<li><code>sudo mkdir -p /mnt/{test1,test2,test3,work}</code></li>
+</ul></li>
+<li>Mount temporary
+<ul>
+<li><code>sudo mount /dev/VolGroup/test1 /mnt/test1</code></li>
+<li><code>sudo mount /dev/VolGroup/test2 /mnt/test2</code></li>
+<li><code>sudo mount /dev/mapper/VolGroup-test3 /mnt/test3</code></li>
+<li><code>sudo mount /dev/mapper/VolGroup-work /mnt/work</code></li>
+</ul></li>
+</ul>
+<h2 id="mount-filesystems-permanent">Mount filesystems permanent</h2>
+<ul>
+<li>Simply add them to <code>/etc/fstab</code></li>
+</ul>
+<h2 id="use-lvm-advanced-options">Use LVM / advanced options</h2>
+<ul>
+<li>LVs can be created as different types
+<ul>
+<li>linear ( default )</li>
+<li>striped ( RAID 0 )</li>
+<li>raid1</li>
+<li>raid5</li>
+<li>raid6</li>
+</ul></li>
+</ul>
+<h2 id="use-lvm-extend">Use LVM / extend</h2>
+<ul>
+<li>One of LVM greatest possibilites is the simple extension / resize of storage</li>
+<li><p>It is possible to grow and shrink LVs</p></li>
+<li>Extend LV and filesystem
+<ul>
+<li><code>sudo lvresize -L +5G VolGroup/test1</code></li>
+<li><code>sudo resize2fs /dev/VolGroup/test1</code></li>
+</ul></li>
+</ul>
+<h2 id="use-lvm-shrink">Use LVM / shrink</h2>
+<ul>
+<li>Check for minimal disk space need
+<ul>
+<li><code>df -h</code></li>
+</ul></li>
+<li>Unmount volume
+<ul>
+<li><code>umount /dev/VolGroup/test1</code></li>
+</ul></li>
+<li>Run filesystem check to verify there are no errors
+<ul>
+<li><code>sudo fsck -t ext4 -f /dev/VolGroup/test1</code></li>
+</ul></li>
+<li>Resize filesystem to minimal value
+<ul>
+<li><code>sudo resize2fs -p /dev/VolGroup/test1 3G</code></li>
+</ul></li>
+<li>Resize LV
+<ul>
+<li><code>sudo lvresize -L 3G VolGroup/test1</code></li>
+</ul></li>
+<li>Mount the filesystem again</li>
+</ul>
+<h2 id="use-lvm-delete-lv">Use LVM / delete LV</h2>
+<ul>
+<li>Unmount LV</li>
+<li>Remove it
+<ul>
+<li><code>sudo lvremove VolGroup/test1</code></li>
+</ul></li>
+</ul>
+<h2 id="use-lvm-remove-vg">Use LVM / remove VG</h2>
+<ul>
+<li>Unmount all LVs</li>
+<li>Remove it
+<ul>
+<li><code>sudo vgremove VolGroup</code></li>
+</ul></li>
+</ul>
+<h2 id="use-lvm-remove-pv">Use LVM / remove PV</h2>
+<ul>
+<li>Remove one PV
+<ul>
+<li><code>sudo pvremove /dev/sda</code></li>
+</ul></li>
+<li>Remove one of two PVs
+<ul>
+<li><code>sudo pvmove /dev/sda</code></li>
+<li><code>sudo vgreduce VolGroup /dev/sda</code></li>
+</ul></li>
+</ul>
+<h2 id="sources">Sources</h2>
+<ul>
+<li><a href="https://wiki.archlinux.org/index.php/File_systems">Source 1</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/Ext4">Source 2</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/Xfs">Source 3</a></li>
+<li><a href="https://www.digitalocean.com/community/tutorials/an-introduction-to-linux-permissions">Source 4</a></li>
+<li><a href="https://www.digitalocean.com/community/tutorials/how-to-partition-and-format-storage-devices-in-linux">Source 5</a></li>
+<li><a href="https://www.digitalocean.com/community/tutorials/an-introduction-to-lvm-concepts-terminology-and-operations">Source 6</a></li>
+</ul>
 <h1 id="kernel">Kernel</h1>
 <div class="notes">
 <p>https://wiki.archlinux.org/index.php/Kernel</p>
