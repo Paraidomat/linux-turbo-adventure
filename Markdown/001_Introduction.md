@@ -28,7 +28,7 @@ def foo():
     print("You won't see much of it in here")
 ```
 - This is a single command: `foo -bar`
-- This is a variable: `$foobar`
+- This is a variable: `$foobar` or `${foobar}`
 
 > This is a key takeaway point.
 
@@ -40,3 +40,4 @@ def foo():
 - Get Content of current directory: `ls`, `ls -la`
 - Edit text or configuration file: `nano`, `vi`, `vim`
 - Get the last command again: Up-Arrow on keyboard.
+- Run the last command again: `!!`
