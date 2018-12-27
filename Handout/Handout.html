@@ -77,7 +77,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(title);
+  { content: attr(data-line-number);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -177,9 +177,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Troubleshooting and System Rescue</li>
 </ol>
 <h2 id="basic-layouts">Basic Layouts</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">def</span> foo():</a>
-<a class="sourceLine" id="cb1-2" title="2">    <span class="co">&quot;&quot;&quot;this is some sourcecode&quot;&quot;&quot;</span></a>
-<a class="sourceLine" id="cb1-3" title="3">    <span class="bu">print</span>(<span class="st">&quot;You won&#39;t see much of it in here&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">def</span> foo():</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">    <span class="co">&quot;&quot;&quot;this is some sourcecode&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">    <span class="bu">print</span>(<span class="st">&quot;You won't see much of it in here&quot;</span>)</a></code></pre></div>
 <ul>
 <li>This is a single command: <code>foo -bar</code></li>
 <li>This is a variable: <code>$foobar</code></li>
@@ -1632,15 +1632,358 @@ applications, services and documentation.</li>
 <p>https://wiki.archlinux.org/index.php/Kernel</p>
 </div>
 <h2 id="what-is-a-kernel">What is a Kernel?</h2>
+<blockquote>
+<p>The <strong>Linux Kernel</strong> is an open-source monolithic Unix-like computer operating system kernel.</p>
+</blockquote>
+<h2 id="what-is-a-kernel-2">What is a Kernel? 2</h2>
+<blockquote>
+<p>The <strong>kernel</strong> is a computer program that is the core of a computer’s operating system, with complete control over everything in the system.</p>
+</blockquote>
+<h2 id="what-is-a-kernel-3">What is a Kernel? 3</h2>
+<ul>
+<li>On most systems, it is one of the first programs loaded on start-up (after the bootloader).</li>
+<li>It handles the rest of start-up as well as input/output requests from software, translating them into data-processing instructions for the CPU.</li>
+<li>It handles memory and peripherals like keyboards, monitors, printers, etc…</li>
+</ul>
+<h2 id="what-is-a-kernel-4">What is a Kernel? 4</h2>
+<figure>
+<img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzODAiIGhlaWdodD0iMzAwIiB2ZXJzaW9uPSIxLjEiID4KCQoJPHN0eWxlIHR5cGU9InRleHQvY3NzIj4KCQlyZWN0IHtzdHJva2Utd2lkdGg6Mjt9CgkJLmh3IHtmaWxsOiM3NGZmYjU7c3Ryb2tlOiMwMDgwNjY7fQoJCXRleHQge3RleHQtYW5jaG9yOm1pZGRsZTtjb2xvcjojMDAwO2ZvbnQtc2l6ZToyMnB4O2ZvbnQtZmFtaWx5OkJpdHN0cmVhbSBWZXJhIFNhbnMsc2Fucy1zZXJpZjt9CgkJbGluZSB7c3Ryb2tlOmJsYWNrO3N0cm9rZS13aWR0aDozO21hcmtlci1zdGFydDp1cmwoI2Fycm93U3RhcnQpO21hcmtlci1lbmQ6dXJsKCNhcnJvd0VuZCk7fQoJPC9zdHlsZT4KCQoJPGRlZnM+CgkJPG1hcmtlciBpZD0iYXJyb3dFbmQiIG1hcmtlcldpZHRoPSI0IiBtYXJrZXJIZWlnaHQ9IjMiIHJlZlg9IjEiIHJlZlk9IjEuNSIgb3JpZW50PSJhdXRvIj4KCQkJPHBvbHlnb24gcG9pbnRzPSIwLDMgNCwxLjUgMCwwIDEsMS41IiBzdHlsZT0iZmlsbDojMDAwO3N0cm9rZTpub25lOyIvPgoJCTwvbWFya2VyPgoJCTxtYXJrZXIgaWQ9ImFycm93U3RhcnQiIG1hcmtlcldpZHRoPSI0IiBtYXJrZXJIZWlnaHQ9IjMiIHJlZlg9IjMiIHJlZlk9IjEuNSIgb3JpZW50PSJhdXRvIj4KCQkJPHBvbHlnb24gcG9pbnRzPSI0LDMgMCwxLjUgNCwwIDMsMS41IiBzdHlsZT0iZmlsbDojMDAwO3N0cm9rZTpub25lOyIvPgoJCTwvbWFya2VyPgoJPC9kZWZzPgoJCjxnIGlkPSJoYXJkd2FyZSI+Cgk8cmVjdCBjbGFzcz0iaHciIHg9IjE1IiB5PSIyMDMiIHdpZHRoPSIxMDAiIGhlaWdodD0iODAiIHJ4PSI4IiByeT0iOCIvPgoJPHJlY3QgY2xhc3M9Imh3IiB4PSIxMzkiIHk9IjIwMyIgd2lkdGg9IjEwMCIgaGVpZ2h0PSI4MCIgcng9IjgiIHJ5PSI4Ii8+Cgk8cmVjdCBjbGFzcz0iaHciIHg9IjI2MyIgeT0iMjAzIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjgwIiByeD0iOCIgcnk9IjgiLz4KCTx0ZXh0IHg9IjY2IiB5PSIyNTIiPkNQVTwvdGV4dD4KCTx0ZXh0IHg9IjE5MCIgeT0iMjUyIj5NZW1vcnk8L3RleHQ+Cgk8dGV4dCB4PSIzMTQiIHk9IjI1MiI+RGV2aWNlczwvdGV4dD4KPC9nPgoKPGcgaWQ9Imtlcm5lbCI+Cgk8cmVjdCB4PSIxNSIgeT0iMTA5IiB3aWR0aD0iMzQ4IiBoZWlnaHQ9IjgwIiByeD0iOCIgcnk9IjgiIHN0eWxlPSJmaWxsOiM5ODlkZmY7c3Ryb2tlOiMwMDAwODA7Ii8+Cgk8dGV4dCB4PSIxOTAiIHk9IjE1OCI+S2VybmVsPC90ZXh0Pgo8L2c+CgkKPGcgaWQ9ImFwcHMiPgoJPHJlY3QgeD0iMTUiIHk9IjE1IiB3aWR0aD0iMzQ4IiBoZWlnaHQ9IjgwIiByeD0iOCIgcnk9IjgiIHN0eWxlPSJmaWxsOiNmZjgxOGE7c3Ryb2tlOnJlZDsiLz4KCTx0ZXh0IHg9IjE5MCIgeT0iNjQiPkFwcGxpY2F0aW9uczwvdGV4dD4KPC9nPgoKPGcgaWQ9ImFycm93cyI+Cgk8bGluZSB4MT0iMTkwIiB5MT0iODciIHgyPSIxOTAiIHkyPSIxMTkiLz4KCTxsaW5lIHgxPSI2NiIgeTE9IjE4MSIgeDI9IjY2IiB5Mj0iMjEzIi8+Cgk8bGluZSB4MT0iMTkwIiB5MT0iMTgxIiB4Mj0iMTkwIiB5Mj0iMjEzIi8+Cgk8bGluZSB4MT0iMzE0IiB5MT0iMTgxIiB4Mj0iMzE0IiB5Mj0iMjEzIi8+CjwvZz4KCjwvc3ZnPgo=" alt="Kernel Diagram" /><figcaption>Kernel Diagram</figcaption>
+</figure>
 <h2 id="what-is-the-job-of-a-kernel">What is the job of a Kernel?</h2>
-<h2 id="kernel-module-management">Kernel module management</h2>
+<ul>
+<li>Mediate access to resources like
+<ul>
+<li>CPU (What should run at which point in time?)</li>
+<li>RAM (Where should which data placed in RAM or swap?)</li>
+<li>I/O devices (What should access which device?)</li>
+</ul></li>
+</ul>
+<h2 id="what-is-the-job-of-a-kernel-2">What is the job of a Kernel? 2</h2>
+<ul>
+<li>Resource Management
+<ul>
+<li>Definition of an execution domain (address space)</li>
+<li>Protection mechanisms used to media access to the resources within a domain</li>
+<li>Provide methods for synchronization and inter-process communications</li>
+</ul></li>
+</ul>
+<h2 id="what-is-the-job-of-a-kernel-3">What is the job of a Kernel? 3</h2>
+<ul>
+<li>Memory management
+<ul>
+<li>Kernel has full access to systems’s memory and must allow processes to safely access this memory as they require it.</li>
+<li>First step: virtual addressing (achieved by paging and/or segmentation)</li>
+</ul></li>
+</ul>
+<h2 id="virtual-memory">Virtual Memory</h2>
+<ul>
+<li>Virtual addressing allows the kernel to make a given physical address appear to be another address.</li>
+<li>Virtual address spaces may be different for different processes</li>
+</ul>
+<blockquote>
+<p>The memory that one process accesses at a particular (virtual) address may be different memory from what another process accesses at the same addresses.</p>
+</blockquote>
+<h2 id="virtual-memory-2">Virtual Memory 2</h2>
+<ul>
+<li>This allows every programm to behave as if it is the only one (apart from the kernel) running</li>
+<li>This prevents applications from crashing each other.</li>
+</ul>
+<h2 id="what-is-the-job-of-a-kernel-4">What is the job of a Kernel? 4</h2>
+<ul>
+<li>Device management
+<ul>
+<li>Processes need to access the peripherals connected to the computer</li>
+<li>Devices are controlled by the kernel through <strong>drivers</strong>.</li>
+</ul></li>
+</ul>
+<h2 id="drivers">Drivers</h2>
+<ul>
+<li>A device driver is a program that enables the operating system to interact with a hardware device.</li>
+<li>Provides the OS with information of how to control and communicate with a certain piece of hardware.</li>
+<li>Goal of a driver: <strong>abstraction</strong>.
+<ul>
+<li>Translate the OS-mandated function calls (programming calls) into device-specific calls</li>
+</ul></li>
+</ul>
+<h2 id="what-is-the-job-of-a-kernel-5">What is the job of a Kernel? 5</h2>
+<ul>
+<li>System calls
+<ul>
+<li>In computing a system call is how a process requests a service from the kernel that it does not normally have permission to run.</li>
+<li>provide interface between a process and the OS</li>
+<li>Most operations interacting with the system require permissions not available to a user level process.
+<ul>
+<li>I/O performed with a device present on the system</li>
+<li>Any form of communication with other processes</li>
+</ul></li>
+</ul></li>
+</ul>
+<h2 id="what-are-kernel-modules">What are Kernel Modules?</h2>
 <div class="notes">
 <p>https://wiki.archlinux.org/index.php/Kernel_module</p>
 </div>
+<blockquote>
+<p>Kernel Modules are pieces of code that can be loaded and unloaded into the kernel upon demand. They extend the functionality of the kernel without the need to reboot the system.</p>
+</blockquote>
+<h2 id="obatining-information-about-kernel-modules">Obatining information about Kernel Modules</h2>
+<ul>
+<li>Modules are stored in <code>/usr/lib/modules/${kernel-release}</code></li>
+<li>To get your current <code>${kernel-release}</code> you can use <code>uname -r</code>.</li>
+<li>To show what kernel modules are currently loaded: <code>lsmod</code></li>
+<li>To shoud information about a module: <code>modinfo ${module_name}</code></li>
+</ul>
+<h2 id="manual-module-handling">Manual module handling</h2>
+<ul>
+<li>To load a module: <code>modprobe ${module-name}</code></li>
+<li>To load a module by filename (i.e. one that is not installed in <code>/usr/lib/modules/$(uname -r)/</code>):
+<ul>
+<li><code>insmod ${filename} [args]</code></li>
+</ul></li>
+<li>To unload a module: <code>modprobe -r ${module-name}</code></li>
+<li>Or, alternatively: <code>rmmon ${module-name}</code></li>
+</ul>
+<h2 id="example-disable-the-pc-beep-speaker">Example: Disable the PC Beep-Speaker</h2>
+<ul>
+<li>PC speaker can be disabled by unloading the <code>pcspkr</code> kernel module:
+<ul>
+<li><code>rmmod pcspkr</code></li>
+</ul></li>
+<li>Blacklisting the <code>pcspkr</code> module will prevent <code>udev</code> from loading it at boot:
+<ul>
+<li><code>echo &quot;blacklist pcspkr&quot; &gt; /etc/modprobe.d/nobeep.conf</code></li>
+</ul></li>
+</ul>
 <h1 id="user-and-group-account-management">User and Group Account Management</h1>
 <div class="notes">
 <p>https://wiki.archlinux.org/index.php/users_and_groups</p>
 </div>
+<h2 id="users-and-groups">Users and Groups</h2>
+<ul>
+<li>Users and groups are used on GNU/Linux for access control.
+<ul>
+<li>Access control: to control access to system’s files, directories, and peripherals.</li>
+</ul></li>
+<li>Linux offers simple/coarse access control mechanisms by default.</li>
+</ul>
+<h2 id="overview">Overview</h2>
+<ul>
+<li>A <strong>user</strong> is anyone who uses a computer.</li>
+<li>A user is represented by a unique user name.</li>
+<li>Some system services also run using restricted or privileged user accounts.</li>
+<li>Managing users is done for the purpose of security by limiting access in specific ways.</li>
+<li>Users may be grouped together into a <strong>group</strong>, and users may be added to an existing group to utilize the privileged access it grants.</li>
+</ul>
+<h2 id="the-superuser">The Superuser</h2>
+<ul>
+<li>The <strong>superuser</strong> (<code>root</code>) has complete access to the operating system and its configuration.
+<ul>
+<li><strong>It is intended for administrative use only!</strong></li>
+<li>Unprivileged users can use the <code>su</code> and <code>sudo</code> programs for controlled privilege escalation.</li>
+</ul></li>
+</ul>
+<h2 id="important-files">Important Files</h2>
+<table>
+<thead>
+<tr class="header">
+<th>File</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>/etc/shadow</code></td>
+<td>Secure user account information</td>
+</tr>
+<tr class="even">
+<td><code>/etc/passwd</code></td>
+<td>User account information</td>
+</tr>
+<tr class="odd">
+<td><code>/etc/gshadow</code></td>
+<td>Contains the shadowed information for group accounts</td>
+</tr>
+<tr class="even">
+<td><code>/etc/group</code></td>
+<td>Defines the groups to which users belong</td>
+</tr>
+<tr class="odd">
+<td><code>/etc/sudoers</code></td>
+<td>List of who can run what by sudo</td>
+</tr>
+<tr class="even">
+<td><code>/home/*</code></td>
+<td>Home directories</td>
+</tr>
+</tbody>
+</table>
+<h2 id="user-management">User management</h2>
+<ul>
+<li>To list users currently logged on to the system: <code>who</code></li>
+<li>To list all existing user accounts including their properties: <code>passwd -Sa</code>
+<ul>
+<li>See <code>passwd(1)</code> for the description of the output format.</li>
+</ul></li>
+</ul>
+<h2 id="add-a-new-user">Add a new user</h2>
+<blockquote>
+<p><code>useradd -m -g ${initial-group} -G ${additional-groups} -s ${login-shell}  ${username}</code></p>
+</blockquote>
+<ul>
+<li><code>-m</code>/<code>--create-home</code> creates the user home directory as <code>/home/${username}</code>.
+<ul>
+<li>Within their home directory, a non-root user can write files, delete them, and so on.</li>
+</ul></li>
+<li><code>-g</code>/<code>--gid</code> defines the group name or number of the user’s initial login group.
+<ul>
+<li>If specified, the group name must exist; if a group number is provided, it must refer to an already existing group.</li>
+<li>If not specified the default behaviour is to create a group with the same name as the username, with <code>GID</code> equal to <code>UID</code>.</li>
+</ul></li>
+</ul>
+<h2 id="add-a-new-user-2">Add a new user 2</h2>
+<blockquote>
+<p><code>useradd -m -g ${initial-group} -G ${additional-groups} -s ${login-shell}  ${username}</code></p>
+</blockquote>
+<ul>
+<li><code>-G</code>/<code>--group</code> introduces a list of supplementary groups which the user is also a member of.
+<ul>
+<li>Each group is separated from the next by a comma, with no intervening spaces.</li>
+<li>The default is for the user to belong only to the initial group.</li>
+</ul></li>
+<li><code>-s</code>/<code>-shell</code> defines the path and file name of the user’s default login shell.
+<ul>
+<li>After the boot process is complete, the default login shell is the one specified here.</li>
+</ul></li>
+</ul>
+<h2 id="add-a-new-user-3">Add a new user 3</h2>
+<blockquote>
+<p><strong>WARNING:</strong> In order to be able to log in, the login shell must be one of those listed in <code>/etc/shells</code>, otherwise the <code>PAM</code> module <code>pam_shell</code> will deny the login request.</p>
+</blockquote>
+<blockquote>
+<p><strong>Note:</strong> The password for the newly created user must then be defined, using <code>passwd</code>.</p>
+</blockquote>
+<ul>
+<li>When the login shell is intended to be non-functional, for example when the user account is created for a specific service, <code>/usr/bin/nologin</code> may be specified in place of a regular shell to politely refuse a login (see <code>nologin(8)</code>).</li>
+</ul>
+<h2 id="other-examples-of-user-management">Other examples of user management</h2>
+<ul>
+<li>Add a user to other groups:
+<ul>
+<li>`usermod -aG ${additional-groups} ${username}</li>
+<li><strong>Warning:</strong> If the <code>-a</code> is ommited in the <code>usermod</code> command above, the user is removed from all groups not listed in <code>${additional-groups}</code>.</li>
+</ul></li>
+<li>To enter user information for the GECOS comment (e.g. the full user name), type:
+<ul>
+<li><code>chfn ${username}</code></li>
+</ul></li>
+<li>To mark a user’s password as expired, requiring them to create a new password the first time they log in, type:
+<ul>
+<li><code>chage -d 0 ${username}</code></li>
+</ul></li>
+</ul>
+<h2 id="other-examples-of-user-management-2">Other examples of user management 2</h2>
+<ul>
+<li>User accounts may be deleted with the following command:
+<ul>
+<li><code>userdel -r ${username}</code></li>
+<li>The <code>-r</code> option specifies that the user’s home directory and mail spool should also be deleted.</li>
+</ul></li>
+<li>To change the user’s login shell:
+<ul>
+<li><code>usermod -s /bin/bash ${username}</code></li>
+</ul></li>
+</ul>
+<blockquote>
+<p><strong>Tip:</strong> The <code>adduser</code> script allows carrying out the jobs of <code>useradd</code>, <code>chfn</code> and <code>passwd</code> interactively.</p>
+</blockquote>
+<h2 id="user-database">User database</h2>
+<ul>
+<li>Local user information is stored in the plain-text <code>/etc/passwd</code> file</li>
+<li>Each line represents a user account, and has seven fields:</li>
+</ul>
+<blockquote>
+<p><code>account:password:UID:GID:GECOS:directory:shell</code></p>
+</blockquote>
+<table>
+<colgroup>
+<col style="width: 13%"></col>
+<col style="width: 86%"></col>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>account</code></td>
+<td>is the user name; can not be blank</td>
+</tr>
+<tr class="even">
+<td><code>password</code></td>
+<td>used to be the user password; is now shadowed; see <code>/etc/shadow</code></td>
+</tr>
+<tr class="odd">
+<td><code>UID</code></td>
+<td>the numerical user ID; root UID: 0; standard UIDs &gt; 1000</td>
+</tr>
+<tr class="even">
+<td><code>GID</code></td>
+<td>the numerical primary group ID for the user; values listed in <code>/etc/groups</code></td>
+</tr>
+<tr class="odd">
+<td><code>GECOS</code></td>
+<td>optional field for informational purposes</td>
+</tr>
+<tr class="even">
+<td><code>directory</code></td>
+<td>used by the login command to set <code>$HOME</code> environment variable</td>
+</tr>
+<tr class="odd">
+<td><code>shell</code></td>
+<td>is the path to the user’s default <strong>command shell</strong>. Default: <code>/bin/bash</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="example">Example</h2>
+<blockquote>
+<p><code>jack:x:1001:100:Jack Smith,some comment here,,:/home/jack:/bin/bash</code></p>
+</blockquote>
+<h2 id="verify-integrity-of-etcpasswd">Verify integrity of <code>/etc/passwd</code></h2>
+<ul>
+<li><code>pwck</code> can be used to verify the integrity of the user database.
+<ul>
+<li>It can sort the user list by GID at the same time, which can be helpful for comparison using <code>-s</code></li>
+</ul></li>
+</ul>
+<h2 id="group-management">Group management</h2>
+<ul>
+<li><code>/etc/group</code> is the file that defines the groups on the system (see <code>group(5)</code> for details).</li>
+<li>Display group membership with the <code>groups</code> command: <code>groups ${user}</code>
+<ul>
+<li>If <code>${user}</code> is ommited, the current user’s group name are displayed.</li>
+</ul></li>
+<li>The <code>id</code> command provides additional detail, such as the user’s UID and associated GIDs: <code>id ${user}</code></li>
+<li>To list all groups on the system: <code>cat /etc/group</code></li>
+</ul>
+<h2 id="group-management-2">Group management 2</h2>
+<ul>
+<li>Create new groups with: <code>groupadd ${group}</code></li>
+<li>Add users to a group with: <code>gpasswd -a ${user} ${group}</code></li>
+<li>Modify existing group; rename <code>${old}</code> to <code>${new}</code>, preserving gid, all files previously owned by <code>${old} will be owned by</code>${new}:
+<ul>
+<li><code>groupmod -n ${new} ${old}</code></li>
+</ul></li>
+</ul>
+<h2 id="group-management-3">Group management 3</h2>
+<ul>
+<li>Delete existing groups: <code>groupdel ${group}</code></li>
+<li>To remove users from a group: <code>gpasswd -d ${user} ${group}</code>
+<ul>
+<li>If the user is currently logged in, he must log out and in again for the change to take effect.</li>
+</ul></li>
+<li><code>grpck</code> command can be used to verify the integrity of the system’s group file.</li>
+</ul>
 <h1 id="networking">Networking</h1>
 <div class="notes">
 <p>https://wiki.archlinux.org/index.php/Network_configuration</p>
