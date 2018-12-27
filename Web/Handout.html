@@ -4819,13 +4819,19 @@ applications, services and documentation.</li>
 <ul>
 <li>Within their home directory, a non-root user can write files, delete them, and so on.</li>
 </ul></li>
+</ul>
+<h2 id="add-a-new-user-2">Add a new user 2</h2>
+<blockquote>
+<p><code>useradd -m -g ${initial-group} -G ${additional-groups} -s ${login-shell}  ${username}</code></p>
+</blockquote>
+<ul>
 <li><code>-g</code>/<code>--gid</code> defines the group name or number of the user’s initial login group.
 <ul>
 <li>If specified, the group name must exist; if a group number is provided, it must refer to an already existing group.</li>
 <li>If not specified the default behaviour is to create a group with the same name as the username, with <code>GID</code> equal to <code>UID</code>.</li>
 </ul></li>
 </ul>
-<h2 id="add-a-new-user-2">Add a new user 2</h2>
+<h2 id="add-a-new-user-3">Add a new user 3</h2>
 <blockquote>
 <p><code>useradd -m -g ${initial-group} -G ${additional-groups} -s ${login-shell}  ${username}</code></p>
 </blockquote>
@@ -4835,12 +4841,18 @@ applications, services and documentation.</li>
 <li>Each group is separated from the next by a comma, with no intervening spaces.</li>
 <li>The default is for the user to belong only to the initial group.</li>
 </ul></li>
+</ul>
+<h2 id="add-a-new-user-4">Add a new user 4</h2>
+<blockquote>
+<p><code>useradd -m -g ${initial-group} -G ${additional-groups} -s ${login-shell}  ${username}</code></p>
+</blockquote>
+<ul>
 <li><code>-s</code>/<code>-shell</code> defines the path and file name of the user’s default login shell.
 <ul>
 <li>After the boot process is complete, the default login shell is the one specified here.</li>
 </ul></li>
 </ul>
-<h2 id="add-a-new-user-3">Add a new user 3</h2>
+<h2 id="add-a-new-user-5">Add a new user 5</h2>
 <blockquote>
 <p><strong>WARNING:</strong> In order to be able to log in, the login shell must be one of those listed in <code>/etc/shells</code>, otherwise the <code>PAM</code> module <code>pam_shell</code> will deny the login request.</p>
 </blockquote>

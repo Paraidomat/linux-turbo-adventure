@@ -56,6 +56,12 @@ https://wiki.archlinux.org/index.php/users_and_groups
 - `-m`/`--create-home` creates the user home directory as `/home/${username}`.
   - Within their home directory, a non-root user can write files, delete them,
     and so on.
+
+## Add a new user 2
+
+> `useradd -m -g ${initial-group} -G ${additional-groups} -s ${login-shell} 
+> ${username}`
+
 - `-g`/`--gid` defines the group name or number of the user's initial login
   group.
   - If specified, the group name must exist; if a group number is provided, it
@@ -63,7 +69,7 @@ https://wiki.archlinux.org/index.php/users_and_groups
   - If not specified the default behaviour is to create a group with the same
     name as the username, with `GID` equal to `UID`.
 
-## Add a new user 2
+## Add a new user 3
 
 > `useradd -m -g ${initial-group} -G ${additional-groups} -s ${login-shell} 
 > ${username}`
@@ -73,12 +79,18 @@ https://wiki.archlinux.org/index.php/users_and_groups
   - Each group is separated from the next by a comma, with no intervening 
     spaces.
   - The default is for the user to belong only to the initial group.
+
+## Add a new user 4
+
+> `useradd -m -g ${initial-group} -G ${additional-groups} -s ${login-shell} 
+> ${username}`
+
 - `-s`/`-shell` defines the path and file name of the user's default login 
   shell.
   - After the boot process is complete, the default login shell is the one
     specified here.
 
-## Add a new user 3
+## Add a new user 5
 
 > **WARNING:** In order to be able to log in, the login shell must be one of
 > those listed in `/etc/shells`, otherwise the `PAM` module `pam_shell` will 
