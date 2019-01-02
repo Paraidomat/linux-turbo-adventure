@@ -2001,6 +2001,112 @@ applications, services and documentation.</li>
 <div class="notes">
 <p>https://wiki.archlinux.org/index.php/Network_configuration</p>
 </div>
+<h2 id="check-the-connection">Check the connection</h2>
+<ol type="1">
+<li>Your network interface is listed and enabled.</li>
+<li>You are connected to the network. (Cabling / Wireless connection)</li>
+<li>Your network interface has an IP address.</li>
+<li>Routing table is set up correctly.</li>
+<li>You can ping your default gateway (and other gateways)</li>
+<li>You can ping a public IP address (if you have access to the internet)</li>
+<li>Check if you can resolve domain names.</li>
+</ol>
+<h2 id="is-the-network-interface-listed-and-enabled.">Is the network interface listed and enabled.</h2>
+<pre><code>user@host:~$ ip link show
+2: enp3s0: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu 1500 qdisc fq_codel state DOWN mode DEFAULT group default qlen 1000
+    link/ether 54:e1:ad:aa:aa:aa brd ff:ff:ff:ff:ff:ff
+3: enxe04f43aaaaaa: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state UP mode DEFAULT group default qlen 1000
+    link/ether e0:4f:43:aa:aa:aa brd ff:ff:ff:ff:ff:ff
+4: wlp5s0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc mq state UP mode DORMANT group default qlen 1000
+    link/ether d4:6a:6a:aa:aa:aa brd ff:ff:ff:ff:ff:ff</code></pre>
+<ul>
+<li>Enable / Disable using: <code>ip link set interface up|down</code></li>
+</ul>
+<h2 id="you-network-interface-has-an-ip-address">You network interface has an IP address</h2>
+<ul>
+<li>List IP addresses <code>ip address show</code> (<code>ip add sho</code> / <code>ip add show ${interface-name}</code>)</li>
+</ul>
+<pre><code>user@host:~$ ip add sho wlp5s0
+4: wlp5s0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether d4:6a:6a:aa:aa:aa brd ff:ff:ff:ff:ff:ff
+    inet 192.168.178.48/24 brd 192.168.178.255 scope global dynamic noprefixroute wlp5s0
+       valid_lft 847113sec preferred_lft 847113sec
+    inet6 2001:16b8:22c:f400:d99b:56e0:8aba:63e7/64 scope global temporary dynamic
+       valid_lft 6741sec preferred_lft 3141sec
+    inet6 2001:16b8:22c:f400:4d45:e31a:a51d:8387/64 scope global dynamic mngtmpaddr noprefixroute
+       valid_lft 6741sec preferred_lft 3141sec
+    inet6 fe80::1092:bcb0:1cb3:55ac/64 scope link noprefixroute
+       valid_lft forever preferred_lft forever</code></pre>
+<h2 id="you-network-interface-has-an-ip-address-2">You network interface has an IP address 2</h2>
+<ul>
+<li>Add an IP address to an interface:
+<ul>
+<li><code>ip address add ${address}/${prefix_len} broadcast + dev ${interface-name}</code>
+<ul>
+<li>address is given in CIDR notation</li>
+<li><code>+</code> is a special symbol that makes <code>ip</code> derive the boroadcast address from IP + subnet mask</li>
+</ul></li>
+</ul></li>
+<li>Delete an IP address from an interface:
+<ul>
+<li><code>ip address del ${address}/${prefix_len} dev ${interface}</code></li>
+</ul></li>
+<li>Delete <strong>all</strong> addresses matching a criteria (e.g. of a specific interface):
+<ul>
+<li><code>ip address flush dev ${interface}</code></li>
+</ul></li>
+</ul>
+<h2 id="bonus">Bonus</h2>
+<ul>
+<li>IP addresses can be calculated with <code>ipcalc</code></li>
+</ul>
+<h2 id="routing-table-is-set-up-correctly">Routing table is set up correctly</h2>
+<ul>
+<li>The routing table is used to determine if you can reach an IP address directly of what gateway (router) you should use.</li>
+<li>If no other route mathces the IP address, the <strong>default gateway</strong> is used.</li>
+<li><code>${prefix} is either a CIDR notation or</code>default` for the default gateway.</li>
+<li>List routes: <code>ip route show</code></li>
+<li>Add a route: <code>ip route add ${prefix} via ${address} dev ${interface}</code></li>
+<li>Delete a route <code>ip route del ${prefix} via ${address} dev ${interface}</code></li>
+</ul>
+<h2 id="set-the-hostname">Set the hostname</h2>
+<ul>
+<li><strong>Hostname</strong> is a unique name created to identify a machine on a network, configured in <code>/etc/hostname</code></li>
+<li>File can contain system’s domain name, if any.</li>
+<li>To edit hostname persistently edit <code>/etc/hostname</code></li>
+</ul>
+<h2 id="resolve-hostnames">Resolve hostnames</h2>
+<pre><code>user@host:~$ nslookup
+&gt; dns.google.com
+Server:     127.0.0.53
+Address:    127.0.0.53#53
+
+Non-authoritative answer:
+Name:   dns.google.com
+Address: 172.217.19.78
+Name:   dns.google.com
+Address: 2a00:1450:4005:80b::200e</code></pre>
+<h2 id="resolve-hostnames-2">Resolve hostnames 2</h2>
+<pre><code>user@host:~$ dig dns.google.com
+
+; &lt;&lt;&gt;&gt; DiG 9.11.3-1ubuntu1.3-Ubuntu &lt;&lt;&gt;&gt; dns.google.com
+;; global options: +cmd
+;; Got answer:
+;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 47586
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; QUESTION SECTION:
+;dns.google.com.            IN  A
+
+;; ANSWER SECTION:
+dns.google.com.     10  IN  A   172.217.19.78
+
+;; Query time: 0 msec
+;; SERVER: 127.0.0.53#53(127.0.0.53)
+;; WHEN: Wed Jan 02 16:49:58 CET 2019
+;; MSG SIZE  rcvd: 59</code></pre>
 <h1 id="firewalls">Firewalls</h1>
 <h2 id="iptables"><code>iptables</code></h2>
 <div class="notes">
