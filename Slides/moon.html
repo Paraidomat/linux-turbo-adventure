@@ -2200,6 +2200,217 @@ dns.google.com.     10  IN  A   172.217.19.78
 <aside class="notes">
 <p>https://wiki.archlinux.org/index.php/Iptables</p>
 </aside>
+<ul>
+<li>a command line utility for configuring Linux Kernel firewall</li>
+<li>can be configured directly with <code>iptables</code> or by using one of the many console and graphical front-ends.</li>
+<li><code>iptables</code> used for IPv4</li>
+<li><code>ip6tables</code> used for IPv6</li>
+<li>Both have the same syntax, but some options are version-specific</li>
+</ul>
+</section><section id="basic-concepts" class="slide level2">
+<h2>Basic Concepts</h2>
+<ul>
+<li><code>iptables</code> is used to inspect, modify, forward, redirect, and/or drop IP packets.</li>
+<li>Code for filtering is already built into the kernel
+<ul>
+<li>Organized into a collection of <strong>tables</strong>, each with a specific purpose</li>
+</ul></li>
+<li>Tables are made up of predefined <strong>chains</strong>, which contain rules which are traversed in order.</li>
+<li>Each rule consists of a predicate of potential matches and a corresponding action (called a <strong>target</strong>) which is executed if the predicate is true.</li>
+<li><code>iptables</code> is the user utility which allows you to work with these chains.</li>
+</ul>
+</section><section id="data-background-imagehttpswww.frozentux.netiptables-tutorialimagestables_traverse.jpg-data-background-sizecontain" class="slide level2">
+<h2>  {data-background-image=“https://www.frozentux.net/iptables-tutorial/images/tables_traverse.jpg” data-background-size=“contain”)</h2>
+<aside class="notes">
+<ul>
+<li>Lowercase word on top is the table</li>
+<li>Upper case word below is the chain</li>
+<li>Every IP packet that comes in on <strong>any</strong> network interface passes through this flowchart</li>
+<li>Common Source of confusion: internal and internet facing interfaces are handled the same</li>
+<li>It’s up to the administrator to define rules that treat them differently</li>
+<li>In most cases, you won’t need <code>raw</code>, <code>mangle</code>, or <code>security</code> at all.</li>
+</ul>
+</aside>
+</section><section id="table-types" class="slide level2">
+<h2>Table types</h2>
+<ol type="1">
+<li><code>raw</code>: only used for configuring packets so that they are exempt from connection tracking.</li>
+<li><code>filter</code>: default table, where all the actions are typically associated with a firewall take place.</li>
+<li><code>nat</code>: used for NAT/port forwarding</li>
+<li><code>mangle</code>: used for specialized packet alterations.</li>
+<li><code>security</code>: used for <strong>Mandatory Access Control</strong> (selinux)</li>
+</ol>
+<aside class="notes">
+<ul>
+<li>In most case you will only use <code>filter</code> and <code>nat</code>.</li>
+</ul>
+</aside>
+</section><section id="chains" class="slide level2">
+<h2>Chains</h2>
+<ul>
+<li>Tables consist of <strong>chains</strong>, which are lists of rules which are followed in order.</li>
+<li>The default table, <code>filter</code>, contains three built-in chains: <code>INPUT</code>, <code>OUTPUT</code> and <code>FORWARD</code> which are activated at different points of the packet filtering process</li>
+<li><code>nat</code> table includes: <code>PREROUTING</code>, <code>POSTROUTING</code> and <code>OUTPUT</code>.</li>
+<li>By default, non of the chains contain any rules.</li>
+</ul>
+</section><section id="chains-2" class="slide level2">
+<h2>Chains 2</h2>
+<ul>
+<li>Chains <strong>do</strong> have a default policy, which is generally set to <code>ACCEPT</code>!
+<ul>
+<li>Can be reset to drop, just to make sure.</li>
+</ul></li>
+<li>Default policy always applies at the end of a chain only.</li>
+</ul>
+</section><section id="rules" class="slide level2">
+<h2>Rules</h2>
+<ul>
+<li>Packet filtering is based on rules, which are specified by multiple <strong>matches</strong>, and one <strong>target</strong>.</li>
+</ul>
+</section><section id="rule-matches" class="slide level2">
+<h2>Rule matches</h2>
+<ul>
+<li>The typical things a rule might match on are
+<ul>
+<li>what interface the packet came in on (e.g. enp3s0 or wlp5s0)?</li>
+<li>what type of packet it is (ICMP, TCP, UDP?)</li>
+<li>the destination port of the packet (80, 443, 666)</li>
+</ul></li>
+</ul>
+</section><section id="rule-targets" class="slide level2">
+<h2>Rule targets</h2>
+<ul>
+<li>Targets are specified using the <code>-j</code> or <code>--jump</code> option.</li>
+<li>Targets can be …
+<ul>
+<li>… user-defined chains
+<ul>
+<li>i.e. if these conditions are matched, jump to the following user defined chain and continue processing there</li>
+</ul></li>
+<li>… one of the special built-in targets
+<ul>
+<li><code>ACCEPT</code>, <code>DROP</code>, <code>QUEUE</code>, <code>RETURN</code></li>
+</ul></li>
+<li>… a target extension
+<ul>
+<li><code>REJECT</code>, <code>LOG</code></li>
+</ul></li>
+</ul></li>
+</ul>
+</section><section id="backup-and-restore" class="slide level2">
+<h2>Backup and Restore</h2>
+<ul>
+<li>After adding rules via CLI, the configuration files are not changed automatically - to save manually:
+<ul>
+<li><code>iptables-save &gt; ${path}/${filename}</code></li>
+</ul></li>
+<li>To reload a file:
+<ul>
+<li><code>iptables-restore &lt; ${path}/${filename}</code></li>
+</ul></li>
+</ul>
+</section><section id="commands" class="slide level2">
+<h2>Commands</h2>
+<ul>
+<li><p>Check current ruleset and number of hits per rule by:</p>
+<pre><code>user@host~# iptables -nvL
+Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination
+
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination
+
+Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination</code></pre></li>
+</ul>
+</section><section id="commands-2" class="slide level2">
+<h2>Commands 2</h2>
+<ul>
+<li><p>Flush (-F) and reset iptables to default using:</p>
+<pre><code>iptables -F
+iptables -X
+iptables -t nat -F
+iptables -t nat -X
+iptables -t mangle -F
+iptables -t mangle -X
+iptables -t raw -F
+iptables -t raw -X
+iptables -t security -F
+iptables -t security -X
+iptables -P INPUT ACCEPT
+iptables -P FORWARD ACCEPT
+iptables -P OUTPUT ACCEPT</code></pre></li>
+</ul>
+</section><section id="commands-3" class="slide level2">
+<h2>Commands 3</h2>
+<ul>
+<li>To disable <code>FORWARD</code>, since a computer is not a router:
+<ul>
+<li><code>iptables -P FORWARD DROP</code></li>
+</ul></li>
+<li>To reject Dropbox LAN-Sync packets:
+<ul>
+<li><code>iptables -A INPUT -p tcp --dport 17500 -j REJECT  --reject-with icmp-port-unreachable</code></li>
+</ul></li>
+<li>We use <code>REJECT</code> and not <code>DROP</code> since RFC 1122 requires hosts to return ICMP errors whenever possible.</li>
+</ul>
+</section><section id="effect" class="slide level2">
+<h2>Effect</h2>
+<pre><code>iptables -nvL --line-numbers
+Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
+num   pkts bytes target     prot opt in     out     source               destination
+1        0     0 REJECT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:17500 reject-with icmp-port-unreachable
+
+Chain FORWARD (policy DROP 0 packets, 0 bytes)
+num   pkts bytes target     prot opt in     out     source               destination
+
+Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
+num   pkts bytes target     prot opt in     out     source               destination</code></pre>
+</section><section id="commands-4" class="slide level2">
+<h2>Commands 4</h2>
+<ul>
+<li>We installed Dropbox and want to use LAN-Sync with one specfic host in our network:
+<ul>
+<li><code>iptables -R INPUT 1 -p tcp --dport 17500 ! -s 10.0.0.85 -j REJECT  --reject-with icmp-port-unreachable</code></li>
+</ul></li>
+</ul>
+</section><section id="effect-1" class="slide level2">
+<h2>Effect</h2>
+<pre><code>iptables -nvL --line-numbers
+Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
+num   pkts bytes target     prot opt in     out     source               destination
+1        0     0 REJECT     tcp  --  *      *      !10.0.0.85            0.0.0.0/0            tcp dpt:17500 reject-with icmp-port-unreachable
+
+Chain FORWARD (policy DROP 0 packets, 0 bytes)
+num   pkts bytes target     prot opt in     out     source               destination
+
+Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
+num   pkts bytes target     prot opt in     out     source               destination</code></pre>
+</section><section id="commands-5" class="slide level2">
+<h2>Commands 5</h2>
+<ul>
+<li>To allow immediatly without further inspection by any other rule:
+<ul>
+<li><code>iptables -I INPUT -p tcp --dport 17500 -s 10.0.0.85 -j ACCEPT  -m comment --comment &quot;Friendly Dropbox&quot;</code></li>
+</ul></li>
+<li>Replace second rule with one that rejects everything on port 17500:
+<ul>
+<li><code>iptables -R INPUT 2 -p tcp --dport 17500 -j REJECT  --reject-with icmp-port-unreachable</code></li>
+</ul></li>
+</ul>
+</section><section id="effect-2" class="slide level2">
+<h2>Effect</h2>
+<pre><code>user@host~# iptables -nvL --line-number
+Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
+num   pkts bytes target     prot opt in     out     source               destination
+1        0     0 ACCEPT     tcp  --  *      *       10.0.0.85            0.0.0.0/0            tcp dpt:17500 /* Friendly Dropbox */
+2        0     0 REJECT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:17500 reject-with icmp-port-unreachable
+
+Chain FORWARD (policy DROP 0 packets, 0 bytes)
+num   pkts bytes target     prot opt in     out     source               destination
+
+Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
+num   pkts bytes target     prot opt in     out     source               destination</code></pre>
 </section><section id="firewall-deamon" class="slide level2">
 <h2>Firewall-Deamon</h2>
 </section></section>
