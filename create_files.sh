@@ -23,7 +23,7 @@ pandoc $(ls -d -1 ./Markdown/*.* | sort) -o ./Slides/moon.html \
 for theme in default simple sky beige serif solarized blood moon night black league white
 do
     pandoc $(ls -d -1 ./Markdown/*.* | sort) -o ./Slides/${theme}.html \
-        -t revealjs -V theme=${theme} \
+        -t revealjs -V theme=${theme} -V center=false \
         -V revealjs-url="./Resources/reveal.js-3.7.0" \
         -V transition=slide -V width=1280 -V margin="0.1" \
         --slide-level=2 -s
