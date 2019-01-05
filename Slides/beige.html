@@ -1,0 +1,2460 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Paraidomat">
+  <meta name="author" content="Toxicolo">
+  <title>Linux Turbo Awesome</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="./Resources/reveal.js-3.7.0/css/reveal.css">
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="./Resources/reveal.js-3.7.0/css/theme/beige.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? './Resources/reveal.js-3.7.0/css/print/pdf.css' : './Resources/reveal.js-3.7.0/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="./Resources/reveal.js-3.7.0/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Linux Turbo Awesome</h1>
+  <p class="subtitle">Linux Basics for the upcoming system administrator.</p>
+  <p class="author">Paraidomat</p>
+  <p class="author">Toxicolo</p>
+</section>
+
+<section><section id="introduction" class="title-slide slide level1"><h1>Introduction</h1></section><section id="curriculum-i" class="slide level2">
+<h2>Curriculum I</h2>
+<ol type="1">
+<li>Introduction</li>
+<li>File System Tree Layout</li>
+<li>Processes</li>
+<li>Package Management</li>
+<li>System Monitoring</li>
+<li>Linux Filesystems</li>
+<li>Kernel</li>
+</ol>
+</section><section id="curriculum-ii" class="slide level2">
+<h2>Curriculum II</h2>
+<ol type="1">
+<li>User and Group Account Management</li>
+<li>Networking</li>
+<li>Firewalls</li>
+<li>System Startup + Shutdown</li>
+<li>Backup and Recovery Methods</li>
+<li>Local System Security</li>
+<li>Troubleshooting and System Rescue</li>
+</ol>
+</section><section id="basic-layouts" class="slide level2">
+<h2>Basic Layouts</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">def</span> foo():</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">    <span class="co">&quot;&quot;&quot;this is some sourcecode&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">    <span class="bu">print</span>(<span class="st">&quot;You won&#39;t see much of it in here&quot;</span>)</a></code></pre></div>
+<ul>
+<li>This is a single command: <code>foo -bar</code></li>
+<li>This is a variable: <code>$foobar</code> or <code>${foobar}</code></li>
+</ul>
+<blockquote>
+<p>This is a key takeaway point.</p>
+</blockquote>
+</section><section id="how-to-move-within-linux" class="slide level2">
+<h2>How to move within Linux</h2>
+<ul>
+<li>Read the Contents of a file: <code>cat</code>, <code>less</code>, <code>more</code></li>
+<li>Change directory: <code>cd</code>
+<ul>
+<li>Change to parent directry: <code>cd ..</code></li>
+</ul></li>
+<li>Get Content of current directory: <code>ls</code>, <code>ls -la</code></li>
+<li>Edit text or configuration file: <code>nano</code>, <code>vi</code>, <code>vim</code></li>
+<li>Get the last command again: Up-Arrow on keyboard.</li>
+<li>Run the last command again: <code>!!</code></li>
+</ul>
+</section></section>
+<section><section id="filesystem-tree-layout" class="title-slide slide level1"><h1>Filesystem Tree Layout</h1></section><section id="history-of-the-linux-filesystem" class="slide level2">
+<h2>History of the Linux Filesystem</h2>
+<ul>
+<li>Linux inherits many concepts from its Unix predecessors.</li>
+<li>The Linux Filesystem Hierarchy Standard (FHS) is a prescriptive standard
+<ul>
+<li>Maintained by Linux Foundation</li>
+<li>establishes organizational layout that Linux distros should uphold</li>
+</ul></li>
+<li>Used for
+<ul>
+<li>interoperability</li>
+<li>ease of administration</li>
+<li>ability to implement cross-distro applications reliably</li>
+</ul></li>
+</ul>
+</section><section id="history-of-the-linux-filesystem-2" class="slide level2">
+<h2>History of the Linux Filesystem 2</h2>
+<blockquote>
+<p>Linux implements just about everything as a file!</p>
+</blockquote>
+<ul>
+<li>A text file is a file.</li>
+<li>A directory is a file (simply a lst of other files).</li>
+<li>A printer is represented by a file (device drivers send everything written to the printer file to the physical printer)</li>
+</ul>
+</section><section id="history-of-the-linux-filesystem-3" class="slide level2">
+<h2>History of the Linux Filesystem 3</h2>
+<ul>
+<li>Oversimplification.</li>
+<li>Approach the designers encourages:</li>
+</ul>
+<blockquote>
+<p>passing text and bytes back and forth and being able to apply similar strategies for editing and accessing diverse components.</p>
+</blockquote>
+</section><section id="overview-of-the-filesystem-layout" class="slide level2">
+<h2>Overview of the Filesystem Layout</h2>
+<ul>
+<li>Linux filesystem is contained within a single tree
+<ul>
+<li>Regardless of how many devices are incorporated</li>
+<li>All components accessible to the OS are represented somewhere in filesystem</li>
+</ul></li>
+<li>In Windows each storage space is represented as its own filesystem
+<ul>
+<li>Labeled with letter designations (C:, D:)</li>
+</ul></li>
+</ul>
+</section><section id="overview-of-the-filesystem-layout-2" class="slide level2">
+<h2>Overview of the Filesystem Layout 2</h2>
+<ul>
+<li>Every file and device on the system resides under the “root” directory <code>/</code>.</li>
+</ul>
+<blockquote>
+<p>The root directory is not to be confused with default administrative root user. It is also different from the default administraive user’s home directory (<code>/root</code>)</p>
+</blockquote>
+</section><section id="overview-of-the-filesystem-layout-2-1" class="slide level2">
+<h2>Overview of the Filesystem Layout 2</h2>
+<pre><code>user@host:/$ ls
+bin    dev   initrd.img      lib64       mnt   root  snap  tmp  vmlinuz
+boot   etc   initrd.img.old  lost+found  opt   run   srv   usr  vmlinuz.old
+cdrom  home  lib             media       proc  sbin  sys   var</code></pre>
+<ul>
+<li>Every file, device, directory, or application is located under this one directory.</li>
+</ul>
+</section><section id="bin" class="slide level2">
+<h2><code>/bin</code></h2>
+<aside class="notes">
+<ul>
+<li><code>cd</code> command is actually built into the shell (bash), which is in <code>bin</code> too</li>
+</ul>
+</aside>
+<ul>
+<li>Contains basic commands and programs that are needed to achieve a minimal working environment upon booting.</li>
+<li>Kept separate from some of the other programs on the system
+<ul>
+<li>allows booting the system for maintainance</li>
+<li>even if other parts of the filesystem may be damaged or unavailable</li>
+</ul></li>
+<li>In this directory, you will find tools like <code>ls</code> and <code>pwd</code></li>
+</ul>
+</section><section id="boot" class="slide level2">
+<h2><code>/boot</code></h2>
+<ul>
+<li>Contains the core components that actually allow the system to boot.
+<ul>
+<li>Actual files, images and kernels necessary to boot the system.</li>
+</ul></li>
+<li>If you need to modify the bootloader on your system, or want to see the kernel files and inital ramdisk (<code>initrd</code>), you can find here.</li>
+<li>Must be accessible to the system very early on.</li>
+</ul>
+</section><section id="dev" class="slide level2">
+<h2><code>/dev</code></h2>
+<ul>
+<li>Houses the files that represent devices on your system.</li>
+<li>Every hard drive, terminal device, input or output device available to the system is represented by a file here.</li>
+<li>Depending on device, you can operate on the devices in different ways.</li>
+<li>For instance:
+<ul>
+<li>A device represents a hard drive, like <code>/dev/sda</code>, is mountable to the filesystem, in order to be accessible.</li>
+<li>A file that represents a line printer like <code>/dev/lpr</code>, one can write directly to it to send the information to the printer.</li>
+</ul></li>
+</ul>
+</section><section id="etc" class="slide level2">
+<h2><code>/etc</code></h2>
+<ul>
+<li>One will spend a lot of time in this directory, when you’re working as a system administrator.</li>
+<li>A configuration directory for various system-wide services.</li>
+<li>Contains many files and subdirectories.
+<ul>
+<li>Configuration files for most of the activities on the system</li>
+</ul></li>
+<li>If more than one configuration file is needed, many times an application-specific subdirectory is created to hold these files.</li>
+<li>When attempting to configure a service or program for the entire system, this is the first place to look.</li>
+</ul>
+</section><section id="home" class="slide level2">
+<h2><code>/home</code></h2>
+<ul>
+<li>Contains the <strong>home directory</strong> of all the users on the system (except root)</li>
+<li>When a user is created, a directory matching their username will typically be created under this directory.</li>
+<li>Inside, the associated user has has write access.</li>
+<li>Regular users only have write access to their own home directory.</li>
+<li>This helps keep the file system clean</li>
+</ul>
+</section><section id="home-2" class="slide level2">
+<h2><code>/home</code> 2</h2>
+<ul>
+<li>Ensures that not just anyone can change important configuration files.</li>
+<li>Within the home directory, that are often hidden files and directories (<strong>represented by a starting dot</strong>)
+<ul>
+<li>Allow for user-specific configuration of tools.</li>
+<li>One can set system defaults in the <code>/etc</code> directory, and then each user can override them as necessary in their own home directory.</li>
+</ul></li>
+</ul>
+</section><section id="lib" class="slide level2">
+<h2><code>/lib</code></h2>
+<ul>
+<li>Used for all the shared system <strong>libraries</strong> that are required by the <code>/bin</code> and <code>/sbin</code> directories.</li>
+<li>These files basically provide functionality to the other programs on the system.</li>
+<li>This is one of the directories that one won’t have to access often.</li>
+</ul>
+</section><section id="listfound" class="slide level2">
+<h2><code>/list+found</code></h2>
+<ul>
+<li>Special directory that contains files recovered by <code>/fsck</code>, the Linux filesystem repair program.</li>
+<li>If the filesystem is damaged and recovery is undertaken, sometimes files are found but the reference to their location is lost.</li>
+<li>In this case, the system will place them in this directory.</li>
+<li>In most cases, this directory will remain empty.
+<ul>
+<li>If you experience corruption or any similar problems and are forced to perform recovery operations, it’s a good idea to check this location when you are finished.</li>
+</ul></li>
+</ul>
+</section><section id="media" class="slide level2">
+<h2><code>/media</code></h2>
+<ul>
+<li>Typically empty at boot.</li>
+<li>Its real purpose is simply to provide a location to mount removeable media (like CDs).</li>
+<li>In a server environment, this won’t be used.</li>
+<li>If Linux ever mounts a media disk and you are unsure of where it placed it, this is a safe bet.</li>
+</ul>
+</section><section id="mnt" class="slide level2">
+<h2><code>/mnt</code></h2>
+<aside class="notes">
+<p>What is a VPS? A virtual private server you can rent.</p>
+</aside>
+<ul>
+<li>Directory is similar to the <code>/media</code> directory in that it exists only to serve as a organization mount point for devices.</li>
+<li>This location is usually used to mount filesystems like external hard drives, etc.</li>
+<li>This directory is often used in a VPS environment for mounting network accessible drivers.</li>
+<li>If you have a filesystem on a remote system that you would like to mount on your server, this is a good place to do that.</li>
+</ul>
+</section><section id="opt" class="slide level2">
+<h2><code>/opt</code></h2>
+<ul>
+<li>Usage is rather ambiguous.</li>
+<li>Used by some distributions, but ignored by others.</li>
+<li>Typically, it is used to store optional packages.</li>
+<li>This usually means packages and applications that were not installed from the repositories.</li>
+</ul>
+</section><section id="opt-2" class="slide level2">
+<h2><code>/opt</code> 2</h2>
+<ul>
+<li>Example:
+<ul>
+<li>Your distribution typically provides the packages through a package manager like <code>apt</code> or <code>yum</code></li>
+<li>You installed programm X from source, then this directory would be a good location for that software.</li>
+<li>Another popular option for software of this nature is <code>/usr/local</code></li>
+</ul></li>
+</ul>
+</section><section id="proc" class="slide level2">
+<h2><code>/proc</code></h2>
+<ul>
+<li>Actually more than just a regular directory.</li>
+<li>It is actually a pseudo-filesystem of its own that is mounted to that directory.</li>
+<li>The proc filesystem does no contain real files.
+<ul>
+<li>Instead dynamically generated to reflect the interal state of the Linux kernel.</li>
+</ul></li>
+</ul>
+</section><section id="proc-2" class="slide level2">
+<h2><code>/proc</code> 2</h2>
+<ul>
+<li>This means that we can check and modify different information from the kernel itself in real time.
+<ul>
+<li>Like detailed information about memory usage by typing <code>cat /proc/meminfo</code></li>
+</ul></li>
+</ul>
+</section><section id="root" class="slide level2">
+<h2><code>/root</code></h2>
+<ul>
+<li>Home directory of the administrative user (root).</li>
+<li>Functions exactly like the normal home directory, but is housed here instead.</li>
+</ul>
+</section><section id="run" class="slide level2">
+<h2><code>/run</code></h2>
+<ul>
+<li>For the OS to write temporary runtime information during early stage of the boot process.</li>
+<li>In general, you should not have to worry about much of the information in this directory.</li>
+</ul>
+</section><section id="sbin" class="slide level2">
+<h2><code>/sbin</code></h2>
+<ul>
+<li>Much like <code>/bin</code> directory.</li>
+<li>Contains programs deemed essential for using the operating system.</li>
+<li>Distinction is usually that <code>/sbin</code> contains commands that are to available to the system administrator</li>
+<li>Other directory contains programs for all of the users of the system.</li>
+</ul>
+</section><section id="selinux" class="slide level2">
+<h2><code>/selinux</code></h2>
+<ul>
+<li>This directory contains information involving security enhanced Linux.</li>
+<li>This is a <strong>kernel module</strong> that is used to provide access control to the operating system.</li>
+<li>For the most part this can be ignored.</li>
+</ul>
+</section><section id="srv" class="slide level2">
+<h2><code>/srv</code></h2>
+<ul>
+<li>This directory is used to contain data files for services provided by the computer.</li>
+<li>In most cases, this directory is not used too much because its functionality can be implemented elsewhere in the filesystem.</li>
+</ul>
+</section><section id="tmp" class="slide level2">
+<h2><code>/tmp</code></h2>
+<ul>
+<li>Used to store temporary files on the system.</li>
+<li>It is writeable by anyone on the computer and does not presist upon reboot.</li>
+<li>This means that any files that you need just for a little bit can be put here.</li>
+<li>They will be automatically deleted once the system shuts down.</li>
+</ul>
+</section><section id="usr" class="slide level2">
+<h2><code>/usr</code></h2>
+<ul>
+<li>One of the largest directories on the system.</li>
+<li>It basically includes a set of folders that look similar to those in <code>/</code>
+<ul>
+<li>Such as <code>/usr/bin</code> and <code>/usr/lib</code></li>
+</ul></li>
+<li>This location is basically used to store all non-essential programs, their documentation, libraries, and other data that is not required for the most minimal usage of the system.</li>
+</ul>
+</section><section id="usr-2" class="slide level2">
+<h2><code>/usr</code> 2</h2>
+<ul>
+<li>This is where most of the files on the system will be stored.
+<ul>
+<li>Some important directories are <code>/usr/local</code>, which is an alternative to <code>/opt</code> for storing locally compiled programs.</li>
+<li>Another interesting thing to check out is <code>/usr/share</code>
+<ul>
+<li>Contains documentation, configuration files, and other useful files.</li>
+</ul></li>
+</ul></li>
+</ul>
+</section><section id="var" class="slide level2">
+<h2><code>/var</code></h2>
+<ul>
+<li>Supposed to contain variable data.</li>
+<li>In practice, it is used to contain information or directories that you expect to grow as the system is used.
+<ul>
+<li>Like system logs, backups, and web content when operating a web server.</li>
+</ul></li>
+</ul>
+</section><section id="conclusion" class="slide level2">
+<h2>Conclusion</h2>
+<aside class="notes">
+<p>Out of this one can create a lab.</p>
+</aside>
+<ul>
+<li>Details of where things are stored can vary from distro to distro.</li>
+<li>The best way of exploring the filesystem is simply to traverse the various directories and try to find out what the files inside are for.</li>
+<li>You will begin to be able to associate different directories with different functions and be able to guess where to go for specific tasks.</li>
+</ul>
+</section><section id="conclusion-2" class="slide level2">
+<h2>Conclusion 2</h2>
+<ul>
+<li><p>If you need a quick reference for what each directory is for, you can use the built-in manual pages by typing:</p>
+<pre><code>man hier</code></pre>
+<ul>
+<li>This will give you an overview of a typical filesystem layout and the purposes of each location.</li>
+</ul></li>
+</ul>
+</section><section id="sources-further-reading" class="slide level2">
+<h2>Sources / Further Reading</h2>
+<ul>
+<li><a href="https://www.digitalocean.com/community/tutorials/how-to-understand-the-filesystem-layout-in-a-linux-vps#an-overview-of-the-linux-filesystem-layout">Source</a></li>
+</ul>
+</section><section id="minute-break" class="slide level2">
+<h2>5 Minute Break</h2>
+<progress id="pause1" value="1" max="600">
+</progress>
+<button type="button" onclick="clickHandler()">
+Start Break!
+</button>
+<script>
+    function clickHandler() {
+      var i;
+      for (i = 1; i < 600; i++) {
+        setTimeout(function(){console.log(i)}, 100000);
+        document.getElementById("pause1").setAttribute("value", i);
+      }
+    }
+</script>
+</section></section>
+<section><section id="processes" class="title-slide slide level1"><h1>Processes</h1></section><section id="introduction-1" class="slide level2">
+<h2>Introduction</h2>
+<ul>
+<li>What is a procecss and how does the Linux kernel create, manage and deletes the processes in the system?</li>
+<li>Processes carry out tasks within the operating system.</li>
+<li>A program is a set of machine code instruction and data stored in an executable image on a disk and is, as such, a passive entity.</li>
+</ul>
+</section><section id="what-is-a-process" class="slide level2">
+<h2>What is a Process</h2>
+<blockquote>
+<p>Process is a computer program in action.</p>
+</blockquote>
+<ul>
+<li>Is a dynamic entity, constantly changing as the machine code instructions are exectued by the processor.</li>
+<li>As well as the program’s instructions instructions and data, the process also includes the <strong>programm counter</strong> and all the the CPU’s <strong>registers</strong> as well as the process <strong>stacks</strong> containing temporary data such as route parameters, return addresses and saved variables.</li>
+</ul>
+</section><section id="processes-basics" class="slide level2">
+<h2>Processes basics</h2>
+<ul>
+<li><strong>Linux is a multiprocessing operating system.</strong></li>
+<li>Processes are separate tasks each with their own rights and responsibilities.</li>
+<li>If one process crashes it will not cause another process in the system to crash.
+<ul>
+<li>Unlike with monolithic OS (Cisco IOS, Windows 95)</li>
+</ul></li>
+<li>Each individual process runs in its own virtual address space and is not capable of interacting with another process except through secure, kernel managed mechanisms.
+<ul>
+<li>Interprocess Communications (IPC)</li>
+</ul></li>
+</ul>
+</section><section id="process-lifetime" class="slide level2">
+<h2>Process Lifetime</h2>
+<ul>
+<li>During the lifetime of a process it will use many system resources:
+<ul>
+<li>CPU (to run its instructions and the system’s)</li>
+<li>Physical memory (to hold it and its data)</li>
+<li>It will open and use files within the filesystem</li>
+<li>It will may use directly or indirectly use phyisical devices</li>
+</ul></li>
+<li>Linux must keep track of the process itself and of the system resources that it has so that it can manage it and the other processes in the system fairly.</li>
+<li>It would not be fair to the other processes in the system if one process monipolized most of the system’s physical memory or its CPUs.</li>
+</ul>
+</section><section id="multiprocessing" class="slide level2">
+<h2>Multiprocessing</h2>
+<ul>
+<li>Most precious resource in the system is the CPU</li>
+<li>Linux is a multiprocessing operating system
+<ul>
+<li>Its objective is to have a process running on each CPU in the system at all times, to maximize CPU utilization.</li>
+<li>If there are more processes than CPUs (and there usually are), the rest of the processes must wait before a CPU becomes free until they can be run.</li>
+</ul></li>
+</ul>
+</section><section id="multiprocessing-2" class="slide level2">
+<h2>Multiprocessing 2</h2>
+<ul>
+<li>Multiprocessing is a simple idea
+<ul>
+<li>A process is executed until it must wait (usually for some system resource)</li>
+<li>When it has this resource, it may run again.</li>
+</ul></li>
+<li>In a uniprocessing system (<code>DOS</code>), the CPU would simply sit idle and the waiting time would be wasted.</li>
+<li>In a multiprocessing system many processes are kept in memory at the same time.
+<ul>
+<li>Whenever a process has to wait the operationg system takes the CPU away from that process and gives it to another, more deserving process.</li>
+</ul></li>
+</ul>
+</section><section id="multiprocessing-3" class="slide level2">
+<h2>Multiprocessing 3</h2>
+<ul>
+<li>It is the <strong>scheduler</strong> which chooses which is the most appropriate process to run next and Linux uses a number of scheduling strategies to ensure fairness.</li>
+</ul>
+</section><section id="linux-processes" class="slide level2">
+<h2>Linux Processes</h2>
+<ul>
+<li>Each process is represented by a <code>task_struct</code> data structure (task and process are terms that Linux uses interchangeably).</li>
+<li>The <code>task</code> vector is an array of pointers to every <code>task_struct</code> data structure in the system.</li>
+<li>This means that the maximum number of processes is limited by the size of the <code>task</code> vector.</li>
+<li>As processes are created, a new <code>task_struct</code> is allocated from system memory and added into the <code>task</code> vector.</li>
+</ul>
+</section><section id="linux-processes-2" class="slide level2">
+<h2>Linux Processes 2</h2>
+<ul>
+<li>To make it easy to find, the current, running, process is pointed to by the <code>current</code> pointer # TODO: How is this implemented with Multi-CPU Servers?</li>
+<li>Linux supports real time processes just as well.
+<ul>
+<li>Real time processes have to react very quickly to external events.</li>
+<li>They are treated differently from normal user processes by the scheduler.</li>
+<li>Although <code>task_struct</code> is complex, the fields can be divided into a number of functional areas.</li>
+</ul></li>
+</ul>
+</section><section id="process-ids" class="slide level2">
+<h2>Process IDs</h2>
+<ul>
+<li>Each process is assigned a <strong>process ID</strong> or <strong>PID</strong></li>
+<li>This is how the OS identifies and keeps track of processes.</li>
+</ul>
+</section><section id="the-init-process" class="slide level2">
+<h2>The <code>init</code> process</h2>
+<ul>
+<li>The first process spawned at boot is called <strong>init</strong>.</li>
+<li><strong>init</strong> always has PID 1.</li>
+<li>It is responsible for spawning every other process on the system.</li>
+<li>Later processes are given larger PID numbers.</li>
+<li>A process’s <strong>parent</strong> is the process that was responsible for spawning it.
+<ul>
+<li>Each process (except init) has a parent PID <strong>PPID</strong>.</li>
+</ul></li>
+</ul>
+</section><section id="parent-child-relationships" class="slide level2">
+<h2>Parent-Child Relationships</h2>
+<ul>
+<li>Creating a child process happens in two steps:
+<ul>
+<li><code>fork()</code>, which creates new address space and copies the resources owned by the parent via copy-on-write to be available to the child process.</li>
+<li><code>exec()</code>, which loads an executable into the address space and executes it.</li>
+</ul></li>
+</ul>
+</section><section id="zombies" class="slide level2">
+<h2>Zombies</h2>
+<ul>
+<li>In the event that a child process dies before its parent, the child becomes a zombie
+<ul>
+<li>until parent has collected information about it or indicated to the kernel, that it doesn’t need that information.</li>
+<li>The resources from the child process will then be freed.</li>
+<li>If the parent process dies before the child, the child will be adopted by init
+<ul>
+<li>It can also be reassigned to another process.</li>
+</ul></li>
+</ul></li>
+</ul>
+</section><section id="how-to-send-signals-to-processes" class="slide level2">
+<h2>How to send signals to processes</h2>
+<ul>
+<li>All processes respond to <strong>signals</strong> in one way or another.</li>
+<li><strong>Signals</strong> are the OS way of telling programs to terminate or modify their behavior.</li>
+</ul>
+</section><section id="kill" class="slide level2">
+<h2><code>kill</code></h2>
+<ul>
+<li>Most common way: <code>kill ${pid}</code>
+<ul>
+<li>Attempts to kill process.</li>
+<li>Sends the <code>TERM</code> signal.</li>
+<li>Tells process to <strong>please</strong> terminate.</li>
+<li>Allows program to perform clean-up operations and exit smoothly.</li>
+</ul></li>
+</ul>
+</section><section id="kill-2" class="slide level2">
+<h2><code>kill</code> 2</h2>
+<ul>
+<li><code>kill -KILL ${pid}</code>
+<ul>
+<li>Sends the <code>KILL</code> signal.</li>
+<li>If the programm is misbehaving and does not exit with <code>TERM</code> signal.</li>
+<li>Special signal that is not sent to the program, but to the kernel.
+<ul>
+<li>Kernel then shuts down the process.</li>
+</ul></li>
+<li>Used to bypass programs that ignore the signals sent to them.</li>
+</ul></li>
+</ul>
+</section><section id="other-purposes" class="slide level2">
+<h2>Other Purposes</h2>
+<ul>
+<li>Signals are not only used to shut down programs.</li>
+<li>Deamons will restart when given <code>HUP</code> (hang-up) signal: <code>kill -HUP ${pid}</code></li>
+<li>List all signals possible: <code>kill -l</code></li>
+</ul>
+</section><section id="send-signals-to-processes-by-name" class="slide level2">
+<h2>Send Signals to Processes by Name</h2>
+<ul>
+<li>Use <code>pkill ${process_name}</code>
+<ul>
+<li>Works the same way as <code>kill</code> but operate with process name.</li>
+</ul></li>
+<li>`killall ${process_name}
+<ul>
+<li>Sends a signal to every instance of a certain process.</li>
+</ul></li>
+</ul>
+</section><section id="process-management" class="slide level2">
+<h2>Process Management</h2>
+<ul>
+<li><code>top</code> - Display Linux processes</li>
+<li><code>htop</code>- Interactive process viewer</li>
+<li><code>ps</code> - Report a snapshot of the current processes</li>
+<li><code>pgrep</code> - Look up processes based on name and other attributes</li>
+<li><code>kill</code> - Sends a signal to a process by PID.</li>
+<li><code>pkill</code> - Sends a signal to a processes with name = x.</li>
+<li><code>killall</code> - Sends s signal to <strong>all</strong> processes with name = x.</li>
+</ul>
+</section><section id="sources-further-reading-1" class="slide level2">
+<h2>Sources / Further Reading</h2>
+<ul>
+<li><a href="https://www.tldp.org/LDP/tlk/kernel/processes.html">Source 1</a></li>
+<li><a href="https://www.digitalocean.com/community/tutorials/how-to-use-ps-kill-and-nice-to-manage-processes-in-linux">Source 2</a></li>
+</ul>
+</section></section>
+<section><section id="package-management-basics" class="title-slide slide level1"><h1>Package Management Basics</h1></section><section id="introduction-2" class="slide level2">
+<h2>Introduction</h2>
+<ul>
+<li>Most modern Linux OS’s offer a centralized mechanism for finding and installing software.</li>
+<li>Software is distributed in the form of <strong>packages</strong>.</li>
+<li>Packages are kept in <strong>repositories</strong>.</li>
+<li>Working with packages is known as <strong>package management</strong>.</li>
+<li>Packages provide the basic components of the OS, shared libraries,<br />
+applications, services and documentation.</li>
+</ul>
+</section><section id="introduction-2-1" class="slide level2">
+<h2>Introduction 2</h2>
+<ul>
+<li>The package management system does much more than one-time installation of software.
+<ul>
+<li>It also provides tools for upgrading already-installed packages.</li>
+</ul></li>
+<li>Repositories help to ensure that code has been vetted for use on your system, and that the installed versions of software have been approved by developers and package maintainers.</li>
+</ul>
+</section><section id="brief-overview-over-the-systems" class="slide level2">
+<h2>Brief Overview over the Systems</h2>
+<ul>
+<li>Most system are built around collection of package files.</li>
+<li>Package file is usually an <strong>archive</strong> which contains <strong>compiled binaries</strong> and other resources making up the software, along with <strong>installation scripts</strong>.
+<ul>
+<li>Also contains valuable metadata, like <strong>dependencies</strong>!</li>
+</ul></li>
+</ul>
+</section><section id="brief-overview-over-the-system-2" class="slide level2">
+<h2>Brief Overview over the System 2</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Operating System</th>
+<th>Format</th>
+<th>Tool(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Debian</td>
+<td>.deb</td>
+<td><code>apt</code>, <code>apt-cache</code>, <code>apt-get</code>, <code>dpkg</code></td>
+</tr>
+<tr class="even">
+<td>Ubuntu</td>
+<td>.deb</td>
+<td><code>apt</code>, <code>apt-cache</code>, <code>apt-get</code>, <code>dpkg</code></td>
+</tr>
+<tr class="odd">
+<td>Raspian</td>
+<td>.deb</td>
+<td><code>apt</code>, <code>apt-cache</code>, <code>apt-get</code>, <code>dpkg</code></td>
+</tr>
+<tr class="even">
+<td>CentOS</td>
+<td>.rpm</td>
+<td><code>yum</code></td>
+</tr>
+</tbody>
+</table>
+</section><section id="update-package-lists" class="slide level2">
+<h2>Update Package Lists</h2>
+<table>
+<thead>
+<tr class="header">
+<th>System</th>
+<th>Command</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Debian / Ubuntu</td>
+<td><code>sudo apt-get update</code>, <code>sudo apt update</code></td>
+</tr>
+<tr class="even">
+<td>CentOS</td>
+<td><code>yum check-update</code></td>
+</tr>
+</tbody>
+</table>
+</section><section id="upgrade-installed-packages-debianubuntu" class="slide level2">
+<h2>Upgrade Installed Packages Debian/Ubuntu</h2>
+<table>
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>sudo apt-get upgrade</code></td>
+<td>Only upgrades installed packages, where possible.</td>
+</tr>
+<tr class="even">
+<td><code>sudo apt-get dist-upgrade</code></td>
+<td>May add or remove packages to satisfy new dependencies.</td>
+</tr>
+<tr class="odd">
+<td><code>sudo apt upgrade</code></td>
+<td>Like apt-get upgrade.</td>
+</tr>
+<tr class="even">
+<td><code>sudo apt full-upgrade</code></td>
+<td>Like apt-get dist-upgrade.</td>
+</tr>
+</tbody>
+</table>
+</section><section id="upgrade-installed-packages-centos" class="slide level2">
+<h2>Upgrade Installed Packages CentOS</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Command</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>sudo yum update</code></td>
+</tr>
+</tbody>
+</table>
+</section><section id="find-packages-ubuntudebian" class="slide level2">
+<h2>Find Packages Ubuntu/Debian</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>apt-cache search $search_string</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>apt search $search_string</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section><section id="find-packages-centos" class="slide level2">
+<h2>Find Packages CentOS</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>yum search $search_string</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>yum search all $search_string</code></td>
+<td>Searches all fields, including description.</td>
+</tr>
+</tbody>
+</table>
+</section><section id="view-info-about-a-specific-package-debianubuntu" class="slide level2">
+<h2>View Info About a Specific Package Debian/Ubuntu</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>apt-cache show $package</code></td>
+<td>Shows locally-cached info about a package.</td>
+</tr>
+<tr class="even">
+<td><code>apt show $package</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>dpkg -s $package</code></td>
+<td>Shows the current installed status of a package.</td>
+</tr>
+</tbody>
+</table>
+</section><section id="view-info-about-a-specific-package-centos" class="slide level2">
+<h2>View Info About a Specific Package CentOS</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>yum info $package</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>yum deplist $package</code></td>
+<td>Lists dependencies for a package.</td>
+</tr>
+</tbody>
+</table>
+</section><section id="install-a-package-from-repositories-debianubuntu" class="slide level2">
+<h2>Install a Package from Repositories Debian/Ubuntu</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>sudo apt-get install $package</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>sudo apt-get install $package1 $package2</code></td>
+<td>Installs all listed packages.</td>
+</tr>
+</tbody>
+</table>
+</section><section id="install-a-package-from-repositories-debianubuntu-2" class="slide level2">
+<h2>Install a Package from Repositories Debian/Ubuntu 2</h2>
+<table>
+<colgroup>
+<col style="width: 45%" />
+<col style="width: 55%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>sudo apt-get install -y $package</code></td>
+<td>Assumes yes where apt would usually prompt to continue.</td>
+</tr>
+<tr class="even">
+<td><code>sudo apt install $package</code></td>
+<td>Displays a colored progress bar.</td>
+</tr>
+</tbody>
+</table>
+</section><section id="install-a-package-from-repositories-centos" class="slide level2">
+<h2>Install a Package from Repositories CentOS</h2>
+<table>
+<colgroup>
+<col style="width: 42%" />
+<col style="width: 57%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>sudo yum install $package</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>sudo yum install $package1 $package2</code></td>
+<td>Installs all listed packages.</td>
+</tr>
+<tr class="odd">
+<td><code>sudo yum install -y $package</code></td>
+<td>Assumes yes where yum would usually prompt to continue.</td>
+</tr>
+</tbody>
+</table>
+</section><section id="install-a-package-from-the-local-filesystem-on-debianubuntu" class="slide level2">
+<h2>Install a Package from the Local Filesystem on Debian/Ubuntu</h2>
+<table>
+<colgroup>
+<col style="width: 58%" />
+<col style="width: 41%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>sudo dpkg -i $package.deb</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>sudo apt-get install -y gdebi &amp;&amp; sudo gdebi $package.deb</code></td>
+<td>Installs and uses <code>gdebi</code> to install $package.deb and retriefe any missing dependencies.</td>
+</tr>
+</tbody>
+</table>
+</section><section id="install-a-package-from-the-local-filesystem-on-centos" class="slide level2">
+<h2>Install a Package from the Local Filesystem on CentOS</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>sudo yum install $package.rpm</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section><section id="remove-one-or-more-installed-packages-on-debianubuntu" class="slide level2">
+<h2>Remove One or More Installed Packages on Debian/Ubuntu</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>sudo apt-get remove $package</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>sudo apt remove $package</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>sudo apt-get autoremove</code></td>
+<td>Removes undeeded packages.</td>
+</tr>
+</tbody>
+</table>
+</section><section id="remove-one-or-more-installed-packages-on-centos" class="slide level2">
+<h2>Remove One or More Installed Packages on CentOS</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>sudo yum remove $package</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section><section id="the-apt-command" class="slide level2">
+<h2>The <code>apt</code> Command</h2>
+<ul>
+<li><code>apt</code> is a simplified interface, designed for interactive use.</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th>Traditional Command</th>
+<th><code>apt</code> Equivalent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>apt-get update</code></td>
+<td><code>apt update</code></td>
+</tr>
+<tr class="even">
+<td><code>apt-get dist-upgrade</code></td>
+<td><code>apt full-upgrade</code></td>
+</tr>
+<tr class="odd">
+<td><code>apt-cache search $string</code></td>
+<td><code>apt search $string</code></td>
+</tr>
+<tr class="even">
+<td><code>apt-get install $package</code></td>
+<td><code>apt install $package</code></td>
+</tr>
+<tr class="odd">
+<td><code>apt-get remove $package</code></td>
+<td><code>apt remove $package</code></td>
+</tr>
+<tr class="even">
+<td><code>apt-get purge $package</code></td>
+<td><code>apt purge $package</code></td>
+</tr>
+</tbody>
+</table>
+</section><section id="sources-references" class="slide level2">
+<h2>Sources / References:</h2>
+<ul>
+<li><a href="https://www.digitalocean.com/community/tutorials/package-management-basics-apt-yum-dnf-pkg">Source</a></li>
+<li><a href="https://www.digitalocean.com/community/tutorials/ubuntu-and-debian-package-management-essentials">Further Reading Ubuntu/Debian</a></li>
+<li><a href="https://www.centos.org/docs/5/html/yum/">Further Reading CentOS</a></li>
+</ul>
+</section></section>
+<section><section id="system-monitoring" class="title-slide slide level1"><h1>System Monitoring</h1></section><section id="introduction-3" class="slide level2">
+<h2>Introduction</h2>
+<ul>
+<li>In order to achieve the best possible availability proper administration and monitoring are crutial.</li>
+<li>Keeping an eye on how your system is running will help you discover issues and resolve them quickly.</li>
+<li>There are plenty of command line tools created for this purpose.</li>
+<li>There are also automated Monitoring Systems like <a href="www.icinga.com">Icinga2</a></li>
+</ul>
+</section><section id="how-do-i-monitor-process-utilization" class="slide level2">
+<h2>How Do I Monitor Process Utilization?</h2>
+<aside class="notes">
+<ul>
+<li>Top portion has some system statistics
+<ul>
+<li>load average (1m, 5m, 15m)</li>
+<li>Memory + Swap usage</li>
+<li>Count of various process states.</li>
+</ul></li>
+<li>Bottom Portion has every process on the system
+<ul>
+<li>Organized by top users of resources</li>
+<li>List is updated in real time.</li>
+</ul></li>
+</ul>
+</aside>
+<h3 id="top"><code>top</code></h3>
+<ul>
+<li>The most common tool, everywhere installed by default.
+<ul>
+<li>Provides a simple, real-time table of the procceses</li>
+<li>largest consumers on top.</li>
+</ul></li>
+<li>Live Demo</li>
+</ul>
+</section><section id="how-do-i-monitor-process-utilization-1" class="slide level2">
+<h2>How Do I Monitor Process Utilization?</h2>
+<h3 id="htop"><code>htop</code></h3>
+<aside class="notes">
+<ul>
+<li>Top portion is much easier to read</li>
+<li>Bottom is organized in a more clear fashion</li>
+<li>Useful hotkeys:
+<ul>
+<li><code>M</code>: Sort processes by memory usage</li>
+<li><code>P</code>: Sort processes by processor usage</li>
+<li><code>?</code>: Access help</li>
+<li><code>k</code>: Kill current/tagged processes</li>
+<li><code>F2</code>: Setup</li>
+<li><code>/$searchterm</code>: Search processes (like with <code>less</code> or <code>vi</code>)</li>
+</ul></li>
+</ul>
+</aside>
+<ul>
+<li>Needs to be installed</li>
+<li>Has similar output like <code>top</code>
+<ul>
+<li>is colorized and more interactive</li>
+</ul></li>
+<li>Live Demo</li>
+</ul>
+</section><section id="how-do-i-find-out-which-program-is-using-my-bandwidth" class="slide level2">
+<h2>How Do I Find Out Which Program Is Using My Bandwidth?</h2>
+<h3 id="nethogs"><code>nethogs</code></h3>
+<aside class="notes">
+<ul>
+<li>Only a few available commands:
+<ul>
+<li><code>m</code>: Change between kb/s, kb, b and mb</li>
+<li><code>r</code>: Sort by received.</li>
+<li><code>s</code>: Sort by sent.</li>
+<li><code>q</code>: quit.</li>
+</ul></li>
+</ul>
+</aside>
+<ul>
+<li>Needs to be installed</li>
+</ul>
+<pre><code>NetHogs version 0.8.0
+
+  PID USER     PROGRAM                      DEV        SENT      RECEIVED
+3379  root     /usr/sbin/sshd               eth0       0.485       0.182 KB/sec
+820   root     sshd: root@pts/0             eth0       0.427       0.052 KB/sec
+?     root     unknown TCP                             0.000       0.000 KB/sec
+
+  TOTAL                                                0.912       0.233 KB/sec</code></pre>
+</section><section id="how-do-i-find-out-which-program-is-using-my-bandwidth-1" class="slide level2">
+<h2>How Do I Find Out Which Program Is Using My Bandwidth?</h2>
+<h3 id="netstat"><code>netstat</code></h3>
+<ul>
+<li>By default, <code>netstat</code> prints a list of open sockets.</li>
+<li>If we add <code>-a</code>, it will list all ports, listening and non-listening.</li>
+<li>If you just want to see TCP or UDP connections, add <code>-t</code> or <code>-u</code>.</li>
+<li>See statistics with <code>-s</code></li>
+<li>Continuously update output with <code>-c</code></li>
+</ul>
+</section><section id="how-do-i-find-out-how-much-disk-space-i-have-left" class="slide level2">
+<h2>How Do I Find Out How Much Disk Space I Have Left?</h2>
+<h3 id="df"><code>df</code></h3>
+<aside class="notes">
+<ul>
+<li>Output without <code>-h</code> is in bytes, with <code>-h</code> it’s <strong>human readable</strong></li>
+<li>With <code>--total</code> you can see total disk space available on all Filesystems</li>
+</ul>
+</aside>
+<ul>
+<li><p>Quick overview of how much disk space you have left on your drives.</p></li>
+<li><p>Live Demo</p></li>
+</ul>
+</section><section id="how-do-i-find-out-how-much-disk-space-i-have-left-1" class="slide level2">
+<h2>How Do I Find Out How Much Disk Space I Have Left?</h2>
+<h3 id="du"><code>du</code></h3>
+<aside class="notes">
+<ul>
+<li><code>du</code></li>
+<li><code>du -h</code></li>
+<li><code>du -sh</code></li>
+<li><code>du -c</code> &lt;- Total at bottom</li>
+</ul>
+</aside>
+<ul>
+<li>Gives a better picture of <strong>what</strong> is taking up the space.</li>
+<li><p>Will analyze usage for the current directory and any subdirectories</p></li>
+<li><p>Live Demo</p></li>
+</ul>
+</section><section id="how-do-i-find-out-how-much-of-my-memory-is-in-use" class="slide level2">
+<h2>How Do I Find Out How Much Of My Memory Is In Use?</h2>
+<h3 id="free"><code>free</code></h3>
+<aside class="notes">
+<ul>
+<li><code>free</code></li>
+<li><p><code>free -m</code> &lt;- Output in Megabyte</p></li>
+<li><p>Mem-Line &lt;- Nice way to confuse yourself when using a monitoring System</p></li>
+</ul>
+</aside>
+<ul>
+<li><p>Easiest way for finding out the current memory usage on your system.</p></li>
+<li>Live Demo
+<ul>
+<li>Middle line, marked <code>-/+ buffers/cache</code>, will show the actual memory used by applications.</li>
+<li><code>Mem</code> line includes the memory used for buffering and caching
+<ul>
+<li>freed up as soon as needed for other purposes</li>
+</ul></li>
+</ul></li>
+</ul>
+</section><section id="sources-and-further-reading" class="slide level2">
+<h2>Sources and Further Reading</h2>
+<ul>
+<li><a href="https://www.digitalocean.com/community/tutorials/how-to-use-top-netstat-du-other-tools-to-monitor-server-resources">Source</a></li>
+</ul>
+</section></section>
+<section><section id="linux-filesystems" class="title-slide slide level1"><h1>Linux Filesystems</h1></section><section id="introduction-4" class="slide level2">
+<h2>Introduction</h2>
+<blockquote>
+<p>A Filesystem controls how data is stored and retrieved. Without a filesystem, information placed in a storage medium would be one large body of data with no way to tell where one piece of information stops and the next begins. By separating the data into pieces and giving each piece a name, the information is easily isolated and identified.</p>
+</blockquote>
+</section><section id="journaling" class="slide level2">
+<h2>Journaling</h2>
+<ul>
+<li>provides fault-resilience by logging changes before they are commited to the file system</li>
+<li>In event of system crash or power failure, such file systems are faster to bring back online and less likely to become corrupted.</li>
+<li>Logging takes place in a dedicated area of the filesystem.</li>
+</ul>
+</section><section id="ext4-basics" class="slide level2">
+<h2>ext4 basics</h2>
+<ul>
+<li>Ext4 is the evolution of the most used Linux filesystem, Ext3.</li>
+<li>Ext4 modifies important data structures of the filesystem such as the ones destined to store the file data.</li>
+<li>It is a stable, reliable and good performing filesystem.</li>
+<li>Ext4 is the default filesystem on most Linux distributions.</li>
+</ul>
+</section><section id="xfs-basics" class="slide level2">
+<h2>xfs basics</h2>
+<ul>
+<li>XFS is a high-performance journaling filesystem</li>
+<li>It is fast and proficient at parallel I/O
+<ul>
+<li>allocation group based design</li>
+</ul></li>
+<li>XFS is extremly scalable and usable</li>
+<li>Default filesystem on CentOS/RedHat</li>
+</ul>
+</section><section id="comparison" class="slide level2">
+<h2>comparison</h2>
+<ul>
+<li>In normal day usage there is no real differnce
+<ul>
+<li>Except XFS cannot be reduced in size</li>
+</ul></li>
+<li>XFS is better in handling large files and parallel I/O operations</li>
+<li>Ext4 is better in handling small files</li>
+</ul>
+</section><section id="file-permissions" class="slide level2">
+<h2>File permissions</h2>
+<blockquote>
+<p>Filesystems use <strong>permissions</strong> and <strong>attributes</strong> to regulate the level of interaction with that system processes can have with files and directories.</p>
+</blockquote>
+<blockquote>
+<p><strong>Warning:</strong> When used for security purposes, permissions and attributes only defend against attacks launched from the booted system. To protect the stored data from attackers with physical access to the machine, one must also implement <strong>disk encryption</strong>.</p>
+</blockquote>
+</section><section id="viewing-permissions-owner-group" class="slide level2">
+<h2>Viewing Permissions / Owner / Group</h2>
+<ul>
+<li><code>ls -la</code></li>
+</ul>
+<aside class="notes">
+<ul>
+<li>Explain the different outputs.</li>
+</ul>
+</aside>
+</section><section id="change-owner-group" class="slide level2">
+<h2>Change owner / group</h2>
+<ul>
+<li><code>chown $user:$group $filename</code></li>
+<li>Example: <code>chown root:wheel $filename</code></li>
+</ul>
+</section><section id="changing-permissions" class="slide level2">
+<h2>Changing permissions</h2>
+<ul>
+<li><code>chmod $who=$permissions $filename</code></li>
+<li>Possible who’s:
+<ul>
+<li><code>u</code>: <strong>U</strong>ser (or owner) of the file.</li>
+<li><code>g</code>: All users in the same <strong>g</strong>roup as the file.</li>
+<li><code>o</code>: The <strong>o</strong>ther users, i.e. everyone else.</li>
+<li><code>a</code>: <strong>a</strong>ll of the above; use this instead of <code>ugo</code></li>
+</ul></li>
+</ul>
+</section><section id="changing-permissions-2" class="slide level2">
+<h2>Changing permissions 2</h2>
+<ul>
+<li>Possible $permissions:
+<ul>
+<li><code>r</code>: <strong>r</strong>ead</li>
+<li><code>w</code>: <strong>w</strong>rite</li>
+<li><code>x</code>: e<strong>x</strong>ecute</li>
+</ul></li>
+<li>Example: <code>chmod go=rx $filename</code></li>
+</ul>
+</section><section id="changing-permissions-3" class="slide level2">
+<h2>Changing permissions 3</h2>
+<ul>
+<li>Permissions can also be displayed as a numerical value</li>
+<li><code>chmod $permissions $filename</code></li>
+<li>Possible permissions:
+<ul>
+<li><code>4</code>: <strong>r</strong>ead</li>
+<li><code>2</code>: <strong>w</strong>rite</li>
+<li><code>1</code>: e<strong>x</strong>ecute</li>
+</ul></li>
+</ul>
+</section><section id="changing-permissions-4" class="slide level2">
+<h2>Changing permissions 4</h2>
+<ul>
+<li>These values have to be added to the fitting permissions
+<ul>
+<li>First value: <strong>u</strong>ser</li>
+<li>Second value: <strong>g</strong>roup</li>
+<li>Third value: <strong>o</strong>ther</li>
+</ul></li>
+<li>Example:
+<ul>
+<li><code>7</code>: <strong>r</strong> <strong>w</strong> <strong>x</strong></li>
+<li><code>5</code>: <strong>r</strong> <strong>x</strong></li>
+<li><code>6</code>: <strong>r</strong> <strong>w</strong></li>
+<li><code>chmod 755 $file</code></li>
+<li><code>chmod 644 $file</code></li>
+</ul></li>
+</ul>
+</section><section id="partitioning" class="slide level2">
+<h2>Partitioning</h2>
+<blockquote>
+<p>Physical drives need to be partitioned before they can be used.</p>
+</blockquote>
+<blockquote>
+<p>We will use one drive with one partition in this example.</p>
+</blockquote>
+</section><section id="installing-software" class="slide level2">
+<h2>Installing software</h2>
+<ul>
+<li>First install parted
+<ul>
+<li><code>sudo apt-get install parted</code></li>
+<li><code>sudo yum install parted</code></li>
+</ul></li>
+</ul>
+</section><section id="find-new-or-unpartitioned-disk" class="slide level2">
+<h2>Find new or unpartitioned disk</h2>
+<ul>
+<li>Use parted to search for unpartitioned disks
+<ul>
+<li><code>sudo parted -l | grep Error</code></li>
+</ul></li>
+<li>Or use lsblk to search for correct disk size
+<ul>
+<li><code>sudo lsblk</code></li>
+</ul></li>
+</ul>
+</section><section id="select-partition-standard" class="slide level2">
+<h2>Select partition standard</h2>
+<ul>
+<li>There are two standards
+<ul>
+<li>GPT</li>
+<li>MBR</li>
+</ul></li>
+<li>GPT is the “new” one, MBR the “old” one</li>
+<li>To keep it simple we will usw MBR
+<ul>
+<li><code>sudo parted /dev/sdc mklabel msdos</code></li>
+</ul></li>
+</ul>
+</section><section id="create-partition-on-disk" class="slide level2">
+<h2>Create partition on disk</h2>
+<ul>
+<li>We create a Ext4 partition using the whole drive
+<ul>
+<li><code>sudo parted /dev/sda mkpart primary ext4 0% 100%</code></li>
+<li>This only <strong>specifies</strong> the follwing filesystem</li>
+</ul></li>
+<li>To verify this use <code>lsbk</code>
+<ul>
+<li><code>/dev/sdc1 will appear</code></li>
+</ul></li>
+</ul>
+</section><section id="create-filesystem" class="slide level2">
+<h2>Create Filesystem</h2>
+<blockquote>
+<p>After partitioning a filesystem needs to be created. Otherwise the new partition is useless and files cannot be stored.</p>
+</blockquote>
+</section><section id="create-the-filesystem-devsdc" class="slide level2">
+<h2>Create the filesystem /dev/sdc</h2>
+<ul>
+<li>We choose Ext4 as filesystem and test4 as the label
+<ul>
+<li><code>sudo mkfs.ext4 -L test4 /dev/sdc1</code></li>
+</ul></li>
+<li>Check new filesystem
+<ul>
+<li><code>sudo lsblk --fs</code></li>
+</ul></li>
+</ul>
+</section><section id="mounting-partitions" class="slide level2">
+<h2>Mounting partitions</h2>
+<blockquote>
+<p>New filesystems need to be mounted before they can be used. This is done in <code>/etc/fstab</code>. The simple use of <code>mount</code> will not be permanent.</p>
+</blockquote>
+</section><section id="mounting-temporary" class="slide level2">
+<h2>Mounting temporary</h2>
+<ul>
+<li>Create mountpoint
+<ul>
+<li><code>sudo mkdir -p /mnt/data</code></li>
+</ul></li>
+<li>Mount temporary
+<ul>
+<li><code>sudo mount -o defaults /dev/sda1 /mnt/data</code></li>
+</ul></li>
+</ul>
+</section><section id="mounting-permanent" class="slide level2">
+<h2>Mounting permanent</h2>
+<ul>
+<li>Create mountpoint
+<ul>
+<li><code>sudo mkdir -p /mnt/data</code></li>
+</ul></li>
+<li>Get UUID of the partition
+<ul>
+<li><code>sudo lsblk --fs</code></li>
+</ul></li>
+<li>Edit <code>/etc/fstab</code> and add mount
+<ul>
+<li><code>UUID=xxxx /mnt/data ext4 default 0 2</code></li>
+</ul></li>
+<li>Test mount before reboot
+<ul>
+<li><code>sudo mount -a</code></li>
+<li><code>sudo df -h</code></li>
+</ul></li>
+</ul>
+</section><section id="local-volume-manager-lvm" class="slide level2">
+<h2>Local Volume Manager ( LVM )</h2>
+<blockquote>
+<p>Local Volume Manager ( LVM ) is a toolset to simplify storage management with different types of storages. It breaks physical barriers and organizes storage in a logical way. The main advantages of LVM are increased abstraction, flexibility, and control</p>
+</blockquote>
+<blockquote>
+<p>Use LVM when installing Linux!</p>
+</blockquote>
+</section><section id="physical-volumes-pv" class="slide level2">
+<h2>Physical volumes ( PV )</h2>
+<ul>
+<li>Physical volumes are block devices or other storage-like hardware.
+<ul>
+<li>SSDs</li>
+<li>HDDs</li>
+<li>RAID-Devices</li>
+</ul></li>
+<li>LVM utility
+<ul>
+<li><code>pvs</code></li>
+<li><code>pvscan</code></li>
+<li><code>pvdisplay</code></li>
+</ul></li>
+</ul>
+</section><section id="volume-group-vg" class="slide level2">
+<h2>Volume Group ( VG )</h2>
+<ul>
+<li>PVs are grouped in volume groups ( VGs )</li>
+<li>Different storage types appearing as one pool</li>
+<li>LVM utility
+<ul>
+<li><code>vgs</code></li>
+<li><code>vgscan</code></li>
+<li><code>vgdisplay</code></li>
+</ul></li>
+</ul>
+</section><section id="logical-volume-lv" class="slide level2">
+<h2>Logical Volume ( LV )</h2>
+<ul>
+<li>VGs are sliced into multiple logical volumes ( LVs )</li>
+<li>LVs are similar to partitions on physical harddisks</li>
+<li>A filesystems runs on top of a LV</li>
+<li>LVM utility
+<ul>
+<li><code>lvs</code></li>
+<li><code>lvdisplay</code></li>
+<li><code>lvmdiskscan</code></li>
+</ul></li>
+</ul>
+</section><section id="use-lvm" class="slide level2">
+<h2>Use LVM</h2>
+<blockquote>
+<p>We will create a volume group out of two physical volumes with three logical volumes in different sizes.</p>
+</blockquote>
+<aside class="notes">
+<p>After that a lab will be nice!</p>
+</aside>
+</section><section id="use-lvm-create-pv" class="slide level2">
+<h2>Use LVM / create PV</h2>
+<ul>
+<li>Create PVs
+<ul>
+<li><code>sudo pvcreate /dev/sda /dev/sdb</code></li>
+</ul></li>
+<li>Check PVs
+<ul>
+<li><code>sudo pvs</code></li>
+</ul></li>
+</ul>
+</section><section id="use-lvm-add-to-vg" class="slide level2">
+<h2>Use LVM / add to VG</h2>
+<ul>
+<li>Create VG with new PVs
+<ul>
+<li><code>sudo vgcreate VolGroup /dev/sda /dev/sdb</code></li>
+</ul></li>
+<li>Check VG
+<ul>
+<li><code>sudo vgs</code></li>
+</ul></li>
+</ul>
+</section><section id="use-lvm-create-lgs" class="slide level2">
+<h2>Use LVM / create LGs</h2>
+<ul>
+<li>Create some LGs
+<ul>
+<li><code>sudo lvcreate -L 10G -n test1 VolGroup</code></li>
+<li><code>sudo lvcreate -L 3G -n test2 VolGroup</code></li>
+<li><code>sudo lvcreate -L 25G -n test3 VolGroup</code></li>
+<li><code>sudo lvcreate -l 100%FREE -n work VolGroup</code></li>
+</ul></li>
+<li>Check LGs
+<ul>
+<li><code>sudo lvs</code></li>
+</ul></li>
+</ul>
+</section><section id="create-the-filesystem-lvs" class="slide level2">
+<h2>Create the filesystem LVs</h2>
+<ul>
+<li>LVs can be found in two places
+<ul>
+<li><code>/dev/volume_group_name/logical_volume_name</code></li>
+<li><code>/dev/mapper/volume_group_name-logical_volume_name</code></li>
+</ul></li>
+<li>We choose Ext4 as well
+<ul>
+<li><code>sudo mkfs.ext4 /dev/VolGroup/test1</code></li>
+<li><code>sudo mkfs.ext4 /dev/VolGroup/test2</code></li>
+<li><code>sudo mkfs.ext4 /dev/mapper/VolGroup-test3</code></li>
+<li><code>sudo mkfs.ext4 /dev/mapper/VolGroup-work</code></li>
+</ul></li>
+</ul>
+</section><section id="mount-filesystems-temporary" class="slide level2">
+<h2>Mount filesystems temporary</h2>
+<ul>
+<li>Create mountpoints
+<ul>
+<li><code>sudo mkdir -p /mnt/{test1,test2,test3,work}</code></li>
+</ul></li>
+<li>Mount temporary
+<ul>
+<li><code>sudo mount /dev/VolGroup/test1 /mnt/test1</code></li>
+<li><code>sudo mount /dev/VolGroup/test2 /mnt/test2</code></li>
+<li><code>sudo mount /dev/mapper/VolGroup-test3 /mnt/test3</code></li>
+<li><code>sudo mount /dev/mapper/VolGroup-work /mnt/work</code></li>
+</ul></li>
+</ul>
+</section><section id="mount-filesystems-permanent" class="slide level2">
+<h2>Mount filesystems permanent</h2>
+<ul>
+<li>Simply add them to <code>/etc/fstab</code></li>
+</ul>
+</section><section id="use-lvm-advanced-options" class="slide level2">
+<h2>Use LVM / advanced options</h2>
+<ul>
+<li>LVs can be created as different types
+<ul>
+<li>linear ( default )</li>
+<li>striped ( RAID 0 )</li>
+<li>raid1</li>
+<li>raid5</li>
+<li>raid6</li>
+</ul></li>
+</ul>
+</section><section id="use-lvm-extend" class="slide level2">
+<h2>Use LVM / extend</h2>
+<ul>
+<li>One of LVM greatest possibilites is the simple extension / resize of storage</li>
+<li><p>It is possible to grow and shrink LVs</p></li>
+<li>Extend LV and filesystem
+<ul>
+<li><code>sudo lvresize -L +5G VolGroup/test1</code></li>
+<li><code>sudo resize2fs /dev/VolGroup/test1</code></li>
+</ul></li>
+</ul>
+</section><section id="use-lvm-shrink" class="slide level2">
+<h2>Use LVM / shrink</h2>
+<ul>
+<li>Check for minimal disk space need
+<ul>
+<li><code>df -h</code></li>
+</ul></li>
+<li>Unmount volume
+<ul>
+<li><code>umount /dev/VolGroup/test1</code></li>
+</ul></li>
+<li>Run filesystem check to verify there are no errors
+<ul>
+<li><code>sudo fsck -t ext4 -f /dev/VolGroup/test1</code></li>
+</ul></li>
+<li>Resize filesystem to minimal value
+<ul>
+<li><code>sudo resize2fs -p /dev/VolGroup/test1 3G</code></li>
+</ul></li>
+<li>Resize LV
+<ul>
+<li><code>sudo lvresize -L 3G VolGroup/test1</code></li>
+</ul></li>
+<li>Mount the filesystem again</li>
+</ul>
+</section><section id="use-lvm-delete-lv" class="slide level2">
+<h2>Use LVM / delete LV</h2>
+<ul>
+<li>Unmount LV</li>
+<li>Remove it
+<ul>
+<li><code>sudo lvremove VolGroup/test1</code></li>
+</ul></li>
+</ul>
+</section><section id="use-lvm-remove-vg" class="slide level2">
+<h2>Use LVM / remove VG</h2>
+<ul>
+<li>Unmount all LVs</li>
+<li>Remove it
+<ul>
+<li><code>sudo vgremove VolGroup</code></li>
+</ul></li>
+</ul>
+</section><section id="use-lvm-remove-pv" class="slide level2">
+<h2>Use LVM / remove PV</h2>
+<ul>
+<li>Remove one PV
+<ul>
+<li><code>sudo pvremove /dev/sda</code></li>
+</ul></li>
+<li>Remove one of two PVs
+<ul>
+<li><code>sudo pvmove /dev/sda</code></li>
+<li><code>sudo vgreduce VolGroup /dev/sda</code></li>
+</ul></li>
+</ul>
+</section><section id="sources" class="slide level2">
+<h2>Sources</h2>
+<ul>
+<li><a href="https://wiki.archlinux.org/index.php/File_systems">Source 1</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/Ext4">Source 2</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/Xfs">Source 3</a></li>
+<li><a href="https://www.digitalocean.com/community/tutorials/an-introduction-to-linux-permissions">Source 4</a></li>
+<li><a href="https://www.digitalocean.com/community/tutorials/how-to-partition-and-format-storage-devices-in-linux">Source 5</a></li>
+<li><a href="https://www.digitalocean.com/community/tutorials/an-introduction-to-lvm-concepts-terminology-and-operations">Source 6</a></li>
+</ul>
+</section></section>
+<section><section id="kernel" class="title-slide slide level1"><h1>Kernel</h1></section><section id="what-is-a-kernel" class="slide level2">
+<h2>What is a Kernel?</h2>
+<blockquote>
+<p>The <strong>Linux Kernel</strong> is an open-source monolithic Unix-like computer operating system kernel.</p>
+</blockquote>
+</section><section id="what-is-a-kernel-2" class="slide level2">
+<h2>What is a Kernel? 2</h2>
+<blockquote>
+<p>The <strong>kernel</strong> is a computer program that is the core of a computer’s operating system, with complete control over everything in the system.</p>
+</blockquote>
+</section><section id="what-is-a-kernel-3" class="slide level2">
+<h2>What is a Kernel? 3</h2>
+<ul>
+<li>On most systems, it is one of the first programs loaded on start-up (after the bootloader).</li>
+<li>It handles the rest of start-up as well as input/output requests from software, translating them into data-processing instructions for the CPU.</li>
+<li>It handles memory and peripherals like keyboards, monitors, printers, etc…</li>
+</ul>
+</section><section id="what-is-a-kernel-4" class="slide level2">
+<h2>What is a Kernel? 4</h2>
+<figure>
+<img data-src="https://upload.wikimedia.org/wikipedia/commons/8/8f/Kernel_Layout.svg" alt="Kernel Diagram" /><figcaption>Kernel Diagram</figcaption>
+</figure>
+</section><section id="what-is-the-job-of-a-kernel" class="slide level2">
+<h2>What is the job of a Kernel?</h2>
+<ul>
+<li>Mediate access to resources like
+<ul>
+<li>CPU (What should run at which point in time?)</li>
+<li>RAM (Where should which data placed in RAM or swap?)</li>
+<li>I/O devices (What should access which device?)</li>
+</ul></li>
+</ul>
+</section><section id="what-is-the-job-of-a-kernel-2" class="slide level2">
+<h2>What is the job of a Kernel? 2</h2>
+<ul>
+<li>Resource Management
+<ul>
+<li>Definition of an execution domain (address space)</li>
+<li>Protection mechanisms used to media access to the resources within a domain</li>
+<li>Provide methods for synchronization and inter-process communications</li>
+</ul></li>
+</ul>
+</section><section id="what-is-the-job-of-a-kernel-3" class="slide level2">
+<h2>What is the job of a Kernel? 3</h2>
+<ul>
+<li>Memory management
+<ul>
+<li>Kernel has full access to systems’s memory and must allow processes to safely access this memory as they require it.</li>
+<li>First step: virtual addressing (achieved by paging and/or segmentation)</li>
+</ul></li>
+</ul>
+</section><section id="virtual-memory" class="slide level2">
+<h2>Virtual Memory</h2>
+<ul>
+<li>Virtual addressing allows the kernel to make a given physical address appear to be another address.</li>
+<li>Virtual address spaces may be different for different processes</li>
+</ul>
+<blockquote>
+<p>The memory that one process accesses at a particular (virtual) address may be different memory from what another process accesses at the same addresses.</p>
+</blockquote>
+</section><section id="virtual-memory-2" class="slide level2">
+<h2>Virtual Memory 2</h2>
+<ul>
+<li>This allows every programm to behave as if it is the only one (apart from the kernel) running</li>
+<li>This prevents applications from crashing each other.</li>
+</ul>
+</section><section id="what-is-the-job-of-a-kernel-4" class="slide level2">
+<h2>What is the job of a Kernel? 4</h2>
+<ul>
+<li>Device management
+<ul>
+<li>Processes need to access the peripherals connected to the computer</li>
+<li>Devices are controlled by the kernel through <strong>drivers</strong>.</li>
+</ul></li>
+</ul>
+</section><section id="drivers" class="slide level2">
+<h2>Drivers</h2>
+<ul>
+<li>A device driver is a program that enables the operating system to interact with a hardware device.</li>
+<li>Provides the OS with information of how to control and communicate with a certain piece of hardware.</li>
+<li>Goal of a driver: <strong>abstraction</strong>.
+<ul>
+<li>Translate the OS-mandated function calls (programming calls) into device-specific calls</li>
+</ul></li>
+</ul>
+</section><section id="what-is-the-job-of-a-kernel-5" class="slide level2">
+<h2>What is the job of a Kernel? 5</h2>
+<ul>
+<li>System calls
+<ul>
+<li>In computing a system call is how a process requests a service from the kernel that it does not normally have permission to run.</li>
+<li>provide interface between a process and the OS</li>
+<li>Most operations interacting with the system require permissions not available to a user level process.
+<ul>
+<li>I/O performed with a device present on the system</li>
+<li>Any form of communication with other processes</li>
+</ul></li>
+</ul></li>
+</ul>
+</section><section id="what-are-kernel-modules" class="slide level2">
+<h2>What are Kernel Modules?</h2>
+<aside class="notes">
+<p>https://wiki.archlinux.org/index.php/Kernel_module</p>
+</aside>
+<blockquote>
+<p>Kernel Modules are pieces of code that can be loaded and unloaded into the kernel upon demand. They extend the functionality of the kernel without the need to reboot the system.</p>
+</blockquote>
+</section><section id="obatining-information-about-kernel-modules" class="slide level2">
+<h2>Obatining information about Kernel Modules</h2>
+<ul>
+<li>Modules are stored in <code>/usr/lib/modules/${kernel-release}</code></li>
+<li>To get your current <code>${kernel-release}</code> you can use <code>uname -r</code>.</li>
+<li>To show what kernel modules are currently loaded: <code>lsmod</code></li>
+<li>To shoud information about a module: <code>modinfo ${module_name}</code></li>
+</ul>
+</section><section id="manual-module-handling" class="slide level2">
+<h2>Manual module handling</h2>
+<ul>
+<li>To load a module: <code>modprobe ${module-name}</code></li>
+<li>To load a module by filename (i.e. one that is not installed in <code>/usr/lib/modules/$(uname -r)/</code>):
+<ul>
+<li><code>insmod ${filename} [args]</code></li>
+</ul></li>
+<li>To unload a module: <code>modprobe -r ${module-name}</code></li>
+<li>Or, alternatively: <code>rmmon ${module-name}</code></li>
+</ul>
+</section><section id="example-disable-the-pc-beep-speaker" class="slide level2">
+<h2>Example: Disable the PC Beep-Speaker</h2>
+<ul>
+<li>PC speaker can be disabled by unloading the <code>pcspkr</code> kernel module:
+<ul>
+<li><code>rmmod pcspkr</code></li>
+</ul></li>
+<li>Blacklisting the <code>pcspkr</code> module will prevent <code>udev</code> from loading it at boot:
+<ul>
+<li><code>echo &quot;blacklist pcspkr&quot; &gt; /etc/modprobe.d/nobeep.conf</code></li>
+</ul></li>
+</ul>
+</section></section>
+<section><section id="user-and-group-account-management" class="title-slide slide level1"><h1>User and Group Account Management</h1></section><section id="users-and-groups" class="slide level2">
+<h2>Users and Groups</h2>
+<ul>
+<li>Users and groups are used on GNU/Linux for access control.
+<ul>
+<li>Access control: to control access to system’s files, directories, and peripherals.</li>
+</ul></li>
+<li>Linux offers simple/coarse access control mechanisms by default.</li>
+</ul>
+</section><section id="overview" class="slide level2">
+<h2>Overview</h2>
+<ul>
+<li>A <strong>user</strong> is anyone who uses a computer.</li>
+<li>A user is represented by a unique user name.</li>
+<li>Some system services also run using restricted or privileged user accounts.</li>
+<li>Managing users is done for the purpose of security by limiting access in specific ways.</li>
+<li>Users may be grouped together into a <strong>group</strong>, and users may be added to an existing group to utilize the privileged access it grants.</li>
+</ul>
+</section><section id="the-superuser" class="slide level2">
+<h2>The Superuser</h2>
+<ul>
+<li>The <strong>superuser</strong> (<code>root</code>) has complete access to the operating system and its configuration.
+<ul>
+<li><strong>It is intended for administrative use only!</strong></li>
+<li>Unprivileged users can use the <code>su</code> and <code>sudo</code> programs for controlled privilege escalation.</li>
+</ul></li>
+</ul>
+</section><section id="important-files" class="slide level2">
+<h2>Important Files</h2>
+<table>
+<thead>
+<tr class="header">
+<th>File</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>/etc/shadow</code></td>
+<td>Secure user account information</td>
+</tr>
+<tr class="even">
+<td><code>/etc/passwd</code></td>
+<td>User account information</td>
+</tr>
+<tr class="odd">
+<td><code>/etc/gshadow</code></td>
+<td>Contains the shadowed information for group accounts</td>
+</tr>
+<tr class="even">
+<td><code>/etc/group</code></td>
+<td>Defines the groups to which users belong</td>
+</tr>
+<tr class="odd">
+<td><code>/etc/sudoers</code></td>
+<td>List of who can run what by sudo</td>
+</tr>
+<tr class="even">
+<td><code>/home/*</code></td>
+<td>Home directories</td>
+</tr>
+</tbody>
+</table>
+</section><section id="user-management" class="slide level2">
+<h2>User management</h2>
+<ul>
+<li>To list users currently logged on to the system: <code>who</code></li>
+<li>To list all existing user accounts including their properties: <code>passwd -Sa</code>
+<ul>
+<li>See <code>passwd(1)</code> for the description of the output format.</li>
+</ul></li>
+</ul>
+</section><section id="add-a-new-user" class="slide level2">
+<h2>Add a new user</h2>
+<blockquote>
+<p><code>useradd -m -g ${initial-group} -G ${additional-groups} -s ${login-shell}  ${username}</code></p>
+</blockquote>
+<ul>
+<li><code>-m</code>/<code>--create-home</code> creates the user home directory as <code>/home/${username}</code>.
+<ul>
+<li>Within their home directory, a non-root user can write files, delete them, and so on.</li>
+</ul></li>
+</ul>
+</section><section id="add-a-new-user-2" class="slide level2">
+<h2>Add a new user 2</h2>
+<blockquote>
+<p><code>useradd -m -g ${initial-group} -G ${additional-groups} -s ${login-shell}  ${username}</code></p>
+</blockquote>
+<ul>
+<li><code>-g</code>/<code>--gid</code> defines the group name or number of the user’s initial login group.
+<ul>
+<li>If specified, the group name must exist; if a group number is provided, it must refer to an already existing group.</li>
+<li>If not specified the default behaviour is to create a group with the same name as the username, with <code>GID</code> equal to <code>UID</code>.</li>
+</ul></li>
+</ul>
+</section><section id="add-a-new-user-3" class="slide level2">
+<h2>Add a new user 3</h2>
+<blockquote>
+<p><code>useradd -m -g ${initial-group} -G ${additional-groups} -s ${login-shell}  ${username}</code></p>
+</blockquote>
+<ul>
+<li><code>-G</code>/<code>--group</code> introduces a list of supplementary groups which the user is also a member of.
+<ul>
+<li>Each group is separated from the next by a comma, with no intervening spaces.</li>
+<li>The default is for the user to belong only to the initial group.</li>
+</ul></li>
+</ul>
+</section><section id="add-a-new-user-4" class="slide level2">
+<h2>Add a new user 4</h2>
+<blockquote>
+<p><code>useradd -m -g ${initial-group} -G ${additional-groups} -s ${login-shell}  ${username}</code></p>
+</blockquote>
+<ul>
+<li><code>-s</code>/<code>-shell</code> defines the path and file name of the user’s default login shell.
+<ul>
+<li>After the boot process is complete, the default login shell is the one specified here.</li>
+</ul></li>
+</ul>
+</section><section id="add-a-new-user-5" class="slide level2">
+<h2>Add a new user 5</h2>
+<blockquote>
+<p><strong>WARNING:</strong> In order to be able to log in, the login shell must be one of those listed in <code>/etc/shells</code>, otherwise the <code>PAM</code> module <code>pam_shell</code> will deny the login request.</p>
+</blockquote>
+<blockquote>
+<p><strong>Note:</strong> The password for the newly created user must then be defined, using <code>passwd</code>.</p>
+</blockquote>
+<ul>
+<li>When the login shell is intended to be non-functional, for example when the user account is created for a specific service, <code>/usr/bin/nologin</code> may be specified in place of a regular shell to politely refuse a login (see <code>nologin(8)</code>).</li>
+</ul>
+</section><section id="other-examples-of-user-management" class="slide level2">
+<h2>Other examples of user management</h2>
+<ul>
+<li>Add a user to other groups:
+<ul>
+<li>`usermod -aG ${additional-groups} ${username}</li>
+<li><strong>Warning:</strong> If the <code>-a</code> is ommited in the <code>usermod</code> command above, the user is removed from all groups not listed in <code>${additional-groups}</code>.</li>
+</ul></li>
+<li>To enter user information for the GECOS comment (e.g. the full user name), type:
+<ul>
+<li><code>chfn ${username}</code></li>
+</ul></li>
+<li>To mark a user’s password as expired, requiring them to create a new password the first time they log in, type:
+<ul>
+<li><code>chage -d 0 ${username}</code></li>
+</ul></li>
+</ul>
+</section><section id="other-examples-of-user-management-2" class="slide level2">
+<h2>Other examples of user management 2</h2>
+<ul>
+<li>User accounts may be deleted with the following command:
+<ul>
+<li><code>userdel -r ${username}</code></li>
+<li>The <code>-r</code> option specifies that the user’s home directory and mail spool should also be deleted.</li>
+</ul></li>
+<li>To change the user’s login shell:
+<ul>
+<li><code>usermod -s /bin/bash ${username}</code></li>
+</ul></li>
+</ul>
+<blockquote>
+<p><strong>Tip:</strong> The <code>adduser</code> script allows carrying out the jobs of <code>useradd</code>, <code>chfn</code> and <code>passwd</code> interactively.</p>
+</blockquote>
+</section><section id="user-database" class="slide level2">
+<h2>User database</h2>
+<ul>
+<li>Local user information is stored in the plain-text <code>/etc/passwd</code> file</li>
+<li>Each line represents a user account, and has seven fields:</li>
+</ul>
+<blockquote>
+<p><code>account:password:UID:GID:GECOS:directory:shell</code></p>
+</blockquote>
+<table>
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 86%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>account</code></td>
+<td>is the user name; can not be blank</td>
+</tr>
+<tr class="even">
+<td><code>password</code></td>
+<td>used to be the user password; is now shadowed; see <code>/etc/shadow</code></td>
+</tr>
+<tr class="odd">
+<td><code>UID</code></td>
+<td>the numerical user ID; root UID: 0; standard UIDs &gt; 1000</td>
+</tr>
+<tr class="even">
+<td><code>GID</code></td>
+<td>the numerical primary group ID for the user; values listed in <code>/etc/groups</code></td>
+</tr>
+<tr class="odd">
+<td><code>GECOS</code></td>
+<td>optional field for informational purposes</td>
+</tr>
+<tr class="even">
+<td><code>directory</code></td>
+<td>used by the login command to set <code>$HOME</code> environment variable</td>
+</tr>
+<tr class="odd">
+<td><code>shell</code></td>
+<td>is the path to the user’s default <strong>command shell</strong>. Default: <code>/bin/bash</code></td>
+</tr>
+</tbody>
+</table>
+</section><section id="example" class="slide level2">
+<h2>Example</h2>
+<blockquote>
+<p><code>jack:x:1001:100:Jack Smith,some comment here,,:/home/jack:/bin/bash</code></p>
+</blockquote>
+</section><section id="verify-integrity-of-etcpasswd" class="slide level2">
+<h2>Verify integrity of <code>/etc/passwd</code></h2>
+<ul>
+<li><code>pwck</code> can be used to verify the integrity of the user database.
+<ul>
+<li>It can sort the user list by GID at the same time, which can be helpful for comparison using <code>-s</code></li>
+</ul></li>
+</ul>
+</section><section id="group-management" class="slide level2">
+<h2>Group management</h2>
+<ul>
+<li><code>/etc/group</code> is the file that defines the groups on the system (see <code>group(5)</code> for details).</li>
+<li>Display group membership with the <code>groups</code> command: <code>groups ${user}</code>
+<ul>
+<li>If <code>${user}</code> is ommited, the current user’s group name are displayed.</li>
+</ul></li>
+<li>The <code>id</code> command provides additional detail, such as the user’s UID and associated GIDs: <code>id ${user}</code></li>
+<li>To list all groups on the system: <code>cat /etc/group</code></li>
+</ul>
+</section><section id="group-management-2" class="slide level2">
+<h2>Group management 2</h2>
+<ul>
+<li>Create new groups with: <code>groupadd ${group}</code></li>
+<li>Add users to a group with: <code>gpasswd -a ${user} ${group}</code></li>
+<li>Modify existing group; rename <code>${old}</code> to <code>${new}</code>, preserving gid, all files previously owned by <code>${old} will be owned by</code>${new}:
+<ul>
+<li><code>groupmod -n ${new} ${old}</code></li>
+</ul></li>
+</ul>
+</section><section id="group-management-3" class="slide level2">
+<h2>Group management 3</h2>
+<ul>
+<li>Delete existing groups: <code>groupdel ${group}</code></li>
+<li>To remove users from a group: <code>gpasswd -d ${user} ${group}</code>
+<ul>
+<li>If the user is currently logged in, he must log out and in again for the change to take effect.</li>
+</ul></li>
+<li><code>grpck</code> command can be used to verify the integrity of the system’s group file.</li>
+</ul>
+</section></section>
+<section><section id="networking" class="title-slide slide level1"><h1>Networking</h1></section><section id="check-the-connection" class="slide level2">
+<h2>Check the connection</h2>
+<ol type="1">
+<li>Your network interface is listed and enabled.</li>
+<li>You are connected to the network. (Cabling / Wireless connection)</li>
+<li>Your network interface has an IP address.</li>
+<li>Routing table is set up correctly.</li>
+<li>You can ping your default gateway (and other gateways)</li>
+<li>You can ping a public IP address (if you have access to the internet)</li>
+<li>Check if you can resolve domain names.</li>
+</ol>
+</section><section id="is-the-network-interface-listed-and-enabled." class="slide level2">
+<h2>Is the network interface listed and enabled.</h2>
+<pre><code>user@host:~$ ip link show
+2: enp3s0: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu 1500 qdisc fq_codel state DOWN mode DEFAULT group default qlen 1000
+    link/ether 54:e1:ad:aa:aa:aa brd ff:ff:ff:ff:ff:ff
+3: enxe04f43aaaaaa: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state UP mode DEFAULT group default qlen 1000
+    link/ether e0:4f:43:aa:aa:aa brd ff:ff:ff:ff:ff:ff
+4: wlp5s0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc mq state UP mode DORMANT group default qlen 1000
+    link/ether d4:6a:6a:aa:aa:aa brd ff:ff:ff:ff:ff:ff</code></pre>
+<ul>
+<li>Enable / Disable using: <code>ip link set interface up|down</code></li>
+</ul>
+</section><section id="you-network-interface-has-an-ip-address" class="slide level2">
+<h2>You network interface has an IP address</h2>
+<ul>
+<li>List IP addresses <code>ip address show</code> (<code>ip add sho</code> / <code>ip add show ${interface-name}</code>)</li>
+</ul>
+<pre><code>user@host:~$ ip add sho wlp5s0
+4: wlp5s0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether d4:6a:6a:aa:aa:aa brd ff:ff:ff:ff:ff:ff
+    inet 192.168.178.48/24 brd 192.168.178.255 scope global dynamic noprefixroute wlp5s0
+       valid_lft 847113sec preferred_lft 847113sec
+    inet6 2001:16b8:22c:f400:d99b:56e0:8aba:63e7/64 scope global temporary dynamic
+       valid_lft 6741sec preferred_lft 3141sec
+    inet6 2001:16b8:22c:f400:4d45:e31a:a51d:8387/64 scope global dynamic mngtmpaddr noprefixroute
+       valid_lft 6741sec preferred_lft 3141sec
+    inet6 fe80::1092:bcb0:1cb3:55ac/64 scope link noprefixroute
+       valid_lft forever preferred_lft forever</code></pre>
+</section><section id="you-network-interface-has-an-ip-address-2" class="slide level2">
+<h2>You network interface has an IP address 2</h2>
+<ul>
+<li>Add an IP address to an interface:
+<ul>
+<li><code>ip address add ${address}/${prefix_len} broadcast + dev ${interface-name}</code>
+<ul>
+<li>address is given in CIDR notation</li>
+<li><code>+</code> is a special symbol that makes <code>ip</code> derive the boroadcast address from IP + subnet mask</li>
+</ul></li>
+</ul></li>
+<li>Delete an IP address from an interface:
+<ul>
+<li><code>ip address del ${address}/${prefix_len} dev ${interface}</code></li>
+</ul></li>
+<li>Delete <strong>all</strong> addresses matching a criteria (e.g. of a specific interface):
+<ul>
+<li><code>ip address flush dev ${interface}</code></li>
+</ul></li>
+</ul>
+</section><section id="bonus" class="slide level2">
+<h2>Bonus</h2>
+<ul>
+<li>IP addresses can be calculated with <code>ipcalc</code></li>
+</ul>
+</section><section id="routing-table-is-set-up-correctly" class="slide level2">
+<h2>Routing table is set up correctly</h2>
+<ul>
+<li>The routing table is used to determine if you can reach an IP address directly of what gateway (router) you should use.</li>
+<li>If no other route mathces the IP address, the <strong>default gateway</strong> is used.</li>
+<li><code>${prefix} is either a CIDR notation or</code>default` for the default gateway.</li>
+<li>List routes: <code>ip route show</code></li>
+<li>Add a route: <code>ip route add ${prefix} via ${address} dev ${interface}</code></li>
+<li>Delete a route <code>ip route del ${prefix} via ${address} dev ${interface}</code></li>
+</ul>
+</section><section id="set-the-hostname" class="slide level2">
+<h2>Set the hostname</h2>
+<ul>
+<li><strong>Hostname</strong> is a unique name created to identify a machine on a network, configured in <code>/etc/hostname</code></li>
+<li>File can contain system’s domain name, if any.</li>
+<li>To edit hostname persistently edit <code>/etc/hostname</code></li>
+</ul>
+</section><section id="resolve-hostnames" class="slide level2">
+<h2>Resolve hostnames</h2>
+<pre><code>user@host:~$ nslookup
+&gt; dns.google.com
+Server:     127.0.0.53
+Address:    127.0.0.53#53
+
+Non-authoritative answer:
+Name:   dns.google.com
+Address: 172.217.19.78
+Name:   dns.google.com
+Address: 2a00:1450:4005:80b::200e</code></pre>
+</section><section id="resolve-hostnames-2" class="slide level2">
+<h2>Resolve hostnames 2</h2>
+<pre><code>user@host:~$ dig dns.google.com
+
+; &lt;&lt;&gt;&gt; DiG 9.11.3-1ubuntu1.3-Ubuntu &lt;&lt;&gt;&gt; dns.google.com
+;; global options: +cmd
+;; Got answer:
+;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 47586
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; QUESTION SECTION:
+;dns.google.com.            IN  A
+
+;; ANSWER SECTION:
+dns.google.com.     10  IN  A   172.217.19.78
+
+;; Query time: 0 msec
+;; SERVER: 127.0.0.53#53(127.0.0.53)
+;; WHEN: Wed Jan 02 16:49:58 CET 2019
+;; MSG SIZE  rcvd: 59</code></pre>
+</section></section>
+<section><section id="firewalls" class="title-slide slide level1"><h1>Firewalls</h1></section><section id="iptables" class="slide level2">
+<h2><code>iptables</code></h2>
+<aside class="notes">
+<p>https://wiki.archlinux.org/index.php/Iptables</p>
+</aside>
+<ul>
+<li>a command line utility for configuring Linux Kernel firewall</li>
+<li>can be configured directly with <code>iptables</code> or by using one of the many console and graphical front-ends.</li>
+<li><code>iptables</code> used for IPv4</li>
+<li><code>ip6tables</code> used for IPv6</li>
+<li>Both have the same syntax, but some options are version-specific</li>
+</ul>
+</section><section id="basic-concepts" class="slide level2">
+<h2>Basic Concepts</h2>
+<ul>
+<li><code>iptables</code> is used to inspect, modify, forward, redirect, and/or drop IP packets.</li>
+<li>Code for filtering is already built into the kernel
+<ul>
+<li>Organized into a collection of <strong>tables</strong>, each with a specific purpose</li>
+</ul></li>
+<li>Tables are made up of predefined <strong>chains</strong>, which contain rules which are traversed in order.</li>
+<li>Each rule consists of a predicate of potential matches and a corresponding action (called a <strong>target</strong>) which is executed if the predicate is true.</li>
+<li><code>iptables</code> is the user utility which allows you to work with these chains.</li>
+</ul>
+</section><section id="data-background-imagehttpswww.frozentux.netiptables-tutorialimagestables_traverse.jpg-data-background-sizecontain" class="slide level2">
+<h2>  {data-background-image=“https://www.frozentux.net/iptables-tutorial/images/tables_traverse.jpg” data-background-size=“contain”)</h2>
+<aside class="notes">
+<ul>
+<li>Lowercase word on top is the table</li>
+<li>Upper case word below is the chain</li>
+<li>Every IP packet that comes in on <strong>any</strong> network interface passes through this flowchart</li>
+<li>Common Source of confusion: internal and internet facing interfaces are handled the same</li>
+<li>It’s up to the administrator to define rules that treat them differently</li>
+<li>In most cases, you won’t need <code>raw</code>, <code>mangle</code>, or <code>security</code> at all.</li>
+</ul>
+</aside>
+</section><section id="table-types" class="slide level2">
+<h2>Table types</h2>
+<ol type="1">
+<li><code>raw</code>: only used for configuring packets so that they are exempt from connection tracking.</li>
+<li><code>filter</code>: default table, where all the actions are typically associated with a firewall take place.</li>
+<li><code>nat</code>: used for NAT/port forwarding</li>
+<li><code>mangle</code>: used for specialized packet alterations.</li>
+<li><code>security</code>: used for <strong>Mandatory Access Control</strong> (selinux)</li>
+</ol>
+<aside class="notes">
+<ul>
+<li>In most case you will only use <code>filter</code> and <code>nat</code>.</li>
+</ul>
+</aside>
+</section><section id="chains" class="slide level2">
+<h2>Chains</h2>
+<ul>
+<li>Tables consist of <strong>chains</strong>, which are lists of rules which are followed in order.</li>
+<li>The default table, <code>filter</code>, contains three built-in chains: <code>INPUT</code>, <code>OUTPUT</code> and <code>FORWARD</code> which are activated at different points of the packet filtering process</li>
+<li><code>nat</code> table includes: <code>PREROUTING</code>, <code>POSTROUTING</code> and <code>OUTPUT</code>.</li>
+<li>By default, non of the chains contain any rules.</li>
+</ul>
+</section><section id="chains-2" class="slide level2">
+<h2>Chains 2</h2>
+<ul>
+<li>Chains <strong>do</strong> have a default policy, which is generally set to <code>ACCEPT</code>!
+<ul>
+<li>Can be reset to drop, just to make sure.</li>
+</ul></li>
+<li>Default policy always applies at the end of a chain only.</li>
+</ul>
+</section><section id="rules" class="slide level2">
+<h2>Rules</h2>
+<ul>
+<li>Packet filtering is based on rules, which are specified by multiple <strong>matches</strong>, and one <strong>target</strong>.</li>
+</ul>
+</section><section id="rule-matches" class="slide level2">
+<h2>Rule matches</h2>
+<ul>
+<li>The typical things a rule might match on are
+<ul>
+<li>what interface the packet came in on (e.g. enp3s0 or wlp5s0)?</li>
+<li>what type of packet it is (ICMP, TCP, UDP?)</li>
+<li>the destination port of the packet (80, 443, 666)</li>
+</ul></li>
+</ul>
+</section><section id="rule-targets" class="slide level2">
+<h2>Rule targets</h2>
+<ul>
+<li>Targets are specified using the <code>-j</code> or <code>--jump</code> option.</li>
+<li>Targets can be …
+<ul>
+<li>… user-defined chains
+<ul>
+<li>i.e. if these conditions are matched, jump to the following user defined chain and continue processing there</li>
+</ul></li>
+<li>… one of the special built-in targets
+<ul>
+<li><code>ACCEPT</code>, <code>DROP</code>, <code>QUEUE</code>, <code>RETURN</code></li>
+</ul></li>
+<li>… a target extension
+<ul>
+<li><code>REJECT</code>, <code>LOG</code></li>
+</ul></li>
+</ul></li>
+</ul>
+</section><section id="backup-and-restore" class="slide level2">
+<h2>Backup and Restore</h2>
+<ul>
+<li>After adding rules via CLI, the configuration files are not changed automatically - to save manually:
+<ul>
+<li><code>iptables-save &gt; ${path}/${filename}</code></li>
+</ul></li>
+<li>To reload a file:
+<ul>
+<li><code>iptables-restore &lt; ${path}/${filename}</code></li>
+</ul></li>
+</ul>
+</section><section id="commands" class="slide level2">
+<h2>Commands</h2>
+<ul>
+<li><p>Check current ruleset and number of hits per rule by:</p>
+<pre><code>user@host~# iptables -nvL
+Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination
+
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination
+
+Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination</code></pre></li>
+</ul>
+</section><section id="commands-2" class="slide level2">
+<h2>Commands 2</h2>
+<ul>
+<li><p>Flush (-F) and reset iptables to default using:</p>
+<pre><code>iptables -F
+iptables -X
+iptables -t nat -F
+iptables -t nat -X
+iptables -t mangle -F
+iptables -t mangle -X
+iptables -t raw -F
+iptables -t raw -X
+iptables -t security -F
+iptables -t security -X
+iptables -P INPUT ACCEPT
+iptables -P FORWARD ACCEPT
+iptables -P OUTPUT ACCEPT</code></pre></li>
+</ul>
+</section><section id="commands-3" class="slide level2">
+<h2>Commands 3</h2>
+<ul>
+<li>To disable <code>FORWARD</code>, since a computer is not a router:
+<ul>
+<li><code>iptables -P FORWARD DROP</code></li>
+</ul></li>
+<li>To reject Dropbox LAN-Sync packets:
+<ul>
+<li><code>iptables -A INPUT -p tcp --dport 17500 -j REJECT  --reject-with icmp-port-unreachable</code></li>
+</ul></li>
+<li>We use <code>REJECT</code> and not <code>DROP</code> since RFC 1122 requires hosts to return ICMP errors whenever possible.</li>
+</ul>
+</section><section id="effect" class="slide level2">
+<h2>Effect</h2>
+<pre><code>iptables -nvL --line-numbers
+Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
+num   pkts bytes target     prot opt in     out     source               destination
+1        0     0 REJECT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:17500 reject-with icmp-port-unreachable
+
+Chain FORWARD (policy DROP 0 packets, 0 bytes)
+num   pkts bytes target     prot opt in     out     source               destination
+
+Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
+num   pkts bytes target     prot opt in     out     source               destination</code></pre>
+</section><section id="commands-4" class="slide level2">
+<h2>Commands 4</h2>
+<ul>
+<li>We installed Dropbox and want to use LAN-Sync with one specfic host in our network:
+<ul>
+<li><code>iptables -R INPUT 1 -p tcp --dport 17500 ! -s 10.0.0.85 -j REJECT  --reject-with icmp-port-unreachable</code></li>
+</ul></li>
+</ul>
+</section><section id="effect-1" class="slide level2">
+<h2>Effect</h2>
+<pre><code>iptables -nvL --line-numbers
+Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
+num   pkts bytes target     prot opt in     out     source               destination
+1        0     0 REJECT     tcp  --  *      *      !10.0.0.85            0.0.0.0/0            tcp dpt:17500 reject-with icmp-port-unreachable
+
+Chain FORWARD (policy DROP 0 packets, 0 bytes)
+num   pkts bytes target     prot opt in     out     source               destination
+
+Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
+num   pkts bytes target     prot opt in     out     source               destination</code></pre>
+</section><section id="commands-5" class="slide level2">
+<h2>Commands 5</h2>
+<ul>
+<li>To allow immediatly without further inspection by any other rule:
+<ul>
+<li><code>iptables -I INPUT -p tcp --dport 17500 -s 10.0.0.85 -j ACCEPT  -m comment --comment &quot;Friendly Dropbox&quot;</code></li>
+</ul></li>
+<li>Replace second rule with one that rejects everything on port 17500:
+<ul>
+<li><code>iptables -R INPUT 2 -p tcp --dport 17500 -j REJECT  --reject-with icmp-port-unreachable</code></li>
+</ul></li>
+</ul>
+</section><section id="effect-2" class="slide level2">
+<h2>Effect</h2>
+<pre><code>user@host~# iptables -nvL --line-number
+Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
+num   pkts bytes target     prot opt in     out     source               destination
+1        0     0 ACCEPT     tcp  --  *      *       10.0.0.85            0.0.0.0/0            tcp dpt:17500 /* Friendly Dropbox */
+2        0     0 REJECT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:17500 reject-with icmp-port-unreachable
+
+Chain FORWARD (policy DROP 0 packets, 0 bytes)
+num   pkts bytes target     prot opt in     out     source               destination
+
+Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
+num   pkts bytes target     prot opt in     out     source               destination</code></pre>
+</section><section id="firewall-deamon" class="slide level2">
+<h2>Firewall-Deamon</h2>
+</section></section>
+<section><section id="system-startup-shutdown" class="title-slide slide level1"><h1>System Startup + Shutdown</h1></section></section>
+<section><section id="backup-and-recovery-methods" class="title-slide slide level1"><h1>Backup and Recovery Methods</h1></section></section>
+<section><section id="local-system-security" class="title-slide slide level1"><h1>Local System Security</h1></section></section>
+<section><section id="troubleshooting-and-system-rescue" class="title-slide slide level1"><h1>Troubleshooting and System Rescue</h1></section><section id="get-help" class="slide level2">
+<h2>Get Help</h2>
+<p><img src="https://media.giphy.com/media/3oz8xvZDRBvZUce6wo/giphy.gif"></img></p>
+</section><section id="get-help-2" class="slide level2">
+<h2>Get Help 2</h2>
+<ul>
+<li>Add Stuff about <code>man</code></li>
+</ul>
+</section></section>
+    </div>
+  </div>
+
+  <script src="./Resources/reveal.js-3.7.0/lib/js/head.min.js"></script>
+  <script src="./Resources/reveal.js-3.7.0/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        // Transition style
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1280,
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: './Resources/reveal.js-3.7.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: './Resources/reveal.js-3.7.0/plugin/zoom-js/zoom.js', async: true },
+          { src: './Resources/reveal.js-3.7.0/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
