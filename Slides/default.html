@@ -34,7 +34,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -127,9 +127,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 </section><section id="basic-layouts" class="slide level2">
 <h2>Basic Layouts</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">def</span> foo():</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">    <span class="co">&quot;&quot;&quot;this is some sourcecode&quot;&quot;&quot;</span></a>
-<a class="sourceLine" id="cb1-3" data-line-number="3">    <span class="bu">print</span>(<span class="st">&quot;You won&#39;t see much of it in here&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">def</span> foo():</a>
+<a class="sourceLine" id="cb1-2" title="2">    <span class="co">&quot;&quot;&quot;this is some sourcecode&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb1-3" title="3">    <span class="bu">print</span>(<span class="st">&quot;You won&#39;t see much of it in here&quot;</span>)</a></code></pre></div>
 <ul>
 <li>This is a single command: <code>foo -bar</code></li>
 <li>This is a variable: <code>$foobar</code> or <code>${foobar}</code></li>
@@ -1817,7 +1817,7 @@ applications, services and documentation.</li>
 </ul></li>
 <li>Blacklisting the <code>pcspkr</code> module will prevent <code>udev</code> from loading it at boot:
 <ul>
-<li><code>echo &quot;blacklist pcspkr&quot; &gt; /etc/modprobe.d/nobeep.conf</code></li>
+<li><code>echo "blacklist pcspkr" &gt; /etc/modprobe.d/nobeep.conf</code></li>
 </ul></li>
 </ul>
 </section></section>
@@ -2391,7 +2391,7 @@ num   pkts bytes target     prot opt in     out     source               destina
 <ul>
 <li>To allow immediatly without further inspection by any other rule:
 <ul>
-<li><code>iptables -I INPUT -p tcp --dport 17500 -s 10.0.0.85 -j ACCEPT  -m comment --comment &quot;Friendly Dropbox&quot;</code></li>
+<li><code>iptables -I INPUT -p tcp --dport 17500 -s 10.0.0.85 -j ACCEPT  -m comment --comment "Friendly Dropbox"</code></li>
 </ul></li>
 <li>Replace second rule with one that rejects everything on port 17500:
 <ul>
@@ -2414,16 +2414,177 @@ num   pkts bytes target     prot opt in     out     source               destina
 </section><section id="firewall-deamon" class="slide level2">
 <h2>Firewall-Deamon</h2>
 </section></section>
-<section><section id="system-startup-shutdown" class="title-slide slide level1"><h1>System Startup + Shutdown</h1></section></section>
-<section><section id="backup-and-recovery-methods" class="title-slide slide level1"><h1>Backup and Recovery Methods</h1></section></section>
-<section><section id="local-system-security" class="title-slide slide level1"><h1>Local System Security</h1></section></section>
-<section><section id="troubleshooting-and-system-rescue" class="title-slide slide level1"><h1>Troubleshooting and System Rescue</h1></section><section id="get-help" class="slide level2">
+<section id="system-startup-shutdown" class="title-slide slide level1"><h1>System Startup + Shutdown</h1></section>
+<section id="backup-and-recovery-methods" class="title-slide slide level1"><h1>Backup and Recovery Methods</h1></section>
+<section><section id="local-system-security" class="title-slide slide level1"><h1>Local System Security</h1></section><section id="basic-concepts-1" class="slide level2">
+<h2>Basic concepts</h2>
+<ul>
+<li>Secure the system without overdoing it.
+<ul>
+<li>It is possible to tighten the security so much as to make the system unusable.</li>
+</ul></li>
+<li>There are many other things that can be done to heighten security.
+<ul>
+<li>Biggest Thread is, and will always be, the <strong>user</strong>!</li>
+</ul></li>
+<li>Be a little paranoid. It helps. And be suspicious.
+<ul>
+<li>If anything sounds too good to be true, it probably is.</li>
+</ul></li>
+<li><strong>Principle of least privilege</strong> - Each part of a system should only be able to access what is required to use it, and nothing more.</li>
+</ul>
+</section><section id="passwords" class="slide level2">
+<h2>Passwords</h2>
+<ul>
+<li>Passwords are the main way a computer chooses to trust the person using it.</li>
+<li>A big part of Security is just picking secure passwords and then protecting them.</li>
+</ul>
+</section><section id="what-makes-a-good-password" class="slide level2">
+<h2>What makes a good password?</h2>
+<ul>
+<li>Passwords must be complex enough to not be easily guessed from e.g.  personal information, or cracked using methods like brute-force attacks.</li>
+<li>The tenets of strong passwords are based on <strong>length</strong> and <strong>randomness</strong>.</li>
+<li>The cryptography the quality of a password is referred to as its entropic security.</li>
+</ul>
+</section><section id="how-to-choose-an-unsecure-password" class="slide level2">
+<h2>How to choose an unsecure password?</h2>
+<ul>
+<li>Password contains:
+<ul>
+<li>personally identifiable informations (dog’s name, date of birth, area code)</li>
+<li>Simple character substitutions on words (<code>l33t5p34k</code>)</li>
+<li>Root “words” or common strings followed or preceded by added numbers, symbols, or characters (e.g. <code>DG091101%</code>)</li>
+<li>Common phrases or short phrases of gramatically related words (e.g. <code>all of the lights</code>), even with character substitution</li>
+</ul></li>
+</ul>
+</section><section id="how-to-choose-a-good-password" class="slide level2">
+<h2>How to choose a good password?</h2>
+<ul>
+<li>A long password (8-20 characters, depending on importance)</li>
+<li>Seemingly completely random.</li>
+<li>Build secure, seemingly random passwords based on characters from every word in a sentence.
+<ul>
+<li><code>The girl is walking down the rainy street</code></li>
+<li><code>t6!WdtR5</code> or <code>t&amp;6!Rrlw@dtR,57</code></li>
+</ul></li>
+</ul>
+</section><section id="how-to-choose-a-good-password-2" class="slide level2">
+<h2>How to choose a good password? 2</h2>
+<ul>
+<li>Generate pseudo-random passwords like <code>pwgen</code></li>
+<li>Example technique for memorization for often typed passwords:
+<ul>
+<li>Generate a long password and memorize a minimally secure number of characeters, <strong>temporarily</strong> writing down the full generated string.</li>
+<li>Over time increase the number of characters typed - until the password is ingrained in muscle memory and need not be remembered.</li>
+<li>This technique is more difficult, but can provide confidence that a password will not turn up in wordlists or “intelligent” brute force attacks.</li>
+</ul></li>
+</ul>
+</section><section id="maintaining-passwords" class="slide level2">
+<h2>Maintaining passwords</h2>
+<ul>
+<li>Use the memorization technique to remember a complex password for a <strong>password manager</strong>.</li>
+<li>This password must never be transmitted over any kind of network.</li>
+<li>Additional Information from Bruce Schneier:
+<ul>
+<li><a href="https://www.schneier.com/blog/archives/2014/03/choosing_secure_1.html">Choosing Secure Passwords</a></li>
+</ul></li>
+</ul>
+</section><section id="maintaining-passwords-2" class="slide level2">
+<h2>Maintaining passwords 2</h2>
+<ul>
+<li>Once you have strong password, be sure to keep it safe.</li>
+<li>Watch out for keyloggers (hard- and software), social engineering, shoulder surfing</li>
+<li>Avoid reusing passwords, so insecure servers can’t leak more information than necessary.</li>
+<li>When using password managers and use copy-paste for stored passwords, make sure to clear the copy buffer every time, and ensure that they are not saved in any kind of log.
+<ul>
+<li>Do not paste them in plain terminal commands, which would store them in files like <code>.bash_history</code>)</li>
+</ul></li>
+</ul>
+<!-- Here could be something about Password hashes from 
+https://wiki.archlinux.org/index.php/Security
+-->
+</section></section>
+<section><section id="man-pages" class="title-slide slide level1"><h1>Man pages</h1></section><section id="get-help" class="slide level2">
 <h2>Get Help</h2>
 <p><img src="https://media.giphy.com/media/3oz8xvZDRBvZUce6wo/giphy.gif"></img></p>
-</section><section id="get-help-2" class="slide level2">
-<h2>Get Help 2</h2>
+</section><section id="man-pages-1" class="slide level2">
+<h2><code>man</code> pages</h2>
+<aside class="notes">
+<p>https://wiki.archlinux.org/index.php/Man_page</p>
+</aside>
 <ul>
-<li>Add Stuff about <code>man</code></li>
+<li><code>man</code> pages are the form of documentation that is available on almonst all UNIX-like operating systems</li>
+<li>In spite of their scope, man pages are designed to be self-contained documents, consequentially limiting themselves to referring to other man pages when discussing related subjects.</li>
+</ul>
+</section><section id="accessing-man-pages" class="slide level2">
+<h2>Accessing <code>man</code> pages</h2>
+<ul>
+<li>To read a man page, simply enter: <code>man ${page_name}</code></li>
+<li>Manuals are sorted into several sections.</li>
+<li>Man pages are usually referred to by their name, followed by their section number in parentheses. <code>man 5 passwd</code></li>
+</ul>
+</section><section id="searching-manuals" class="slide level2">
+<h2>Searching manuals</h2>
+<ul>
+<li><code>man</code> utility allows users to display man pages, and search their contents</li>
+<li>Problem: What if I don’t know <strong>exactly</strong> what I’m looking for?
+<ul>
+<li>Solution: Use the <code>-k</code> or <code>--apropos</code> options to search the man page descriptions for instances of a given keyword.</li>
+</ul></li>
+</ul>
+</section><section id="example-searches-in-manuals" class="slide level2">
+<h2>Example searches in manuals</h2>
+<ul>
+<li>To search for man pages related to “password”: <code>man -k password</code>
+<ul>
+<li>Equivalent to <code>man --apropos password</code></li>
+<li>Equivalent to <code>apropos password</code></li>
+</ul></li>
+</ul>
+</section><section id="getting-one-line-descriptions-with-whatis" class="slide level2">
+<h2>Getting one-line descriptions with <code>whatis</code></h2>
+<pre><code>$whatis ls
+ls (1p)              - list directory contents
+ls (1)               - list directory contents</code></pre>
+</section><section id="noteworthy-manpages" class="slide level2">
+<h2>Noteworthy manpages</h2>
+<ul>
+<li><a href="https://jlk.fjfi.cvut.cz/arch/manpages/man/ascii.7">ASCII (7)</a>, <a href="https://jlk.fjfi.cvut.cz/arch/manpages/man/boot.7">boot (7)</a>, <a href="https://jlk.fjfi.cvut.cz/arch/manpages/man/charsets.7">charsets (7)</a>, <a href="https://jlk.fjfi.cvut.cz/arch/manpages/man/chmod.1">chmod</a>, <a href="https://jlk.fjfi.cvut.cz/arch/manpages/man/hier.7">hier(7)</a>, <a href="https://jlk.fjfi.cvut.cz/arch/manpages/man/systemd.1">systemd</a>, <a href="https://jlk.fjfi.cvut.cz/arch/manpages/man/regex.7">regex(7)</a>, <a href="https://jlk.fjfi.cvut.cz/arch/manpages/man/signal.7">signal(7)</a></li>
+<li>More generally, have a look at all category 7 (miscellaneous) pages:
+<ul>
+<li>`man -s 7 -k ".*"</li>
+</ul></li>
+</ul>
+</section></section>
+<section><section id="troubleshooting-and-system-rescue" class="title-slide slide level1"><h1>Troubleshooting and System Rescue</h1></section><section id="general-procedures" class="slide level2">
+<h2>General procedures</h2>
+<ul>
+<li><strong>Attention to detail</strong> - In order to resolve an issue that you’re having it is crucial to have a firm basic understanding of how that specific subsystem functions.</li>
+<li><strong>Questions/checklist</strong>:
+<ol type="1">
+<li><strong>What is the issue?</strong> Be precise as possible.</li>
+<li><strong>Are there error messages?</strong> Copy and paste <strong>full output</strong> that contain error messages related to your issue into a separate file such as <code>$HOME/issue.log</code></li>
+<li><strong>Can you reproduce the issue?</strong> Give <strong>exact</strong> step-by-step instructions/commands needed to do so.</li>
+<li><strong>When did you first encounter the issues and what changed between then and when the system was operating without error?</strong> e.g. when it occured right after an update then list all packages that were updated. Include version numbers, etc.</li>
+</ol></li>
+</ul>
+</section><section id="general-procedues-2" class="slide level2">
+<h2>General procedues 2</h2>
+<ul>
+<li><strong>Approach</strong> - Approach issus by stating <strong>Application X produces Y error(s) when performing Z tasks under conditions A and B.</strong> Instead of <strong>Application X does not work.</strong></li>
+</ul>
+</section><section id="boot-problems" class="slide level2">
+<h2>Boot problems</h2>
+<ul>
+<li><strong>Console messages</strong> - After the boot, the screen is cleared and the login prompt appears, leaving user unable to read <code>init</code> output and error messages.
+<ul>
+<li>Kernel messages can be displayed for inspection after booting by using <code>dmesg</code> or all logs from the current boot with <code>journalctl -b</code>.</li>
+</ul></li>
+<li><strong>Debug output</strong> - Most kernel messages are hidden during boot. You can see more of these messages by adding different kernel parameters. (<code>debug</code>, <code>ignore_loglevel</code>)</li>
+<li><strong>Recovery Shells</strong> - Getting an interactive shell at some stage in the boot process can help you pinpoint exactly where and why something is failing.
+<ul>
+<li>There are several kernel parameters for doing so (<code>resuce</code>, <code>emergency</code>, <code>init=/bin/sh</code>)</li>
+</ul></li>
 </ul>
 </section></section>
     </div>

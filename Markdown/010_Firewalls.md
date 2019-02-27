@@ -212,9 +212,4 @@ Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
 num   pkts bytes target     prot opt in     out     source               destination
 ```
 
-
-
-
-
-
 ## Firewall-Deamon
