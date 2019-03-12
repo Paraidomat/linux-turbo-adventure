@@ -2414,7 +2414,54 @@ num   pkts bytes target     prot opt in     out     source               destina
 </section><section id="firewall-deamon" class="slide level2">
 <h2>Firewall-Deamon</h2>
 </section></section>
-<section id="system-startup-shutdown" class="title-slide slide level1"><h1>System Startup + Shutdown</h1></section>
+<section><section id="system-startup-shutdown" class="title-slide slide level1"><h1>System Startup + Shutdown</h1></section><section id="boot-process" class="slide level2">
+<h2>Boot Process</h2>
+<ul>
+<li>Varies in details among different systems, can be roughly divided into phases controlled by the following components:
+<ol type="1">
+<li>Hardware</li>
+<li>Operating System (OS) loader</li>
+<li>Kernel</li>
+<li>root user-space process (<code>init</code> and <code>inittab</code>)</li>
+<li>Boot scripts</li>
+</ol></li>
+</ul>
+</section><section id="hardware" class="slide level2">
+<h2>Hardware</h2>
+<ul>
+<li>After power-on or hard reset, control is given to a program stored in read-only memory (normally PROM); often called BIOS.</li>
+<li>BIOS performs a basic self-test of the machine and accesses nonvolatile memory to read further parameters.</li>
+<li>This memory in the PC is battery-backed CMOS memory, so most people refer to it as “the <strong>CMOS</strong>”; outside of the the PC world, it’s usually called <strong>NVRAM</strong>.</li>
+<li>Parameters stored in NVRAM vary among systems, but as a minimum they should specify which devices can supply an OS loader, or at least which devices may be proved for one; such a device is know as the <strong>boot device</strong>.</li>
+<li>The hardware boot stage loads the OS loader from a fixed position on the boot device, and then transfers control to it.</li>
+</ul>
+</section><section id="os-loader" class="slide level2">
+<h2>OS Loader</h2>
+<ul>
+<li>Main job: locate the kernel on some device, load it, and run it.</li>
+<li>OS loaders allow interactive use, in order to enable specification of alternative kernel and to pass optional parameters to the kernel.</li>
+<li>For a traditional PC the OS loader is located in the initial 512-byte block of the boot device (the <strong>MBR</strong> [master boot record])</li>
+<li>Most systems split the role of loading the OS between a primary OS loader and a secondary OS loader
+<ul>
+<li>Secondary OS loader may be located within a larger portion of persistent storage, such as a disk partition.</li>
+</ul></li>
+<li>In Linux the OS loader usually is <code>grub</code> or <code>lilo</code></li>
+</ul>
+</section><section id="kernel-1" class="slide level2">
+<h2>Kernel</h2>
+<ul>
+<li>When the kernel is loaded, it initialized various components of the computer and OS</li>
+<li>Each portion of software responsible for such a task is usually considered a <strong>driver</strong> for the applicable component.</li>
+<li>Kernel starts the virtual memory swapper (it is a kernel process called <code>kswapd</code>), and mounts some filesystem at the root path <code>/</code>.</li>
+<li>Then the kernel creates the initial userland processes, which is given the number 1 as its <strong>PID</strong>.</li>
+<li>Traditionally, this process executes the program <code>/sbin/init</code>, to which are passed the parameters that haven’t already been handled by the kernel.</li>
+</ul>
+</section><section id="root-user-space-process" class="slide level2">
+<h2>Root user-space process</h2>
+<ul>
+<li><strong>Here needs to be some text about <a href="https://jlk.fjfi.cvut.cz/arch/manpages/man/bootup.7.en">systemd</a></strong></li>
+</ul>
+</section></section>
 <section id="backup-and-recovery-methods" class="title-slide slide level1"><h1>Backup and Recovery Methods</h1></section>
 <section><section id="local-system-security" class="title-slide slide level1"><h1>Local System Security</h1></section><section id="basic-concepts-1" class="slide level2">
 <h2>Basic concepts</h2>
