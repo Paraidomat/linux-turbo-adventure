@@ -29,7 +29,7 @@ https://wiki.archlinux.org/index.php/Security
 - Passwords must be complex enough to not be easily guessed from e.g. 
   personal information, or cracked using methods like brute-force attacks.
 - The tenets of strong passwords are based on __length__ and __randomness__.
-- The cryptography the quality of a password is referred to as its entropic
+- In cryptography the quality of a password is referred to as its entropic
   security.
 
 ## How to choose an unsecure password?

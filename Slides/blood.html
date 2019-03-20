@@ -34,7 +34,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(title);
+  { content: attr(data-line-number);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -127,9 +127,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 </section><section id="basic-layouts" class="slide level2">
 <h2>Basic Layouts</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">def</span> foo():</a>
-<a class="sourceLine" id="cb1-2" title="2">    <span class="co">&quot;&quot;&quot;this is some sourcecode&quot;&quot;&quot;</span></a>
-<a class="sourceLine" id="cb1-3" title="3">    <span class="bu">print</span>(<span class="st">&quot;You won&#39;t see much of it in here&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">def</span> foo():</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">    <span class="co">&quot;&quot;&quot;this is some sourcecode&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">    <span class="bu">print</span>(<span class="st">&quot;You won&#39;t see much of it in here&quot;</span>)</a></code></pre></div>
 <ul>
 <li>This is a single command: <code>foo -bar</code></li>
 <li>This is a variable: <code>$foobar</code> or <code>${foobar}</code></li>
@@ -150,6 +150,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Get the last command again: Up-Arrow on keyboard.</li>
 <li>Run the last command again: <code>!!</code></li>
 </ul>
+</section><section id="minute-break" class="slide level2">
+<h2>5 Minute Break</h2>
+<script type="text/javascript">
+  image = [];
+  image[0] = 'https://giphy.com/embed/otnqsqqzmsw7K'
+  image[1] = 'https://giphy.com/embed/aqQsmtq6J2L16'
+  image[2] = 'https://giphy.com/embed/gbjAtqpO716Hm'
+  image[3] = 'https://giphy.com/embed/937cZ33FzC3As'
+  image[4] = 'https://giphy.com/embed/3og0IO5z8Rd30ktV6g'
+  image[5] = 'https://giphy.com/embed/11StaZ9Lj74oCY'
+  image[6] = 'https://giphy.com/embed/VkMV9TldsPd28'
+  image[7] = 'https://giphy.com/embed/Eq49yQGJL835K'
+  image[8] = 'https://giphy.com/embed/26mdQ1FAx5q5bvc1EF'
+  image[9] = 'https://giphy.com/embed/VOZ1LKbOfkg3S'
+  image[10] = 'https://giphy.com/embed/uwlDAujt3w9mU'
+  image[11] = 'https://giphy.com/embed/AtZKYbmuszStW'
+
+
+  function getRandomInt(max) {
+      return Math.floor(Math.random() * Math.floor(max));
+  }
+
+  imglocation = image[getRandomInt(image.length)];
+
+
+
+  document.write('<iframe src="' + imglocation + '" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/">via GIPHY</a></p>')
+
+</script>
 </section></section>
 <section><section id="filesystem-tree-layout" class="title-slide slide level1"><h1>Filesystem Tree Layout</h1></section><section id="history-of-the-linux-filesystem" class="slide level2">
 <h2>History of the Linux Filesystem</h2>
@@ -454,21 +483,34 @@ cdrom  home  lib             media       proc  sbin  sys   var</code></pre>
 <ul>
 <li><a href="https://www.digitalocean.com/community/tutorials/how-to-understand-the-filesystem-layout-in-a-linux-vps#an-overview-of-the-linux-filesystem-layout">Source</a></li>
 </ul>
-</section><section id="minute-break" class="slide level2">
+</section><section id="minute-break-1" class="slide level2">
 <h2>5 Minute Break</h2>
-<progress id="pause1" value="1" max="600">
-</progress>
-<button type="button" onclick="clickHandler()">
-Start Break!
-</button>
-<script>
-    function clickHandler() {
-      var i;
-      for (i = 1; i < 600; i++) {
-        setTimeout(function(){console.log(i)}, 100000);
-        document.getElementById("pause1").setAttribute("value", i);
-      }
-    }
+<script type="text/javascript">
+  image = [];
+  image[0] = 'https://giphy.com/embed/otnqsqqzmsw7K'
+  image[1] = 'https://giphy.com/embed/aqQsmtq6J2L16'
+  image[2] = 'https://giphy.com/embed/gbjAtqpO716Hm'
+  image[3] = 'https://giphy.com/embed/937cZ33FzC3As'
+  image[4] = 'https://giphy.com/embed/3og0IO5z8Rd30ktV6g'
+  image[5] = 'https://giphy.com/embed/11StaZ9Lj74oCY'
+  image[6] = 'https://giphy.com/embed/VkMV9TldsPd28'
+  image[7] = 'https://giphy.com/embed/Eq49yQGJL835K'
+  image[8] = 'https://giphy.com/embed/26mdQ1FAx5q5bvc1EF'
+  image[9] = 'https://giphy.com/embed/VOZ1LKbOfkg3S'
+  image[10] = 'https://giphy.com/embed/uwlDAujt3w9mU'
+  image[11] = 'https://giphy.com/embed/AtZKYbmuszStW'
+
+
+  function getRandomInt(max) {
+      return Math.floor(Math.random() * Math.floor(max));
+  }
+
+  imglocation = image[getRandomInt(image.length)];
+
+
+
+  document.write('<iframe src="' + imglocation + '" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/">via GIPHY</a></p>')
+
 </script>
 </section></section>
 <section><section id="processes" class="title-slide slide level1"><h1>Processes</h1></section><section id="introduction-1" class="slide level2">
@@ -669,6 +711,35 @@ Start Break!
 <li><a href="https://www.tldp.org/LDP/tlk/kernel/processes.html">Source 1</a></li>
 <li><a href="https://www.digitalocean.com/community/tutorials/how-to-use-ps-kill-and-nice-to-manage-processes-in-linux">Source 2</a></li>
 </ul>
+</section><section id="minute-break-2" class="slide level2">
+<h2>5 Minute Break</h2>
+<script type="text/javascript">
+  image = [];
+  image[0] = 'https://giphy.com/embed/otnqsqqzmsw7K'
+  image[1] = 'https://giphy.com/embed/aqQsmtq6J2L16'
+  image[2] = 'https://giphy.com/embed/gbjAtqpO716Hm'
+  image[3] = 'https://giphy.com/embed/937cZ33FzC3As'
+  image[4] = 'https://giphy.com/embed/3og0IO5z8Rd30ktV6g'
+  image[5] = 'https://giphy.com/embed/11StaZ9Lj74oCY'
+  image[6] = 'https://giphy.com/embed/VkMV9TldsPd28'
+  image[7] = 'https://giphy.com/embed/Eq49yQGJL835K'
+  image[8] = 'https://giphy.com/embed/26mdQ1FAx5q5bvc1EF'
+  image[9] = 'https://giphy.com/embed/VOZ1LKbOfkg3S'
+  image[10] = 'https://giphy.com/embed/uwlDAujt3w9mU'
+  image[11] = 'https://giphy.com/embed/AtZKYbmuszStW'
+
+
+  function getRandomInt(max) {
+      return Math.floor(Math.random() * Math.floor(max));
+  }
+
+  imglocation = image[getRandomInt(image.length)];
+
+
+
+  document.write('<iframe src="' + imglocation + '" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/">via GIPHY</a></p>')
+
+</script>
 </section></section>
 <section><section id="package-management-basics" class="title-slide slide level1"><h1>Package Management Basics</h1></section><section id="introduction-2" class="slide level2">
 <h2>Introduction</h2>
@@ -1079,6 +1150,35 @@ applications, services and documentation.</li>
 <li><a href="https://www.digitalocean.com/community/tutorials/ubuntu-and-debian-package-management-essentials">Further Reading Ubuntu/Debian</a></li>
 <li><a href="https://www.centos.org/docs/5/html/yum/">Further Reading CentOS</a></li>
 </ul>
+</section><section id="minute-break-3" class="slide level2">
+<h2>5 Minute Break</h2>
+<script type="text/javascript">
+  image = [];
+  image[0] = 'https://giphy.com/embed/otnqsqqzmsw7K'
+  image[1] = 'https://giphy.com/embed/aqQsmtq6J2L16'
+  image[2] = 'https://giphy.com/embed/gbjAtqpO716Hm'
+  image[3] = 'https://giphy.com/embed/937cZ33FzC3As'
+  image[4] = 'https://giphy.com/embed/3og0IO5z8Rd30ktV6g'
+  image[5] = 'https://giphy.com/embed/11StaZ9Lj74oCY'
+  image[6] = 'https://giphy.com/embed/VkMV9TldsPd28'
+  image[7] = 'https://giphy.com/embed/Eq49yQGJL835K'
+  image[8] = 'https://giphy.com/embed/26mdQ1FAx5q5bvc1EF'
+  image[9] = 'https://giphy.com/embed/VOZ1LKbOfkg3S'
+  image[10] = 'https://giphy.com/embed/uwlDAujt3w9mU'
+  image[11] = 'https://giphy.com/embed/AtZKYbmuszStW'
+
+
+  function getRandomInt(max) {
+      return Math.floor(Math.random() * Math.floor(max));
+  }
+
+  imglocation = image[getRandomInt(image.length)];
+
+
+
+  document.write('<iframe src="' + imglocation + '" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/">via GIPHY</a></p>')
+
+</script>
 </section></section>
 <section><section id="system-monitoring" class="title-slide slide level1"><h1>System Monitoring</h1></section><section id="introduction-3" class="slide level2">
 <h2>Introduction</h2>
@@ -1230,6 +1330,35 @@ applications, services and documentation.</li>
 <ul>
 <li><a href="https://www.digitalocean.com/community/tutorials/how-to-use-top-netstat-du-other-tools-to-monitor-server-resources">Source</a></li>
 </ul>
+</section><section id="minute-break-4" class="slide level2">
+<h2>5 Minute Break</h2>
+<script type="text/javascript">
+  image = [];
+  image[0] = 'https://giphy.com/embed/otnqsqqzmsw7K'
+  image[1] = 'https://giphy.com/embed/aqQsmtq6J2L16'
+  image[2] = 'https://giphy.com/embed/gbjAtqpO716Hm'
+  image[3] = 'https://giphy.com/embed/937cZ33FzC3As'
+  image[4] = 'https://giphy.com/embed/3og0IO5z8Rd30ktV6g'
+  image[5] = 'https://giphy.com/embed/11StaZ9Lj74oCY'
+  image[6] = 'https://giphy.com/embed/VkMV9TldsPd28'
+  image[7] = 'https://giphy.com/embed/Eq49yQGJL835K'
+  image[8] = 'https://giphy.com/embed/26mdQ1FAx5q5bvc1EF'
+  image[9] = 'https://giphy.com/embed/VOZ1LKbOfkg3S'
+  image[10] = 'https://giphy.com/embed/uwlDAujt3w9mU'
+  image[11] = 'https://giphy.com/embed/AtZKYbmuszStW'
+
+
+  function getRandomInt(max) {
+      return Math.floor(Math.random() * Math.floor(max));
+  }
+
+  imglocation = image[getRandomInt(image.length)];
+
+
+
+  document.write('<iframe src="' + imglocation + '" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/">via GIPHY</a></p>')
+
+</script>
 </section></section>
 <section><section id="linux-filesystems" class="title-slide slide level1"><h1>Linux Filesystems</h1></section><section id="introduction-4" class="slide level2">
 <h2>Introduction</h2>
@@ -1681,6 +1810,35 @@ applications, services and documentation.</li>
 <li><a href="https://www.digitalocean.com/community/tutorials/how-to-partition-and-format-storage-devices-in-linux">Source 5</a></li>
 <li><a href="https://www.digitalocean.com/community/tutorials/an-introduction-to-lvm-concepts-terminology-and-operations">Source 6</a></li>
 </ul>
+</section><section id="minute-break-5" class="slide level2">
+<h2>5 Minute Break</h2>
+<script type="text/javascript">
+  image = [];
+  image[0] = 'https://giphy.com/embed/otnqsqqzmsw7K'
+  image[1] = 'https://giphy.com/embed/aqQsmtq6J2L16'
+  image[2] = 'https://giphy.com/embed/gbjAtqpO716Hm'
+  image[3] = 'https://giphy.com/embed/937cZ33FzC3As'
+  image[4] = 'https://giphy.com/embed/3og0IO5z8Rd30ktV6g'
+  image[5] = 'https://giphy.com/embed/11StaZ9Lj74oCY'
+  image[6] = 'https://giphy.com/embed/VkMV9TldsPd28'
+  image[7] = 'https://giphy.com/embed/Eq49yQGJL835K'
+  image[8] = 'https://giphy.com/embed/26mdQ1FAx5q5bvc1EF'
+  image[9] = 'https://giphy.com/embed/VOZ1LKbOfkg3S'
+  image[10] = 'https://giphy.com/embed/uwlDAujt3w9mU'
+  image[11] = 'https://giphy.com/embed/AtZKYbmuszStW'
+
+
+  function getRandomInt(max) {
+      return Math.floor(Math.random() * Math.floor(max));
+  }
+
+  imglocation = image[getRandomInt(image.length)];
+
+
+
+  document.write('<iframe src="' + imglocation + '" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/">via GIPHY</a></p>')
+
+</script>
 </section></section>
 <section><section id="kernel" class="title-slide slide level1"><h1>Kernel</h1></section><section id="what-is-a-kernel" class="slide level2">
 <h2>What is a Kernel?</h2>
@@ -1817,9 +1975,38 @@ applications, services and documentation.</li>
 </ul></li>
 <li>Blacklisting the <code>pcspkr</code> module will prevent <code>udev</code> from loading it at boot:
 <ul>
-<li><code>echo "blacklist pcspkr" &gt; /etc/modprobe.d/nobeep.conf</code></li>
+<li><code>echo &quot;blacklist pcspkr&quot; &gt; /etc/modprobe.d/nobeep.conf</code></li>
 </ul></li>
 </ul>
+</section><section id="minute-break-6" class="slide level2">
+<h2>5 Minute Break</h2>
+<script type="text/javascript">
+  image = [];
+  image[0] = 'https://giphy.com/embed/otnqsqqzmsw7K'
+  image[1] = 'https://giphy.com/embed/aqQsmtq6J2L16'
+  image[2] = 'https://giphy.com/embed/gbjAtqpO716Hm'
+  image[3] = 'https://giphy.com/embed/937cZ33FzC3As'
+  image[4] = 'https://giphy.com/embed/3og0IO5z8Rd30ktV6g'
+  image[5] = 'https://giphy.com/embed/11StaZ9Lj74oCY'
+  image[6] = 'https://giphy.com/embed/VkMV9TldsPd28'
+  image[7] = 'https://giphy.com/embed/Eq49yQGJL835K'
+  image[8] = 'https://giphy.com/embed/26mdQ1FAx5q5bvc1EF'
+  image[9] = 'https://giphy.com/embed/VOZ1LKbOfkg3S'
+  image[10] = 'https://giphy.com/embed/uwlDAujt3w9mU'
+  image[11] = 'https://giphy.com/embed/AtZKYbmuszStW'
+
+
+  function getRandomInt(max) {
+      return Math.floor(Math.random() * Math.floor(max));
+  }
+
+  imglocation = image[getRandomInt(image.length)];
+
+
+
+  document.write('<iframe src="' + imglocation + '" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/">via GIPHY</a></p>')
+
+</script>
 </section></section>
 <section><section id="user-and-group-account-management" class="title-slide slide level1"><h1>User and Group Account Management</h1></section><section id="users-and-groups" class="slide level2">
 <h2>Users and Groups</h2>
@@ -2078,6 +2265,35 @@ applications, services and documentation.</li>
 </ul></li>
 <li><code>grpck</code> command can be used to verify the integrity of the system’s group file.</li>
 </ul>
+</section><section id="minute-break-7" class="slide level2">
+<h2>5 Minute Break</h2>
+<script type="text/javascript">
+  image = [];
+  image[0] = 'https://giphy.com/embed/otnqsqqzmsw7K'
+  image[1] = 'https://giphy.com/embed/aqQsmtq6J2L16'
+  image[2] = 'https://giphy.com/embed/gbjAtqpO716Hm'
+  image[3] = 'https://giphy.com/embed/937cZ33FzC3As'
+  image[4] = 'https://giphy.com/embed/3og0IO5z8Rd30ktV6g'
+  image[5] = 'https://giphy.com/embed/11StaZ9Lj74oCY'
+  image[6] = 'https://giphy.com/embed/VkMV9TldsPd28'
+  image[7] = 'https://giphy.com/embed/Eq49yQGJL835K'
+  image[8] = 'https://giphy.com/embed/26mdQ1FAx5q5bvc1EF'
+  image[9] = 'https://giphy.com/embed/VOZ1LKbOfkg3S'
+  image[10] = 'https://giphy.com/embed/uwlDAujt3w9mU'
+  image[11] = 'https://giphy.com/embed/AtZKYbmuszStW'
+
+
+  function getRandomInt(max) {
+      return Math.floor(Math.random() * Math.floor(max));
+  }
+
+  imglocation = image[getRandomInt(image.length)];
+
+
+
+  document.write('<iframe src="' + imglocation + '" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/">via GIPHY</a></p>')
+
+</script>
 </section></section>
 <section><section id="networking" class="title-slide slide level1"><h1>Networking</h1></section><section id="check-the-connection" class="slide level2">
 <h2>Check the connection</h2>
@@ -2194,6 +2410,35 @@ dns.google.com.     10  IN  A   172.217.19.78
 ;; SERVER: 127.0.0.53#53(127.0.0.53)
 ;; WHEN: Wed Jan 02 16:49:58 CET 2019
 ;; MSG SIZE  rcvd: 59</code></pre>
+</section><section id="minute-break-8" class="slide level2">
+<h2>5 Minute Break</h2>
+<script type="text/javascript">
+  image = [];
+  image[0] = 'https://giphy.com/embed/otnqsqqzmsw7K'
+  image[1] = 'https://giphy.com/embed/aqQsmtq6J2L16'
+  image[2] = 'https://giphy.com/embed/gbjAtqpO716Hm'
+  image[3] = 'https://giphy.com/embed/937cZ33FzC3As'
+  image[4] = 'https://giphy.com/embed/3og0IO5z8Rd30ktV6g'
+  image[5] = 'https://giphy.com/embed/11StaZ9Lj74oCY'
+  image[6] = 'https://giphy.com/embed/VkMV9TldsPd28'
+  image[7] = 'https://giphy.com/embed/Eq49yQGJL835K'
+  image[8] = 'https://giphy.com/embed/26mdQ1FAx5q5bvc1EF'
+  image[9] = 'https://giphy.com/embed/VOZ1LKbOfkg3S'
+  image[10] = 'https://giphy.com/embed/uwlDAujt3w9mU'
+  image[11] = 'https://giphy.com/embed/AtZKYbmuszStW'
+
+
+  function getRandomInt(max) {
+      return Math.floor(Math.random() * Math.floor(max));
+  }
+
+  imglocation = image[getRandomInt(image.length)];
+
+
+
+  document.write('<iframe src="' + imglocation + '" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/">via GIPHY</a></p>')
+
+</script>
 </section></section>
 <section><section id="firewalls" class="title-slide slide level1"><h1>Firewalls</h1></section><section id="iptables" class="slide level2">
 <h2><code>iptables</code></h2>
@@ -2391,7 +2636,7 @@ num   pkts bytes target     prot opt in     out     source               destina
 <ul>
 <li>To allow immediatly without further inspection by any other rule:
 <ul>
-<li><code>iptables -I INPUT -p tcp --dport 17500 -s 10.0.0.85 -j ACCEPT  -m comment --comment "Friendly Dropbox"</code></li>
+<li><code>iptables -I INPUT -p tcp --dport 17500 -s 10.0.0.85 -j ACCEPT  -m comment --comment &quot;Friendly Dropbox&quot;</code></li>
 </ul></li>
 <li>Replace second rule with one that rejects everything on port 17500:
 <ul>
@@ -2413,6 +2658,35 @@ Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
 num   pkts bytes target     prot opt in     out     source               destination</code></pre>
 </section><section id="firewall-deamon" class="slide level2">
 <h2>Firewall-Deamon</h2>
+</section><section id="minute-break-9" class="slide level2">
+<h2>5 Minute Break</h2>
+<script type="text/javascript">
+  image = [];
+  image[0] = 'https://giphy.com/embed/otnqsqqzmsw7K'
+  image[1] = 'https://giphy.com/embed/aqQsmtq6J2L16'
+  image[2] = 'https://giphy.com/embed/gbjAtqpO716Hm'
+  image[3] = 'https://giphy.com/embed/937cZ33FzC3As'
+  image[4] = 'https://giphy.com/embed/3og0IO5z8Rd30ktV6g'
+  image[5] = 'https://giphy.com/embed/11StaZ9Lj74oCY'
+  image[6] = 'https://giphy.com/embed/VkMV9TldsPd28'
+  image[7] = 'https://giphy.com/embed/Eq49yQGJL835K'
+  image[8] = 'https://giphy.com/embed/26mdQ1FAx5q5bvc1EF'
+  image[9] = 'https://giphy.com/embed/VOZ1LKbOfkg3S'
+  image[10] = 'https://giphy.com/embed/uwlDAujt3w9mU'
+  image[11] = 'https://giphy.com/embed/AtZKYbmuszStW'
+
+
+  function getRandomInt(max) {
+      return Math.floor(Math.random() * Math.floor(max));
+  }
+
+  imglocation = image[getRandomInt(image.length)];
+
+
+
+  document.write('<iframe src="' + imglocation + '" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/">via GIPHY</a></p>')
+
+</script>
 </section></section>
 <section><section id="system-startup-shutdown" class="title-slide slide level1"><h1>System Startup + Shutdown</h1></section><section id="boot-process" class="slide level2">
 <h2>Boot Process</h2>
@@ -2426,17 +2700,17 @@ num   pkts bytes target     prot opt in     out     source               destina
 <li>Boot scripts</li>
 </ol></li>
 </ul>
-</section><section id="hardware" class="slide level2">
-<h2>Hardware</h2>
+</section><section id="boot-process---hardware" class="slide level2">
+<h2>Boot Process - Hardware</h2>
 <ul>
 <li>After power-on or hard reset, control is given to a program stored in read-only memory (normally PROM); often called BIOS.</li>
 <li>BIOS performs a basic self-test of the machine and accesses nonvolatile memory to read further parameters.</li>
-<li>This memory in the PC is battery-backed CMOS memory, so most people refer to it as “the <strong>CMOS</strong>”; outside of the the PC world, it’s usually called <strong>NVRAM</strong>.</li>
-<li>Parameters stored in NVRAM vary among systems, but as a minimum they should specify which devices can supply an OS loader, or at least which devices may be proved for one; such a device is know as the <strong>boot device</strong>.</li>
+<li>This memory in the PC is battery-backed CMOS memory, so most people refer to it as “the <strong>CMOS</strong>” or <strong>NVRAM</strong>.</li>
+<li>Parameters stored in NVRAM vary among systems, but as a minimum should specify where to find <strong>boot device</strong>.</li>
 <li>The hardware boot stage loads the OS loader from a fixed position on the boot device, and then transfers control to it.</li>
 </ul>
-</section><section id="os-loader" class="slide level2">
-<h2>OS Loader</h2>
+</section><section id="boot-process---os-loader" class="slide level2">
+<h2>Boot Process - OS Loader</h2>
 <ul>
 <li>Main job: locate the kernel on some device, load it, and run it.</li>
 <li>OS loaders allow interactive use, in order to enable specification of alternative kernel and to pass optional parameters to the kernel.</li>
@@ -2447,22 +2721,120 @@ num   pkts bytes target     prot opt in     out     source               destina
 </ul></li>
 <li>In Linux the OS loader usually is <code>grub</code> or <code>lilo</code></li>
 </ul>
-</section><section id="kernel-1" class="slide level2">
-<h2>Kernel</h2>
+</section><section id="boot-process---kernel" class="slide level2">
+<h2>Boot Process - Kernel</h2>
 <ul>
-<li>When the kernel is loaded, it initialized various components of the computer and OS</li>
-<li>Each portion of software responsible for such a task is usually considered a <strong>driver</strong> for the applicable component.</li>
-<li>Kernel starts the virtual memory swapper (it is a kernel process called <code>kswapd</code>), and mounts some filesystem at the root path <code>/</code>.</li>
-<li>Then the kernel creates the initial userland processes, which is given the number 1 as its <strong>PID</strong>.</li>
-<li>Traditionally, this process executes the program <code>/sbin/init</code>, to which are passed the parameters that haven’t already been handled by the kernel.</li>
-</ul>
-</section><section id="root-user-space-process" class="slide level2">
-<h2>Root user-space process</h2>
+<li>When the kernel is loaded → initialize various components of computer and OS
 <ul>
-<li><strong>Here needs to be some text about <a href="https://jlk.fjfi.cvut.cz/arch/manpages/man/bootup.7.en">systemd</a></strong></li>
+<li>Software doing this is called a <strong>driver</strong></li>
+</ul></li>
+<li>Kernel starts virtual memory swapper (<code>kswapd</code>) and mounts some filesystem at the root path <code>/</code>.</li>
+<li>Kernel creates the initial userland processes (<code>/sbin/init</code>), which is given the number 1 as its <strong>PID</strong>.</li>
+<li><code>init</code> then initializes the system using <strong>systemd</strong>, Upstart or SysVinit</li>
+<li>All major distributions have moved to <strong>systemd</strong>.</li>
 </ul>
+</section><section id="systemd-features" class="slide level2">
+<h2>systemd Features</h2>
+<ul>
+<li>Boots faster than previous systems.</li>
+<li>Provides aggressive parallelization capabilities.</li>
+<li>Offers on-demand starting of deamons.</li>
+<li>Interaction with systemd via <code>systemctl</code></li>
+</ul>
+</section><section id="systemctl-tldr" class="slide level2">
+<h2><code>systemctl</code> TL;DR</h2>
+<pre><code>$ systemctl [options] command [name]
+
+# To show status of everything systemd controls: 
+systemctl
+
+# Show all available services: 
+systemctl list-units -t service --all
+
+# Show active services: 
+systemctl list-units -t service`
+
+# To start units: 
+systemctl start ${foo}
+systemctl start /path/to/foo.service
+
+# To stop: 
+systemctl stop foo.service
+
+# To enable or disable a service:
+systemctl enable sshd.service
+systemctl disable sshd.service
+</code></pre>
+</section><section id="rebootshutdown" class="slide level2">
+<h2>Reboot/Shutdown</h2>
+<ul>
+<li><code>shutdown</code>:
+<ul>
+<li>Brings system down in a secure way</li>
+<li>All users are notified of the pending shutdown</li>
+</ul></li>
+<li>Legacy commands <code>reboot</code>, <code>halt</code>, <code>poweroff</code> are still frequently used.</li>
+</ul>
+</section><section id="minute-break-10" class="slide level2">
+<h2>5 Minute Break</h2>
+<script type="text/javascript">
+  image = [];
+  image[0] = 'https://giphy.com/embed/otnqsqqzmsw7K'
+  image[1] = 'https://giphy.com/embed/aqQsmtq6J2L16'
+  image[2] = 'https://giphy.com/embed/gbjAtqpO716Hm'
+  image[3] = 'https://giphy.com/embed/937cZ33FzC3As'
+  image[4] = 'https://giphy.com/embed/3og0IO5z8Rd30ktV6g'
+  image[5] = 'https://giphy.com/embed/11StaZ9Lj74oCY'
+  image[6] = 'https://giphy.com/embed/VkMV9TldsPd28'
+  image[7] = 'https://giphy.com/embed/Eq49yQGJL835K'
+  image[8] = 'https://giphy.com/embed/26mdQ1FAx5q5bvc1EF'
+  image[9] = 'https://giphy.com/embed/VOZ1LKbOfkg3S'
+  image[10] = 'https://giphy.com/embed/uwlDAujt3w9mU'
+  image[11] = 'https://giphy.com/embed/AtZKYbmuszStW'
+
+
+  function getRandomInt(max) {
+      return Math.floor(Math.random() * Math.floor(max));
+  }
+
+  imglocation = image[getRandomInt(image.length)];
+
+
+
+  document.write('<iframe src="' + imglocation + '" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/">via GIPHY</a></p>')
+
+</script>
 </section></section>
-<section id="backup-and-recovery-methods" class="title-slide slide level1"><h1>Backup and Recovery Methods</h1></section>
+<section><section id="backup-and-recovery-methods" class="title-slide slide level1"><h1>Backup and Recovery Methods</h1></section><section id="minute-break-11" class="slide level2">
+<h2>5 Minute Break</h2>
+<script type="text/javascript">
+  image = [];
+  image[0] = 'https://giphy.com/embed/otnqsqqzmsw7K'
+  image[1] = 'https://giphy.com/embed/aqQsmtq6J2L16'
+  image[2] = 'https://giphy.com/embed/gbjAtqpO716Hm'
+  image[3] = 'https://giphy.com/embed/937cZ33FzC3As'
+  image[4] = 'https://giphy.com/embed/3og0IO5z8Rd30ktV6g'
+  image[5] = 'https://giphy.com/embed/11StaZ9Lj74oCY'
+  image[6] = 'https://giphy.com/embed/VkMV9TldsPd28'
+  image[7] = 'https://giphy.com/embed/Eq49yQGJL835K'
+  image[8] = 'https://giphy.com/embed/26mdQ1FAx5q5bvc1EF'
+  image[9] = 'https://giphy.com/embed/VOZ1LKbOfkg3S'
+  image[10] = 'https://giphy.com/embed/uwlDAujt3w9mU'
+  image[11] = 'https://giphy.com/embed/AtZKYbmuszStW'
+
+
+  function getRandomInt(max) {
+      return Math.floor(Math.random() * Math.floor(max));
+  }
+
+  imglocation = image[getRandomInt(image.length)];
+
+
+
+  document.write('<iframe src="' + imglocation + '" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/">via GIPHY</a></p>')
+
+</script>
+</section></section>
 <section><section id="local-system-security" class="title-slide slide level1"><h1>Local System Security</h1></section><section id="basic-concepts-1" class="slide level2">
 <h2>Basic concepts</h2>
 <ul>
@@ -2489,9 +2861,9 @@ num   pkts bytes target     prot opt in     out     source               destina
 </section><section id="what-makes-a-good-password" class="slide level2">
 <h2>What makes a good password?</h2>
 <ul>
-<li>Passwords must be complex enough to not be easily guessed from e.g.  personal information, or cracked using methods like brute-force attacks.</li>
+<li>Passwords must be complex enough to not be easily guessed from e.g. personal information, or cracked using methods like brute-force attacks.</li>
 <li>The tenets of strong passwords are based on <strong>length</strong> and <strong>randomness</strong>.</li>
-<li>The cryptography the quality of a password is referred to as its entropic security.</li>
+<li>In cryptography the quality of a password is referred to as its entropic security.</li>
 </ul>
 </section><section id="how-to-choose-an-unsecure-password" class="slide level2">
 <h2>How to choose an unsecure password?</h2>
@@ -2500,7 +2872,7 @@ num   pkts bytes target     prot opt in     out     source               destina
 <ul>
 <li>personally identifiable informations (dog’s name, date of birth, area code)</li>
 <li>Simple character substitutions on words (<code>l33t5p34k</code>)</li>
-<li>Root “words” or common strings followed or preceded by added numbers, symbols, or characters (e.g. <code>DG091101%</code>)</li>
+<li>Root “words” or common strings followed or preceded by added numbers, symbols, or characters (e.g. <code>DG091101%</code>)</li>
 <li>Common phrases or short phrases of gramatically related words (e.g. <code>all of the lights</code>), even with character substitution</li>
 </ul></li>
 </ul>
@@ -2550,6 +2922,35 @@ num   pkts bytes target     prot opt in     out     source               destina
 <!-- Here could be something about Password hashes from 
 https://wiki.archlinux.org/index.php/Security
 -->
+</section><section id="minute-break-12" class="slide level2">
+<h2>5 Minute Break</h2>
+<script type="text/javascript">
+  image = [];
+  image[0] = 'https://giphy.com/embed/otnqsqqzmsw7K'
+  image[1] = 'https://giphy.com/embed/aqQsmtq6J2L16'
+  image[2] = 'https://giphy.com/embed/gbjAtqpO716Hm'
+  image[3] = 'https://giphy.com/embed/937cZ33FzC3As'
+  image[4] = 'https://giphy.com/embed/3og0IO5z8Rd30ktV6g'
+  image[5] = 'https://giphy.com/embed/11StaZ9Lj74oCY'
+  image[6] = 'https://giphy.com/embed/VkMV9TldsPd28'
+  image[7] = 'https://giphy.com/embed/Eq49yQGJL835K'
+  image[8] = 'https://giphy.com/embed/26mdQ1FAx5q5bvc1EF'
+  image[9] = 'https://giphy.com/embed/VOZ1LKbOfkg3S'
+  image[10] = 'https://giphy.com/embed/uwlDAujt3w9mU'
+  image[11] = 'https://giphy.com/embed/AtZKYbmuszStW'
+
+
+  function getRandomInt(max) {
+      return Math.floor(Math.random() * Math.floor(max));
+  }
+
+  imglocation = image[getRandomInt(image.length)];
+
+
+
+  document.write('<iframe src="' + imglocation + '" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/">via GIPHY</a></p>')
+
+</script>
 </section></section>
 <section><section id="man-pages" class="title-slide slide level1"><h1>Man pages</h1></section><section id="get-help" class="slide level2">
 <h2>Get Help</h2>
@@ -2599,9 +3000,38 @@ ls (1)               - list directory contents</code></pre>
 <li><a href="https://jlk.fjfi.cvut.cz/arch/manpages/man/ascii.7">ASCII (7)</a>, <a href="https://jlk.fjfi.cvut.cz/arch/manpages/man/boot.7">boot (7)</a>, <a href="https://jlk.fjfi.cvut.cz/arch/manpages/man/charsets.7">charsets (7)</a>, <a href="https://jlk.fjfi.cvut.cz/arch/manpages/man/chmod.1">chmod</a>, <a href="https://jlk.fjfi.cvut.cz/arch/manpages/man/hier.7">hier(7)</a>, <a href="https://jlk.fjfi.cvut.cz/arch/manpages/man/systemd.1">systemd</a>, <a href="https://jlk.fjfi.cvut.cz/arch/manpages/man/regex.7">regex(7)</a>, <a href="https://jlk.fjfi.cvut.cz/arch/manpages/man/signal.7">signal(7)</a></li>
 <li>More generally, have a look at all category 7 (miscellaneous) pages:
 <ul>
-<li>`man -s 7 -k ".*"</li>
+<li>`man -s 7 -k &quot;.*&quot;</li>
 </ul></li>
 </ul>
+</section><section id="minute-break-13" class="slide level2">
+<h2>5 Minute Break</h2>
+<script type="text/javascript">
+  image = [];
+  image[0] = 'https://giphy.com/embed/otnqsqqzmsw7K'
+  image[1] = 'https://giphy.com/embed/aqQsmtq6J2L16'
+  image[2] = 'https://giphy.com/embed/gbjAtqpO716Hm'
+  image[3] = 'https://giphy.com/embed/937cZ33FzC3As'
+  image[4] = 'https://giphy.com/embed/3og0IO5z8Rd30ktV6g'
+  image[5] = 'https://giphy.com/embed/11StaZ9Lj74oCY'
+  image[6] = 'https://giphy.com/embed/VkMV9TldsPd28'
+  image[7] = 'https://giphy.com/embed/Eq49yQGJL835K'
+  image[8] = 'https://giphy.com/embed/26mdQ1FAx5q5bvc1EF'
+  image[9] = 'https://giphy.com/embed/VOZ1LKbOfkg3S'
+  image[10] = 'https://giphy.com/embed/uwlDAujt3w9mU'
+  image[11] = 'https://giphy.com/embed/AtZKYbmuszStW'
+
+
+  function getRandomInt(max) {
+      return Math.floor(Math.random() * Math.floor(max));
+  }
+
+  imglocation = image[getRandomInt(image.length)];
+
+
+
+  document.write('<iframe src="' + imglocation + '" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/">via GIPHY</a></p>')
+
+</script>
 </section></section>
 <section><section id="troubleshooting-and-system-rescue" class="title-slide slide level1"><h1>Troubleshooting and System Rescue</h1></section><section id="general-procedures" class="slide level2">
 <h2>General procedures</h2>
@@ -2633,6 +3063,64 @@ ls (1)               - list directory contents</code></pre>
 <li>There are several kernel parameters for doing so (<code>resuce</code>, <code>emergency</code>, <code>init=/bin/sh</code>)</li>
 </ul></li>
 </ul>
+</section><section id="minute-break-14" class="slide level2">
+<h2>5 Minute Break</h2>
+<script type="text/javascript">
+  image = [];
+  image[0] = 'https://giphy.com/embed/otnqsqqzmsw7K'
+  image[1] = 'https://giphy.com/embed/aqQsmtq6J2L16'
+  image[2] = 'https://giphy.com/embed/gbjAtqpO716Hm'
+  image[3] = 'https://giphy.com/embed/937cZ33FzC3As'
+  image[4] = 'https://giphy.com/embed/3og0IO5z8Rd30ktV6g'
+  image[5] = 'https://giphy.com/embed/11StaZ9Lj74oCY'
+  image[6] = 'https://giphy.com/embed/VkMV9TldsPd28'
+  image[7] = 'https://giphy.com/embed/Eq49yQGJL835K'
+  image[8] = 'https://giphy.com/embed/26mdQ1FAx5q5bvc1EF'
+  image[9] = 'https://giphy.com/embed/VOZ1LKbOfkg3S'
+  image[10] = 'https://giphy.com/embed/uwlDAujt3w9mU'
+  image[11] = 'https://giphy.com/embed/AtZKYbmuszStW'
+
+
+  function getRandomInt(max) {
+      return Math.floor(Math.random() * Math.floor(max));
+  }
+
+  imglocation = image[getRandomInt(image.length)];
+
+
+
+  document.write('<iframe src="' + imglocation + '" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/">via GIPHY</a></p>')
+
+</script>
+</section><section id="minute-break-15" class="slide level2">
+<h2>5 Minute Break</h2>
+<script type="text/javascript">
+  image = [];
+  image[0] = 'https://giphy.com/embed/otnqsqqzmsw7K'
+  image[1] = 'https://giphy.com/embed/aqQsmtq6J2L16'
+  image[2] = 'https://giphy.com/embed/gbjAtqpO716Hm'
+  image[3] = 'https://giphy.com/embed/937cZ33FzC3As'
+  image[4] = 'https://giphy.com/embed/3og0IO5z8Rd30ktV6g'
+  image[5] = 'https://giphy.com/embed/11StaZ9Lj74oCY'
+  image[6] = 'https://giphy.com/embed/VkMV9TldsPd28'
+  image[7] = 'https://giphy.com/embed/Eq49yQGJL835K'
+  image[8] = 'https://giphy.com/embed/26mdQ1FAx5q5bvc1EF'
+  image[9] = 'https://giphy.com/embed/VOZ1LKbOfkg3S'
+  image[10] = 'https://giphy.com/embed/uwlDAujt3w9mU'
+  image[11] = 'https://giphy.com/embed/AtZKYbmuszStW'
+
+
+  function getRandomInt(max) {
+      return Math.floor(Math.random() * Math.floor(max));
+  }
+
+  imglocation = image[getRandomInt(image.length)];
+
+
+
+  document.write('<iframe src="' + imglocation + '" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/">via GIPHY</a></p>')
+
+</script>
 </section></section>
     </div>
   </div>

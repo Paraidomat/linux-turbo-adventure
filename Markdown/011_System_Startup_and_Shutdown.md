@@ -16,22 +16,20 @@ https://jlk.fjfi.cvut.cz/arch/manpages/man/boot.7
   1. root user-space process (`init` and `inittab`)
   1. Boot scripts
 
-## Hardware
+## Boot Process - Hardware
 
 - After power-on or hard reset, control is given to a program stored in 
   read-only memory (normally PROM); often called BIOS.
 - BIOS performs a basic self-test of the machine and accesses nonvolatile
   memory to read further parameters.
 - This memory in the PC is battery-backed CMOS memory, so most people refer to
-  it as "the **CMOS**"; outside of the the PC world, it's usually called 
-  **NVRAM**.
-- Parameters stored in NVRAM vary among systems, but as a minimum they should 
-  specify which devices can supply an OS loader, or at least which devices may
-  be proved for one; such a device is know as the **boot device**. 
+  it as "the **CMOS**" or **NVRAM**.
+- Parameters stored in NVRAM vary among systems, but as a minimum should 
+  specify where to find **boot device**. 
 - The hardware boot stage loads the OS loader from a fixed position on the 
   boot device, and then transfers control to it.
 
-## OS Loader
+## Boot Process - OS Loader
 
 - Main job: locate the kernel on some device, load it, and run it.
 - OS loaders allow interactive use, in order to enable specification of 
@@ -44,19 +42,54 @@ https://jlk.fjfi.cvut.cz/arch/manpages/man/boot.7
     storage, such as a disk partition.
 - In Linux the OS loader usually is `grub` or `lilo`
 
-## Kernel
+## Boot Process - Kernel
 
-- When the kernel is loaded, it initialized various components of the computer
+- When the kernel is loaded &rarr; initialize various components of computer
   and OS
-- Each portion of software responsible for such a task is usually considered
-  a **driver** for the applicable component.
-- Kernel starts the virtual memory swapper (it is a kernel process called 
-  `kswapd`), and mounts some filesystem at the root path `/`.
-- Then the kernel creates the initial userland processes, which is given the
-  number 1 as its **PID**. 
-- Traditionally, this process executes the program `/sbin/init`, to which are 
-  passed the parameters that haven't already been handled by the kernel.
+  - Software doing this is called a **driver**
+- Kernel starts virtual memory swapper (`kswapd`) and mounts some 
+  filesystem at the root path `/`.
+- Kernel creates the initial userland processes (`/sbin/init`), which is given 
+  the number 1 as its **PID**. 
+- `init` then initializes the system using **systemd**, Upstart or SysVinit
+- All major distributions have moved to **systemd**.
 
-## Root user-space process
+## systemd Features
 
-- __Here needs to be some text about [systemd](https://jlk.fjfi.cvut.cz/arch/manpages/man/bootup.7.en)__
+- Boots faster than previous systems.
+- Provides aggressive parallelization capabilities.
+- Offers on-demand starting of deamons.
+- Interaction with systemd via `systemctl`
+
+## `systemctl` TL;DR
+
+```
+$ systemctl [options] command [name]
+
+# To show status of everything systemd controls: 
+systemctl
+
+# Show all available services: 
+systemctl list-units -t service --all
+
+# Show active services: 
+systemctl list-units -t service`
+
+# To start units: 
+systemctl start ${foo}
+systemctl start /path/to/foo.service
+
+# To stop: 
+systemctl stop foo.service
+
+# To enable or disable a service:
+systemctl enable sshd.service
+systemctl disable sshd.service
+
+```
+## Reboot/Shutdown
+
+- `shutdown`:
+  - Brings system down in a secure way
+  - All users are notified of the pending shutdown
+- Legacy commands `reboot`, `halt`, `poweroff` are still frequently used.

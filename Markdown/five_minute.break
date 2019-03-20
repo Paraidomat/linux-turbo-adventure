@@ -1,0 +1,29 @@
+## 5 Minute Break
+
+<script type="text/javascript">
+  image = [];
+  image[0] = 'https://giphy.com/embed/otnqsqqzmsw7K'
+  image[1] = 'https://giphy.com/embed/aqQsmtq6J2L16'
+  image[2] = 'https://giphy.com/embed/gbjAtqpO716Hm'
+  image[3] = 'https://giphy.com/embed/937cZ33FzC3As'
+  image[4] = 'https://giphy.com/embed/3og0IO5z8Rd30ktV6g'
+  image[5] = 'https://giphy.com/embed/11StaZ9Lj74oCY'
+  image[6] = 'https://giphy.com/embed/VkMV9TldsPd28'
+  image[7] = 'https://giphy.com/embed/Eq49yQGJL835K'
+  image[8] = 'https://giphy.com/embed/26mdQ1FAx5q5bvc1EF'
+  image[9] = 'https://giphy.com/embed/VOZ1LKbOfkg3S'
+  image[10] = 'https://giphy.com/embed/uwlDAujt3w9mU'
+  image[11] = 'https://giphy.com/embed/AtZKYbmuszStW'
+
+
+  function getRandomInt(max) {
+      return Math.floor(Math.random() * Math.floor(max));
+  }
+
+  imglocation = image[getRandomInt(image.length)];
+
+
+
+  document.write('<iframe src="' + imglocation + '" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/">via GIPHY</a></p>')
+
+</script>
