@@ -50,8 +50,10 @@ https://wiki.archlinux.org/index.php/users_and_groups
 
 ## Add a new user
 
-> `useradd -m -g ${initial-group} -G ${additional-groups} -s ${login-shell} 
-> ${username}`
+```
+useradd -m -g ${initial-group} -G ${additional-groups} -s ${login-shell} 
+${username}
+```
 
 - `-m`/`--create-home` creates the user home directory as `/home/${username}`.
   - Within their home directory, a non-root user can write files, delete them,
@@ -59,8 +61,10 @@ https://wiki.archlinux.org/index.php/users_and_groups
 
 ## Add a new user 2
 
-> `useradd -m -g ${initial-group} -G ${additional-groups} -s ${login-shell} 
-> ${username}`
+```
+useradd -m -g ${initial-group} -G ${additional-groups} -s ${login-shell} 
+${username}
+```
 
 - `-g`/`--gid` defines the group name or number of the user's initial login
   group.
@@ -71,8 +75,10 @@ https://wiki.archlinux.org/index.php/users_and_groups
 
 ## Add a new user 3
 
-> `useradd -m -g ${initial-group} -G ${additional-groups} -s ${login-shell} 
-> ${username}`
+```
+useradd -m -g ${initial-group} -G ${additional-groups} -s ${login-shell} 
+${username}
+```
 
 - `-G`/`--group` introduces a list of supplementary groups which the user is
   also a member of. 
@@ -82,8 +88,10 @@ https://wiki.archlinux.org/index.php/users_and_groups
 
 ## Add a new user 4
 
-> `useradd -m -g ${initial-group} -G ${additional-groups} -s ${login-shell} 
-> ${username}`
+```
+useradd -m -g ${initial-group} -G ${additional-groups} -s ${login-shell} 
+${username}
+```
 
 - `-s`/`-shell` defines the path and file name of the user's default login 
   shell.
