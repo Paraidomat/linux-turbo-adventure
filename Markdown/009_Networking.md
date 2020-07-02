@@ -120,3 +120,8 @@ dns.google.com.		10	IN	A	172.217.19.78
 ;; WHEN: Wed Jan 02 16:49:58 CET 2019
 ;; MSG SIZE  rcvd: 59
 ```
+
+## Where is the configuration file?
+
+- The configuration file is located at `/etc/sysconfig/network`.
+- Further information can be found [here](https://www.computernetworkingnotes.com/rhce-study-guide/network-configuration-files-in-linux-explained.html#:~:text=To%20store%20IP%20addresses%20and,files%20starts%20with%20the%20ifcfg%2D.)
