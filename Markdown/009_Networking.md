@@ -123,5 +123,7 @@ dns.google.com.		10	IN	A	172.217.19.78
 
 ## Where is the configuration file?
 
-- The configuration file is located at `/etc/sysconfig/network`.
-- Further information can be found [here](https://www.computernetworkingnotes.com/rhce-study-guide/network-configuration-files-in-linux-explained.html#:~:text=To%20store%20IP%20addresses%20and,files%20starts%20with%20the%20ifcfg%2D.)
+- For RHEL he configuration file are located at `/etc/sysconfig/network-scripts`.
+  - Further information can be found [here](https://www.computernetworkingnotes.com/rhce-study-guide/network-configuration-files-in-linux-explained.html#:~:text=To%20store%20IP%20addresses%20and,files%20starts%20with%20the%20ifcfg%2D.)
+- For Ubuntu the configuration files are located at `/etc/network/interfaces`.
+  - Further information can be found using `man interfaces` or [here](http://manpages.ubuntu.com/manpages/focal/en/man5/interfaces.5.html)
